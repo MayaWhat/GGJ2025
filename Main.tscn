@@ -10,6 +10,4 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
 position = Vector2(522, 342)
-
-[node name="BubbleStream" parent="." instance=ExtResource("3_0et18")]
-position = Vector2(298, 478)
+InBubble = false

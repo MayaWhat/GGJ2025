@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=9 format=4 uid="uid://cg5ama6va7uuy"]
 
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://BasicObstacle.tscn" id="2_6swae"]
 [ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_ywtd1"]
+[ext_resource type="PackedScene" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://MovingObsatcle.tscn" id="3_qjf88"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 
@@ -38,6 +39,9 @@ tile_set = SubResource("TileSet_dvpq5")
 
 [node name="BasicObstacle" parent="." instance=ExtResource("2_6swae")]
 position = Vector2(864, 160)
+
+[node name="BubbleStream" parent="." instance=ExtResource("3_af0mc")]
+position = Vector2(616, 984)
 
 [node name="MovingObstacle" parent="." instance=ExtResource("3_qjf88")]
 position = Vector2(352, 352)

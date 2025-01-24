@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://du5vh3vtpc1yf"]
+
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_64s1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
+size = Vector2(96, 96)
+
+[node name="BasicObstacle" type="Area2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_52jb8")
+
+[node name="PlayerPopper" parent="." node_paths=PackedStringArray("_area") instance=ExtResource("2_64s1a")]
+_area = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

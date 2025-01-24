@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=11 format=4 uid="uid://cg5ama6va7uuy"]
 
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://BasicObstacle.tscn" id="2_6swae"]
+[ext_resource type="PackedScene" uid="uid://du5vh3vtpc1yf" path="res://InvisiblePoppingTile.tscn" id="2_wnucy"]
 [ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_ywtd1"]
 [ext_resource type="PackedScene" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://MovingObsatcle.tscn" id="3_qjf88"]
@@ -18,11 +19,15 @@ texture_region_size = Vector2i(96, 96)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, -48, 48)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7j7cc"]
+scenes/1/scene = ExtResource("2_wnucy")
+
 [sub_resource type="TileSet" id="TileSet_dvpq5"]
 tile_size = Vector2i(96, 96)
 physics_layer_0/collision_layer = 1
 sources/18 = SubResource("TileSetAtlasSource_r25k3")
 sources/19 = SubResource("TileSetAtlasSource_vfgl0")
+sources/20 = SubResource("TileSetScenesCollectionSource_7j7cc")
 
 [node name="Map" type="Node2D"]
 
@@ -37,23 +42,31 @@ color = Color(0.414, 0.5336, 0.69, 1)
 tile_map_data = PackedByteArray("AAD//wIAEgAAAAAAAAD//wEAEgAAAAAAAAD//wAAEgAAAAAAAAD//wMAEgAAAAAAAAD//wQAEgAAAAAAAAD//wUAEgAAAAAAAAD//wYAEgAAAAAAAAD//wcAEgAAAAAAAAD//wgAEgAAAAAAAAD//wkAEgAAAAAAAAD//woAEgAAAAAAAAD//wsAEgAAAAAAAAAAAAsAEgAAAAAAAAABAAsAEgAAAAAAAAACAAsAEgAAAAAAAAADAAsAEgAAAAAAAAAEAAsAEgAAAAAAAAAFAAsAEgAAAAAAAAAGAAsAEgAAAAAAAAAHAAsAEgAAAAAAAAAIAAsAEgAAAAAAAAAJAAsAEgAAAAAAAAAKAAsAEgAAAAAAAAALAAsAEgAAAAAAAAAMAAsAEgAAAAAAAAANAAsAEgAAAAAAAAANAAoAEgAAAAAAAAANAAkAEgAAAAAAAAANAAgAEgAAAAAAAAANAAcAEgAAAAAAAAANAAYAEgAAAAAAAAANAAUAEgAAAAAAAAANAAQAEgAAAAAAAAANAAMAEgAAAAAAAAANAAIAEgAAAAAAAAANAAEAEgAAAAAAAAANAAAAEgAAAAAAAAANAP//EgAAAAAAAAANAP7/EgAAAAAAAAANAP3/EgAAAAAAAAANAPz/EgAAAAAAAAANAPv/EgAAAAAAAAANAPr/EgAAAAAAAAANAPn/EgAAAAAAAAD/////EgAAAAAAAAD///7/EgAAAAAAAAD///3/EgAAAAAAAAD///z/EgAAAAAAAAD///v/EgAAAAAAAAD///r/EgAAAAAAAAD///n/EgAAAAAAAAD///j/EgAAAAAAAAD///f/EgAAAAAAAAD///b/EgAAAAAAAAD///X/EgAAAAAAAAD///T/EgAAAAAAAAD///P/EgAAAAAAAAD///L/EgAAAAAAAAD///H/EgAAAAAAAAANAPj/EgAAAAAAAAANAPf/EgAAAAAAAAANAPb/EgAAAAAAAAANAPX/EgAAAAAAAAANAPT/EgAAAAAAAAANAPP/EgAAAAAAAAANAPL/EgAAAAAAAAANAPH/EgAAAAAAAAD///D/EgAAAAAAAAD//+//EgAAAAAAAAD//+7/EgAAAAAAAAANAPD/EgAAAAAAAAANAO//EgAAAAAAAAANAO7/EgAAAAAAAAAMAAIAEgAAAAAAAAALAAIAEgAAAAAAAAAKAAIAEgAAAAAAAAAAAAYAEgAAAAAAAAABAAYAEgAAAAAAAAACAAYAEgAAAAAAAAADAAYAEgAAAAAAAAAEAP7/EgAAAAAAAAAEAP//EgAAAAAAAAAFAP//EgAAAAAAAAAGAP//EgAAAAAAAAAHAP//EgAAAAAAAAAGAP7/EgAAAAAAAAAFAP7/EgAAAAAAAAAHAP7/EgAAAAAAAAABAPb/EgAAAAAAAAACAPb/EgAAAAAAAAADAPb/EgAAAAAAAAAEAPb/EgAAAAAAAAAFAPb/EgAAAAAAAAAGAPb/EgAAAAAAAAALAPL/EgAAAAAAAAAKAPL/EgAAAAAAAAAJAPL/EgAAAAAAAAADAAcAEwAAAAAAAAACAAgAEwAAAAAAAAAEAAYAEwAAAAAAAAA=")
 tile_set = SubResource("TileSet_dvpq5")
 
-[node name="BasicObstacle" parent="." instance=ExtResource("2_6swae")]
-position = Vector2(864, 160)
+[node name="PoppingTiles" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.454902)
+tile_map_data = PackedByteArray("AAD//wIAEgAAAAAAAAD//wEAEgAAAAAAAAD//wAAEgAAAAAAAAD//wMAEgAAAAAAAAD//wQAEgAAAAAAAAD//wUAEgAAAAAAAAD//wYAEgAAAAAAAAD//wcAEgAAAAAAAAD//wgAEgAAAAAAAAD//wkAEgAAAAAAAAD//woAEgAAAAAAAAD//wsAEgAAAAAAAAAAAAsAEgAAAAAAAAABAAsAEgAAAAAAAAACAAsAEgAAAAAAAAADAAsAEgAAAAAAAAAEAAsAEgAAAAAAAAAFAAsAEgAAAAAAAAAGAAsAEgAAAAAAAAAHAAsAEgAAAAAAAAAIAAsAEgAAAAAAAAAJAAsAEgAAAAAAAAAKAAsAEgAAAAAAAAALAAsAEgAAAAAAAAAMAAsAEgAAAAAAAAANAAsAEgAAAAAAAAANAAoAEgAAAAAAAAANAAkAEgAAAAAAAAANAAgAEgAAAAAAAAANAAcAEgAAAAAAAAANAAYAEgAAAAAAAAANAAUAEgAAAAAAAAANAAQAEgAAAAAAAAANAAMAEgAAAAAAAAANAAIAEgAAAAAAAAANAAEAEgAAAAAAAAANAAAAEgAAAAAAAAANAP//EgAAAAAAAAANAP7/EgAAAAAAAAANAP3/EgAAAAAAAAANAPz/EgAAAAAAAAANAPv/EgAAAAAAAAANAPr/EgAAAAAAAAANAPn/EgAAAAAAAAD/////EgAAAAAAAAD///7/EgAAAAAAAAD///3/EgAAAAAAAAD///z/EgAAAAAAAAD///v/EgAAAAAAAAD///r/EgAAAAAAAAD///n/EgAAAAAAAAD///j/EgAAAAAAAAD///f/EgAAAAAAAAD///b/EgAAAAAAAAD///X/EgAAAAAAAAD///T/EgAAAAAAAAD///P/EgAAAAAAAAD///L/EgAAAAAAAAD///H/EgAAAAAAAAANAPj/EgAAAAAAAAANAPf/EgAAAAAAAAANAPb/EgAAAAAAAAANAPX/EgAAAAAAAAANAPT/EgAAAAAAAAANAPP/EgAAAAAAAAANAPL/EgAAAAAAAAANAPH/EgAAAAAAAAD///D/EgAAAAAAAAD//+//EgAAAAAAAAD//+7/EgAAAAAAAAANAPD/EgAAAAAAAAANAO//EgAAAAAAAAANAO7/EgAAAAAAAAAMAAIAEgAAAAAAAAALAAIAEgAAAAAAAAAKAAIAEgAAAAAAAAAAAAYAEgAAAAAAAAABAAYAEgAAAAAAAAACAAYAEgAAAAAAAAADAAYAEgAAAAAAAAAEAP7/EgAAAAAAAAAEAP//FAAAAAAAAQAFAP//FAAAAAAAAQAGAP//FAAAAAAAAQAHAP//FAAAAAAAAQAGAP7/EgAAAAAAAAAFAP7/EgAAAAAAAAAHAP7/EgAAAAAAAAABAPb/EgAAAAAAAAACAPb/EgAAAAAAAAADAPb/EgAAAAAAAAAEAPb/EgAAAAAAAAAFAPb/EgAAAAAAAAAGAPb/EgAAAAAAAAALAPL/EgAAAAAAAAAKAPL/EgAAAAAAAAAJAPL/EgAAAAAAAAADAAcAEwAAAAAAAAACAAgAEwAAAAAAAAAEAAYAEwAAAAAAAAA=")
+tile_set = SubResource("TileSet_dvpq5")
 
 [node name="BubbleStream" parent="." instance=ExtResource("3_af0mc")]
 position = Vector2(616, 984)
 
-[node name="MovingObstacle" parent="." instance=ExtResource("3_qjf88")]
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="BasicObstacle" parent="Obstacles" instance=ExtResource("2_6swae")]
+position = Vector2(864, 160)
+
+[node name="MovingObstacle" parent="Obstacles" instance=ExtResource("3_qjf88")]
 position = Vector2(352, 352)
 
-[node name="Path" type="Node2D" parent="MovingObstacle" node_paths=PackedStringArray("Path")]
+[node name="Path" type="Node" parent="Obstacles/MovingObstacle" node_paths=PackedStringArray("Path")]
 script = ExtResource("4_4hex5")
 Path = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
 
-[node name="Marker2D" type="Marker2D" parent="MovingObstacle/Path"]
+[node name="Marker2D" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(352, 344)
 
-[node name="Marker2D2" type="Marker2D" parent="MovingObstacle/Path"]
-position = Vector2(544, 56)
+[node name="Marker2D2" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(1024, 432)
 
-[node name="Marker2D3" type="Marker2D" parent="MovingObstacle/Path"]
-position = Vector2(392, 320)
+[node name="Marker2D3" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(792, 680)

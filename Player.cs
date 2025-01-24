@@ -170,4 +170,13 @@ public partial class Player : CharacterBody2D
 
 		_shrimpSprite.Position = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+			if (@event.IsActionPressed("Reset"))
+			{
+				PopMe();
+				GlobalPosition = _originalPosition;
+			}
+	}
 }

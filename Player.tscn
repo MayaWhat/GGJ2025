@@ -29,6 +29,11 @@ texture = ExtResource("2_fcwou")
 shape = SubResource("RectangleShape2D_xdo33")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -175)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Player : CharacterBody2D
+public partial class Player : RigidBody2D
 {
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
@@ -11,15 +11,18 @@ public partial class Player : CharacterBody2D
 
 	public bool IsGrounded = false;
 
-	[Export] private float Floatation = -100.0f;
+	[Export] private float Floatation = -5.0f;
 
 	[Export] private float Gravity = 400f;
 
-	[Export] private float MinBubbleVelocity = -100f;
+	[Export] private float MinBubbleVelocity = -50f;
 
 	[Export] private float TargetBubbleVelocity = -250f;
 
-	[Export] private float MaxBubbleVelocity = -500f;
+	[Export] private float MaxBubbleVelocityY = -200f;
+
+	[Export] private float MaxBubbleVelocityX = 300f;
+
 	private Vector2 _originalPosition;
 
 	private Sprite2D _bubbleSprite;
@@ -27,6 +30,8 @@ public partial class Player : CharacterBody2D
 	private Vector2 _previousPosition;
 
 	private Sprite2D _shrimpSprite;
+
+	private bool _justChangedBubbleState = false;
 
 	[Export] private AudioStream PopSound;
 
@@ -46,13 +51,14 @@ public partial class Player : CharacterBody2D
 	public void PopMe()
 	{
 		if (!InBubble) return;
-		
+
 		InBubble = false;
 		_bubbleSprite.Visible = false;
-		Velocity = new Vector2();
 
 		SoundPlayer.Instance.Play(PopSound, volume: 10, randomPitch: true);
 		EmitSignal(SignalName.Popped);
+
+		_justChangedBubbleState = true;
 	}
 
 
@@ -60,11 +66,13 @@ public partial class Player : CharacterBody2D
 	{
 		if (!InBubble)
 		{
-			Velocity = new Vector2();
 			InBubble = true;
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;
 			EmitSignal(SignalName.Bubbled);
+			LockRotation = true;
+
+			_justChangedBubbleState = true;
 		}
 	}
 
@@ -81,13 +89,24 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+	{
+		if (_justChangedBubbleState)
+		{
+			_justChangedBubbleState = false;
+
+			state.LinearVelocity = new Vector2();
+			state.AngularVelocity = 0f;
+			state.SetConstantForce(new Vector2());
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		// Testing reset
 		if (Position.Y < -1800f)
 		{
 			Position = _originalPosition;
-			Velocity = new Vector2();
 		}
 
 		// Get the input direction and handle the movement/deceleration.
@@ -113,103 +132,55 @@ public partial class Player : CharacterBody2D
 		}
 
 		LastPosition = Position;
-
-		MoveAndSlide();
 	}
 
 	private void StillMovement(double delta, Vector2 direction)
 	{
-		var velocity = Velocity;
-		velocity.Y += (float)delta * Gravity;
-
-		if (Position.Y == LastPosition.Y)
-		{
-			IsGrounded = true;
-		}
-
-		if (IsGrounded)
-		{
-			if (direction.X != 0)
-			{
-				velocity.X = direction.X * Speed;
-			}
-			else
-			{
-				velocity.X = 0;
-			}
-		}
-		else
-		{
-			if (direction.X != 0)
-			{
-				velocity.X += direction.X * Speed * (float)delta;
-			}
-			else
-			{
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, 2);
-			}
-		}
-
-		Velocity = velocity;
+		ApplyImpulse(new Vector2(direction.X, 0) * 5);
 	}
 
 	private void BubblyMovement(double delta, Vector2 direction)
 	{
-		var velocity = Velocity;
-		velocity.Y += (float)delta * Floatation;
-
-		if (direction.X != 0)
+		// Floatation
+		if (LinearVelocity.Y > MaxBubbleVelocityY)
 		{
-			velocity.X += direction.X * Speed * (float)delta;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, 2);
-		}
-
-		if (direction.Y != 0)
-		{
-			// If slowing down and not already min speed
-			if (direction.Y > 0 && velocity.Y < MinBubbleVelocity)
+			if (LinearVelocity.Y < MinBubbleVelocity)
 			{
-				velocity.Y += direction.Y * Speed * (float)delta;
+				ApplyImpulse(new Vector2(0, Floatation * 3));
 			}
-
-			// If speeding up 
-			if (direction.Y < 0)
+			else
 			{
-				velocity.Y += direction.Y * Speed * (float)delta;
+				ApplyImpulse(new Vector2(0, Floatation));
 			}
 		}
-		else
+		// Up down movement
+		if (direction.Y < 0 || LinearVelocity.Y < MaxBubbleVelocityY)
 		{
-			velocity.Y = Mathf.MoveToward(Velocity.Y, TargetBubbleVelocity, 2);
+			ApplyImpulse(new Vector2(0, direction.Y) * 5);
 		}
 
-		// Max speed
-		if (Velocity.Y < MaxBubbleVelocity)
+		// Left right
+		if ((direction.X < 0 && LinearVelocity.X > -MaxBubbleVelocityX) || (direction.X > 0 && LinearVelocity.X < MaxBubbleVelocityX))
 		{
-			velocity.Y = MaxBubbleVelocity;
+			ApplyImpulse(new Vector2(direction.X, 0) * 5);
 		}
-
-		Velocity = velocity;
 
 		_shrimpSprite.Position = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
+
+		GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y);
 	}
-
-
 
 	public override void _Input(InputEvent @event)
 	{
-			if (@event.IsActionPressed("Reset"))
-			{
-				PopMe();
-				GlobalPosition = _originalPosition;
-			}
+		if (@event.IsActionPressed("Reset"))
+		{
+			PopMe();
+			GlobalPosition = _originalPosition;
+		}
 
-			if (@event.IsActionPressed("Exit"))
-			{
-				GetTree().Quit();
-			}
+		if (@event.IsActionPressed("Exit"))
+		{
+			GetTree().Quit();
+		}
 	}
 }

@@ -5,25 +5,25 @@ public partial class Player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
+
+	public bool InBubble = false;
 	[Export] private float Gravity = -100.0f;
+
+	[Export] private float MinBubbleVelocity = -100f;
+
+	[Export] private float MaxBubbleVelocity = -500f;
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Position.Y < -1800f)
+		{
+			Position = new Vector2();
+			Velocity = new Vector2();
+		}
+
 		var velocity = Velocity;
 		velocity.Y += (float)delta * Gravity;
 		Velocity = velocity;
-
-		// Add the gravity.
-		//if (!IsOnFloor())
-		//{
-			//velocity += GetGravity() * (float)delta;
-		//}
-
-		// Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		// {
-		// 	velocity.Y = JumpVelocity;
-		// }
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -40,10 +40,28 @@ public partial class Player : CharacterBody2D
 
 		if (direction.Y != 0)
 		{
-			velocity.Y += direction.Y * Speed * (float)delta;
+			// If slowing down and not already min speed
+			if (direction.Y > 0 && velocity.Y < MinBubbleVelocity)
+			{
+				velocity.Y += direction.Y * Speed * (float)delta;
+			}
+
+			// If speeding up 
+			if (direction.Y < 0)
+			{
+				velocity.Y += direction.Y * Speed * (float)delta;
+			}
+		}
+
+		// Max speed
+		if (Velocity.Y < MaxBubbleVelocity)
+		{
+			velocity.Y = MaxBubbleVelocity;
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
 	}
 }

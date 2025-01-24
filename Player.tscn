@@ -16,7 +16,6 @@ shader = ExtResource("3_urvy1")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_usa0g")
-InBubble = true
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -29,6 +28,7 @@ shape = SubResource("CircleShape2D_xy3nb")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="ShrimpSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
 texture = ExtResource("2_v8i7c")
 
 [node name="BubbleSprite" type="Sprite2D" parent="Visuals"]

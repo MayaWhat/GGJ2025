@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kofp4i0n1rah"
+path="res://.godot/imported/Hype.mp3-3c583884b282f78a9894bf1ba3710e95.mp3str"
+
+[deps]
+
+source_file="res://Music/Hype Project/Hype.mp3"
+dest_files=["res://.godot/imported/Hype.mp3-3c583884b282f78a9894bf1ba3710e95.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

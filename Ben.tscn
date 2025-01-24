@@ -1,101 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2wehd0gkkfqi"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_8m3vn"]
-[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_xhkw5"]
+[ext_resource type="PackedScene" path="res://Map.tscn" id="1_n0e8i"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("1_n0e8i")]
+
 [node name="Player" parent="." instance=ExtResource("1_8m3vn")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-317, -320)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-69, -266)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(461, 62)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(295, -351)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(510, -197)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-offset = Vector2(-1654, 262)
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(24, -472)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(-374, -704)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(-126, -650)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(404, -322)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-position = Vector2(238, -735)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-position = Vector2(453, -581)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-offset = Vector2(-1654, 262)
-
-[node name="Sprite2D12" type="Sprite2D" parent="."]
-position = Vector2(-33, -856)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D13" type="Sprite2D" parent="."]
-position = Vector2(-353, -1343)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D14" type="Sprite2D" parent="."]
-position = Vector2(-105, -1289)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D15" type="Sprite2D" parent="."]
-position = Vector2(425, -961)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D16" type="Sprite2D" parent="."]
-position = Vector2(259, -1374)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-
-[node name="Sprite2D17" type="Sprite2D" parent="."]
-position = Vector2(474, -1220)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
-offset = Vector2(-1654, 262)
-
-[node name="Sprite2D18" type="Sprite2D" parent="."]
-position = Vector2(-12, -1495)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xhkw5")
+position = Vector2(940, 844)

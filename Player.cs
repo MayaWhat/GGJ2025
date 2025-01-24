@@ -17,6 +17,8 @@ public partial class Player : CharacterBody2D
 
 	[Export] private float MinBubbleVelocity = -100f;
 
+	[Export] private float TargetBubbleVelocity = -250f;
+
 	[Export] private float MaxBubbleVelocity = -500f;
 	private Vector2 _originalPosition;
 
@@ -24,11 +26,13 @@ public partial class Player : CharacterBody2D
 
 	private Vector2 _previousPosition;
 
+	private Sprite2D _shrimpSprite;
 
 	public override void _Ready()
 	{
 		_originalPosition = GlobalPosition;
 		_bubbleSprite = GetNode<Sprite2D>("%BubbleSprite");
+		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
 	}
 
 	public void PopMe()
@@ -76,6 +80,15 @@ public partial class Player : CharacterBody2D
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("left", "right", "up", "down");
 
+		if (direction.X > 0)
+		{
+			_shrimpSprite.Scale = new Vector2(1, 1);
+		}
+		else if (direction.X < 0)
+		{
+			_shrimpSprite.Scale = new Vector2(-1, 1);
+		}
+
 		if (InBubble)
 		{
 			BubblyMovement(delta, direction);
@@ -89,7 +102,7 @@ public partial class Player : CharacterBody2D
 
 		MoveAndSlide();
 
-		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);		
+		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
 	}
 
 	private void StillMovement(double delta, Vector2 direction)
@@ -156,6 +169,10 @@ public partial class Player : CharacterBody2D
 				velocity.Y += direction.Y * Speed * (float)delta;
 			}
 		}
+		else
+		{
+			velocity.Y = Mathf.MoveToward(Velocity.Y, TargetBubbleVelocity, 2);
+		}
 
 		// Max speed
 		if (Velocity.Y < MaxBubbleVelocity)
@@ -164,6 +181,8 @@ public partial class Player : CharacterBody2D
 		}
 
 		Velocity = velocity;
+
+		_shrimpSprite.Position = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
 	}
 
 

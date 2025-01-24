@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=8 format=4 uid="uid://cg5ama6va7uuy"]
 
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://BasicObstacle.tscn" id="2_6swae"]
 [ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_ywtd1"]
+[ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://MovingObsatcle.tscn" id="3_qjf88"]
+[ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r25k3"]
 texture = ExtResource("2_ywtd1")
@@ -36,3 +38,18 @@ tile_set = SubResource("TileSet_dvpq5")
 
 [node name="BasicObstacle" parent="." instance=ExtResource("2_6swae")]
 position = Vector2(864, 160)
+
+[node name="MovingObstacle" parent="." instance=ExtResource("3_qjf88")]
+position = Vector2(352, 352)
+
+[node name="Path" type="Node2D" parent="MovingObstacle" node_paths=PackedStringArray("Path")]
+script = ExtResource("4_4hex5")
+Path = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
+
+[node name="Marker2D" type="Marker2D" parent="MovingObstacle/Path"]
+
+[node name="Marker2D2" type="Marker2D" parent="MovingObstacle/Path"]
+position = Vector2(544, 56)
+
+[node name="Marker2D3" type="Marker2D" parent="MovingObstacle/Path"]
+position = Vector2(392, 320)

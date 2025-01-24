@@ -6,7 +6,7 @@ public partial class Player : CharacterBody2D
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
 
-	public bool InBubble = false;
+	[Export] public bool InBubble = false;
 
 	public bool IsGrounded = false;
 

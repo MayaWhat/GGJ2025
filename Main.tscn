@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl86fu0mbaut1"]
+[gd_scene load_steps=4 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_he8n5"]
+[ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 
 [node name="Level" type="Node2D"]
 
@@ -37,3 +38,5 @@ texture = ExtResource("2_he8n5")
 position = Vector2(-239, 289)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_he8n5")
+
+[node name="Map" parent="Sprite2D6" instance=ExtResource("3_54vkf")]

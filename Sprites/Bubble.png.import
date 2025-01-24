@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cryhhwjrkaaqi"
-path="res://.godot/imported/Shrimp.png-82e791e06123adf94510ac28f960a4a4.ctex"
+uid="uid://dalrj8en0e1lv"
+path="res://.godot/imported/Bubble.png-55a85fb8ab810a34b8b246d52e9cdc01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shrimp.png"
-dest_files=["res://.godot/imported/Shrimp.png-82e791e06123adf94510ac28f960a4a4.ctex"]
+source_file="res://Sprites/Bubble.png"
+dest_files=["res://.godot/imported/Bubble.png-55a85fb8ab810a34b8b246d52e9cdc01.ctex"]
 
 [params]
 

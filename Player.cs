@@ -7,7 +7,12 @@ public partial class Player : CharacterBody2D
 	public const float JumpVelocity = -400.0f;
 
 	public bool InBubble = false;
-	[Export] private float Gravity = -100.0f;
+
+	public bool IsGrounded = false;
+
+	[Export] private float Floatation = -100.0f;
+
+	[Export] private float Gravity = 400f;
 
 	[Export] private float MinBubbleVelocity = -100f;
 
@@ -25,21 +30,76 @@ public partial class Player : CharacterBody2D
 		GlobalPosition = _originalPosition;
 	}
 
+	private Vector2 LastPosition = new Vector2();
+
 	public override void _PhysicsProcess(double delta)
 	{
+		LastPosition = Position;
+
+		// Testing reset
 		if (Position.Y < -1800f)
 		{
-			Position = new Vector2();
+			Position = _originalPosition;
 			Velocity = new Vector2();
 		}
-
-		var velocity = Velocity;
-		velocity.Y += (float)delta * Gravity;
-		Velocity = velocity;
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("left", "right", "up", "down");
+
+		if (InBubble)
+		{
+			BubblyMovement(delta, direction);
+		}
+		else
+		{
+			StillMovement(delta, direction);
+		}
+
+		MoveAndSlide();
+
+		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
+	}
+
+	private void StillMovement(double delta, Vector2 direction)
+	{
+		var velocity = Velocity;
+		velocity.Y += (float)delta * Gravity;
+
+		if (Position.Y == LastPosition.Y) {
+			IsGrounded = true;
+		}
+
+		if (IsGrounded)
+		{
+			if (direction.X != 0)
+			{
+				velocity.X = direction.X * Speed;
+			}
+			else
+			{
+				velocity.X = 0;
+			}
+		}
+		else
+		{
+			if (direction.X != 0)
+			{
+				velocity.X += direction.X * Speed * (float)delta;
+			}
+			else
+			{
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, 2);
+			}
+		}
+
+		Velocity = velocity;
+	}
+
+	private void BubblyMovement(double delta, Vector2 direction)
+	{
+		var velocity = Velocity;
+		velocity.Y += (float)delta * Floatation;
 
 		if (direction.X != 0)
 		{
@@ -72,8 +132,5 @@ public partial class Player : CharacterBody2D
 		}
 
 		Velocity = velocity;
-		MoveAndSlide();
-
-		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
 	}
 }

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbeclloli5jdk"]
+
+[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="1_fillb"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(20000, 20000)
+offset_left = -10000.0
+offset_top = -10000.0
+offset_right = 10000.0
+offset_bottom = 10000.0
+color = Color(0.414, 0.5336, 0.69, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(162, 247)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1176, 112)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(581, 644)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fillb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+modulate = Color(1, 1, 1, 0.176471)
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1257, 576)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(900, 294)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(169, 589)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(303, 182)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fillb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1340, 88)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fillb")

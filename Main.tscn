@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=9 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="AudioStream" uid="uid://d4aqsosveijgi" path="res://Music/Adventure Interrupted Project/Adventure Interrupted.wav" id="5_x3nc4"]
+[ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vpycc"]
 clip_count = 2
@@ -41,6 +42,8 @@ position = Vector2(522, 342)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_mlwr1")]
 stream = SubResource("AudioStreamInteractive_vpycc")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("7_12sfj")]
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="PlayClip" binds= ["Adventure"]]
 [connection signal="Popped" from="Player" to="MusicPlayer" method="PlayClip" binds= ["Interrupted"]]

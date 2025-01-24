@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	public const float Speed = 300.0f;
+	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
 
 	public bool InBubble = false;
@@ -82,7 +82,7 @@ public partial class Player : CharacterBody2D
 		var velocity = Velocity;
 		velocity.Y += (float)delta * Gravity;
 
-		if (Position.Y == LastPosition.Y && Velocity.Y == 0)
+		if (Position.Y == LastPosition.Y)
 		{
 			IsGrounded = true;
 		}

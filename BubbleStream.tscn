@@ -1,10 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbclevq4mh8u"]
+[gd_scene load_steps=9 format=3 uid="uid://bpbclevq4mh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyqetmwlspoco" path="res://Sprites/Bubbles.png" id="1_jiveu"]
 [ext_resource type="Script" path="res://BubbleStream.cs" id="1_ld6l4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpr86"]
 size = Vector2(14, 27)
+
+[sub_resource type="Gradient" id="Gradient_4asua"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnnjl"]
+gradient = SubResource("Gradient_4asua")
+width = 96
+height = 240
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_q1ue0"]
+resource_name = "Bubbles"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 240), Rect2(0, 96, 96, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_mo3i6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 96, 96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cp2d"]
+_data = {
+"Bubbles": SubResource("Animation_q1ue0"),
+"RESET": SubResource("Animation_mo3i6")
+}
 
 [node name="BubbleStream" type="Area2D"]
 position = Vector2(298, 475)
@@ -14,5 +62,19 @@ script = ExtResource("1_ld6l4")
 position = Vector2(-8, -10.5)
 shape = SubResource("RectangleShape2D_fpr86")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(0, -117)
+texture = SubResource("GradientTexture2D_cnnjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask"]
+texture_repeat = 2
 texture = ExtResource("1_jiveu")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0cp2d")
+}
+autoplay = "Bubbles"

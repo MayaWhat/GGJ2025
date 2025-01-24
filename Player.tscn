@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="AudioStream" uid="uid://bktuh4sihoqs7" path="res://Sounds/733264__arttim__bubble_pop.mp3" id="2_7ugmt"]
+[ext_resource type="Resource" uid="uid://q37uvfmev6sr" path="res://PlayerStats.tres" id="2_8xwlm"]
 [ext_resource type="Texture2D" uid="uid://3xe3i87syuoj" path="res://Sprites/Shrimp.png" id="2_v8i7c"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="3_ccfof"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
@@ -15,9 +16,10 @@ size = Vector2(39, 53)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ipmi0"]
 shader = ExtResource("3_urvy1")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_usa0g")
 PopSound = ExtResource("2_7ugmt")
+Stats = ExtResource("2_8xwlm")
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

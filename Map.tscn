@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://BasicObstacle.tscn" id="2_6swae"]
 [ext_resource type="PackedScene" uid="uid://du5vh3vtpc1yf" path="res://InvisiblePoppingTile.tscn" id="2_wnucy"]
 [ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_ywtd1"]
-[ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="3_af0mc"]
+[ext_resource type="PackedScene" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://MovingObsatcle.tscn" id="3_qjf88"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 

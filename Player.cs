@@ -115,8 +115,6 @@ public partial class Player : CharacterBody2D
 		LastPosition = Position;
 
 		MoveAndSlide();
-
-		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
 	}
 
 	private void StillMovement(double delta, Vector2 direction)

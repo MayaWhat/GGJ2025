@@ -12,6 +12,18 @@ public partial class Player : CharacterBody2D
 	[Export] private float MinBubbleVelocity = -100f;
 
 	[Export] private float MaxBubbleVelocity = -500f;
+	private Vector2 _originalPosition;
+
+	public override void _Ready()
+	{
+		_originalPosition = GlobalPosition;
+	}
+
+	public void PopMe()
+	{
+		Velocity = Vector2.Zero;
+		GlobalPosition = _originalPosition;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{

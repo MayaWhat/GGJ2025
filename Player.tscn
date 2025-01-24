@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=6 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Texture2D" uid="uid://cryhhwjrkaaqi" path="res://Shrimp.png" id="2_fcwou"]
+[ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdo33"]
 size = Vector2(128, 128)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipmi0"]
+shader = ExtResource("3_urvy1")
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_usa0g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xdo33")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -17,6 +25,17 @@ shape = SubResource("RectangleShape2D_xdo33")
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("2_fcwou")
 
-[node name="Controls" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xdo33")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_ipmi0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

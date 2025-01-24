@@ -42,6 +42,7 @@ public partial class Player : CharacterBody2D
 			Velocity = new Vector2();
 			InBubble = true;
 			_bubbleSprite.Visible = true;
+			IsGrounded = false;
 		}
 	}
 
@@ -49,8 +50,6 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		LastPosition = Position;
-
 		// Testing reset
 		if (Position.Y < -1800f)
 		{
@@ -71,9 +70,11 @@ public partial class Player : CharacterBody2D
 			StillMovement(delta, direction);
 		}
 
+		LastPosition = Position;
+
 		MoveAndSlide();
 
-		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);
+		GD.Print("Pos X:" + Position.X + ", Pos Y:" + Position.Y + ". Vel X:" + Velocity.X + ", Vel Y:" + Velocity.Y);		
 	}
 
 	private void StillMovement(double delta, Vector2 direction)
@@ -81,7 +82,7 @@ public partial class Player : CharacterBody2D
 		var velocity = Velocity;
 		velocity.Y += (float)delta * Gravity;
 
-		if (Position.Y == LastPosition.Y)
+		if (Position.Y == LastPosition.Y && Velocity.Y == 0)
 		{
 			IsGrounded = true;
 		}

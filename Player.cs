@@ -17,9 +17,9 @@ public partial class Player : RigidBody2D
 
 	[Export] private float MinBubbleVelocity = -50f;
 
-	[Export] private float TargetBubbleVelocity = -250f;
+	[Export] private float TargetBubbleVelocityY = -150f;
 
-	[Export] private float MaxBubbleVelocityY = -200f;
+	[Export] private float MaxBubbleVelocityY = -450f;
 
 	[Export] private float MaxBubbleVelocityX = 300f;
 
@@ -142,9 +142,9 @@ public partial class Player : RigidBody2D
 	private void BubblyMovement(double delta, Vector2 direction)
 	{
 		// Floatation
-		if (LinearVelocity.Y > MaxBubbleVelocityY)
+		if (LinearVelocity.Y > TargetBubbleVelocityY)
 		{
-			if (LinearVelocity.Y < MinBubbleVelocity)
+			if (LinearVelocity.Y > MinBubbleVelocity)
 			{
 				ApplyImpulse(new Vector2(0, Floatation * 3));
 			}
@@ -153,10 +153,16 @@ public partial class Player : RigidBody2D
 				ApplyImpulse(new Vector2(0, Floatation));
 			}
 		}
-		// Up down movement
-		if (direction.Y < 0 || LinearVelocity.Y < MaxBubbleVelocityY)
+		
+		if (direction.Y > 0)
 		{
+			// Down
 			ApplyImpulse(new Vector2(0, direction.Y) * 5);
+		}
+		else if (direction.Y < 0 && LinearVelocity.Y > MaxBubbleVelocityY)
+		{
+			// Up
+			ApplyImpulse(new Vector2(0, direction.Y) * 10);
 		}
 
 		// Left right
@@ -167,7 +173,7 @@ public partial class Player : RigidBody2D
 
 		_shrimpSprite.Position = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
 
-		GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y);
+		//GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y + " DirectionY: " + direction.Y);
 	}
 
 	public override void _Input(InputEvent @event)

@@ -51,7 +51,7 @@ public partial class Player : CharacterBody2D
 		_bubbleSprite.Visible = false;
 		Velocity = new Vector2();
 
-		SoundPlayer.Instance.Play(PopSound, randomPitch: true);
+		SoundPlayer.Instance.Play(PopSound, volume: 10, randomPitch: true);
 		EmitSignal(SignalName.Popped);
 	}
 
@@ -205,6 +205,11 @@ public partial class Player : CharacterBody2D
 			{
 				PopMe();
 				GlobalPosition = _originalPosition;
+			}
+
+			if (@event.IsActionPressed("Exit"))
+			{
+				GetTree().Quit();
 			}
 	}
 }

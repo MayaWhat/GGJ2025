@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
 
 [node name="Level" type="Node2D"]
 
@@ -10,6 +9,3 @@
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
 position = Vector2(522, 342)
-InBubble = false
-
-[node name="UI" parent="." instance=ExtResource("3_jl7uj")]

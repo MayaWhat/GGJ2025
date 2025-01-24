@@ -25,6 +25,8 @@ public partial class Player : CharacterBody2D
 
 	private Sprite2D _shrimpSprite;
 
+	[Export] private AudioStream PopSound;
+
 	public override void _Ready()
 	{
 		_originalPosition = GlobalPosition;
@@ -34,9 +36,13 @@ public partial class Player : CharacterBody2D
 
 	public void PopMe()
 	{
+		if (!InBubble) return;
+		
 		InBubble = false;
 		_bubbleSprite.Visible = false;
 		Velocity = new Vector2();
+
+		SoundPlayer.Instance.Play(PopSound, randomPitch: true);
 	}
 
 

@@ -9,4 +9,3 @@
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
 position = Vector2(522, 342)
-InBubble = false

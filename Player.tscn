@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=8 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Texture2D" uid="uid://3xe3i87syuoj" path="res://Sprites/Shrimp.png" id="2_v8i7c"]
+[ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="3_ccfof"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xy3nb"]
+radius = 44.0114
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdo33"]
 size = Vector2(39, 53)
@@ -18,12 +22,18 @@ unique_name_in_owner = true
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_xdo33")
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_xy3nb")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="ShrimpSprite" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("2_v8i7c")
+
+[node name="BubbleSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_ccfof")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)

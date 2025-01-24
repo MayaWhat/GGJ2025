@@ -19,15 +19,30 @@ public partial class Player : CharacterBody2D
 	[Export] private float MaxBubbleVelocity = -500f;
 	private Vector2 _originalPosition;
 
+	private Sprite2D _bubbleSprite;
+
 	public override void _Ready()
 	{
 		_originalPosition = GlobalPosition;
+		_bubbleSprite = GetNode<Sprite2D>("%BubbleSprite");
 	}
 
 	public void PopMe()
 	{
-		Velocity = Vector2.Zero;
-		GlobalPosition = _originalPosition;
+		InBubble = false;
+		_bubbleSprite.Visible = false;
+		Velocity = new Vector2();
+	}
+
+
+	public void BubbleMe()
+	{
+		if (!InBubble)
+		{
+			Velocity = new Vector2();
+			InBubble = true;
+			_bubbleSprite.Visible = true;
+		}
 	}
 
 	private Vector2 LastPosition = new Vector2();
@@ -66,7 +81,8 @@ public partial class Player : CharacterBody2D
 		var velocity = Velocity;
 		velocity.Y += (float)delta * Gravity;
 
-		if (Position.Y == LastPosition.Y) {
+		if (Position.Y == LastPosition.Y)
+		{
 			IsGrounded = true;
 		}
 

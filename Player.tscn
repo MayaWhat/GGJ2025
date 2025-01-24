@@ -19,6 +19,9 @@ shader = ExtResource("3_urvy1")
 script = ExtResource("1_usa0g")
 PopSound = ExtResource("2_7ugmt")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_mask = 2

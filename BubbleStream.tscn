@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpbclevq4mh8u"]
+[gd_scene load_steps=10 format=3 uid="uid://bpbclevq4mh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyqetmwlspoco" path="res://Sprites/Bubbles.png" id="1_jiveu"]
 [ext_resource type="Script" path="res://BubbleStream.cs" id="1_ld6l4"]
+[ext_resource type="AudioStream" uid="uid://hf3hqoixwsmv" path="res://Sounds/539820__ristooooo1__bubbles-003.wav" id="3_ha0ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpr86"]
 size = Vector2(14, 27)
@@ -78,3 +79,9 @@ libraries = {
 "": SubResource("AnimationLibrary_0cp2d")
 }
 autoplay = "Bubbles"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ha0ys")
+autoplay = true
+max_distance = 576.0
+bus = &"SoundEffects"

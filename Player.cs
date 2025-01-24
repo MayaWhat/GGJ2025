@@ -1,10 +1,11 @@
 using Godot;
-using System;
 
 public partial class Player : CharacterBody2D
 {
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
+
+	[Export] public PlayerStats Stats { get; private set; }
 
 	[Export] public bool InBubble = false;
 
@@ -20,6 +21,9 @@ public partial class Player : CharacterBody2D
 	private Vector2 _originalPosition;
 
 	private Sprite2D _bubbleSprite;
+
+	private Vector2 _previousPosition;
+
 
 	public override void _Ready()
 	{
@@ -47,6 +51,17 @@ public partial class Player : CharacterBody2D
 	}
 
 	private Vector2 LastPosition = new Vector2();
+
+	public override void _Process(double delta)
+	{
+		if (_previousPosition != GlobalPosition)
+		{
+			var score = GlobalPosition.Y * -1;
+			Stats.UpdateCurrentScore((int)score);
+			if (score > Stats.HighScore) { Stats.UpdateHighScore((int)score); }
+			_previousPosition = GlobalPosition;
+		}
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -150,6 +165,8 @@ public partial class Player : CharacterBody2D
 
 		Velocity = velocity;
 	}
+
+
 
 	public override void _Input(InputEvent @event)
 	{

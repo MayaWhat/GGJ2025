@@ -23,6 +23,14 @@ window/size/mode=3
 
 project/assembly_name="GGJ2025"
 
+[global_group]
+
+Player=""
+
+[gui]
+
+theme/custom_font="res://Sprites/m6x11.ttf"
+
 [input]
 
 left={

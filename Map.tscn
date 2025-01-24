@@ -37,23 +37,26 @@ color = Color(0.414, 0.5336, 0.69, 1)
 tile_map_data = PackedByteArray("AAD//wIAEgAAAAAAAAD//wEAEgAAAAAAAAD//wAAEgAAAAAAAAD//wMAEgAAAAAAAAD//wQAEgAAAAAAAAD//wUAEgAAAAAAAAD//wYAEgAAAAAAAAD//wcAEgAAAAAAAAD//wgAEgAAAAAAAAD//wkAEgAAAAAAAAD//woAEgAAAAAAAAD//wsAEgAAAAAAAAAAAAsAEgAAAAAAAAABAAsAEgAAAAAAAAACAAsAEgAAAAAAAAADAAsAEgAAAAAAAAAEAAsAEgAAAAAAAAAFAAsAEgAAAAAAAAAGAAsAEgAAAAAAAAAHAAsAEgAAAAAAAAAIAAsAEgAAAAAAAAAJAAsAEgAAAAAAAAAKAAsAEgAAAAAAAAALAAsAEgAAAAAAAAAMAAsAEgAAAAAAAAANAAsAEgAAAAAAAAANAAoAEgAAAAAAAAANAAkAEgAAAAAAAAANAAgAEgAAAAAAAAANAAcAEgAAAAAAAAANAAYAEgAAAAAAAAANAAUAEgAAAAAAAAANAAQAEgAAAAAAAAANAAMAEgAAAAAAAAANAAIAEgAAAAAAAAANAAEAEgAAAAAAAAANAAAAEgAAAAAAAAANAP//EgAAAAAAAAANAP7/EgAAAAAAAAANAP3/EgAAAAAAAAANAPz/EgAAAAAAAAANAPv/EgAAAAAAAAANAPr/EgAAAAAAAAANAPn/EgAAAAAAAAD/////EgAAAAAAAAD///7/EgAAAAAAAAD///3/EgAAAAAAAAD///z/EgAAAAAAAAD///v/EgAAAAAAAAD///r/EgAAAAAAAAD///n/EgAAAAAAAAD///j/EgAAAAAAAAD///f/EgAAAAAAAAD///b/EgAAAAAAAAD///X/EgAAAAAAAAD///T/EgAAAAAAAAD///P/EgAAAAAAAAD///L/EgAAAAAAAAD///H/EgAAAAAAAAANAPj/EgAAAAAAAAANAPf/EgAAAAAAAAANAPb/EgAAAAAAAAANAPX/EgAAAAAAAAANAPT/EgAAAAAAAAANAPP/EgAAAAAAAAANAPL/EgAAAAAAAAANAPH/EgAAAAAAAAD///D/EgAAAAAAAAD//+//EgAAAAAAAAD//+7/EgAAAAAAAAANAPD/EgAAAAAAAAANAO//EgAAAAAAAAANAO7/EgAAAAAAAAAMAAIAEgAAAAAAAAALAAIAEgAAAAAAAAAKAAIAEgAAAAAAAAAAAAYAEgAAAAAAAAABAAYAEgAAAAAAAAACAAYAEgAAAAAAAAADAAYAEgAAAAAAAAAEAP7/EgAAAAAAAAAEAP//EgAAAAAAAAAFAP//EgAAAAAAAAAGAP//EgAAAAAAAAAHAP//EgAAAAAAAAAGAP7/EgAAAAAAAAAFAP7/EgAAAAAAAAAHAP7/EgAAAAAAAAABAPb/EgAAAAAAAAACAPb/EgAAAAAAAAADAPb/EgAAAAAAAAAEAPb/EgAAAAAAAAAFAPb/EgAAAAAAAAAGAPb/EgAAAAAAAAALAPL/EgAAAAAAAAAKAPL/EgAAAAAAAAAJAPL/EgAAAAAAAAADAAcAEwAAAAAAAAACAAgAEwAAAAAAAAAEAAYAEwAAAAAAAAA=")
 tile_set = SubResource("TileSet_dvpq5")
 
-[node name="BasicObstacle" parent="." instance=ExtResource("2_6swae")]
-position = Vector2(864, 160)
-
 [node name="BubbleStream" parent="." instance=ExtResource("3_af0mc")]
 position = Vector2(616, 984)
 
-[node name="MovingObstacle" parent="." instance=ExtResource("3_qjf88")]
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="BasicObstacle" parent="Obstacles" instance=ExtResource("2_6swae")]
+position = Vector2(864, 160)
+
+[node name="MovingObstacle" parent="Obstacles" instance=ExtResource("3_qjf88")]
 position = Vector2(352, 352)
 
-[node name="Path" type="Node2D" parent="MovingObstacle" node_paths=PackedStringArray("Path")]
+[node name="Path" type="Node" parent="Obstacles/MovingObstacle" node_paths=PackedStringArray("Path")]
 script = ExtResource("4_4hex5")
 Path = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
 
-[node name="Marker2D" type="Marker2D" parent="MovingObstacle/Path"]
+[node name="Marker2D" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(352, 344)
 
-[node name="Marker2D2" type="Marker2D" parent="MovingObstacle/Path"]
-position = Vector2(544, 56)
+[node name="Marker2D2" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(1024, 432)
 
-[node name="Marker2D3" type="Marker2D" parent="MovingObstacle/Path"]
-position = Vector2(392, 320)
+[node name="Marker2D3" type="Marker2D" parent="Obstacles/MovingObstacle/Path"]
+position = Vector2(792, 680)

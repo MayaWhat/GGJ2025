@@ -150,4 +150,13 @@ public partial class Player : CharacterBody2D
 
 		Velocity = velocity;
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+			if (@event.IsActionPressed("Reset"))
+			{
+				PopMe();
+				GlobalPosition = _originalPosition;
+			}
+	}
 }

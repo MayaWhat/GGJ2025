@@ -30,6 +30,12 @@ public partial class Player : CharacterBody2D
 
 	[Export] private AudioStream PopSound;
 
+	[Signal]
+	public delegate void BubbledEventHandler();
+
+	[Signal]
+	public delegate void PoppedEventHandler();
+
 	public override void _Ready()
 	{
 		_originalPosition = GlobalPosition;
@@ -46,6 +52,7 @@ public partial class Player : CharacterBody2D
 		Velocity = new Vector2();
 
 		SoundPlayer.Instance.Play(PopSound, randomPitch: true);
+		EmitSignal(SignalName.Popped);
 	}
 
 
@@ -57,6 +64,7 @@ public partial class Player : CharacterBody2D
 			InBubble = true;
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;
+			EmitSignal(SignalName.Bubbled);
 		}
 	}
 

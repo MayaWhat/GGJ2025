@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://com3dd82x1keu"]
+
+[ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
+[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_he8n5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_t782h")]
+position = Vector2(522, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(149, 343)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(297, -1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(827, 327)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(491, 637)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(859, -211)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(-239, 289)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_he8n5")

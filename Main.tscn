@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 [ext_resource type="AudioStream" uid="uid://br4na6uvpdqq3" path="res://Music/Adventure Project/Adventure.wav" id="3_jfqhm"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" path="res://MusicPlayer.tscn" id="3_mlwr1"]
+[ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="AudioStream" uid="uid://d4aqsosveijgi" path="res://Music/Adventure Interrupted Project/Adventure Interrupted.wav" id="5_x3nc4"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vpycc"]
@@ -41,7 +41,6 @@ position = Vector2(522, 342)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_mlwr1")]
 stream = SubResource("AudioStreamInteractive_vpycc")
-bus = &"Master"
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="PlayClip" binds= ["Adventure"]]
 [connection signal="Popped" from="Player" to="MusicPlayer" method="PlayClip" binds= ["Interrupted"]]

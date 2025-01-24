@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgkqg30ewjh12"
+path="res://.godot/imported/Adventure.mp3-e946f690461f3181540fb931ae599e0e.mp3str"
+
+[deps]
+
+source_file="res://Music/Adventure Project/Adventure.mp3"
+dest_files=["res://.godot/imported/Adventure.mp3-e946f690461f3181540fb931ae599e0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

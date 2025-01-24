@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1ccsbv4b43mr"
+path="res://.godot/imported/Atmosphere.mp3-3bb489523baa448fa630ed60f5684a0e.mp3str"
+
+[deps]
+
+source_file="res://Music/Atmosphere Project/Atmosphere.mp3"
+dest_files=["res://.godot/imported/Atmosphere.mp3-3bb489523baa448fa630ed60f5684a0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

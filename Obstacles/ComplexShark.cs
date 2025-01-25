@@ -3,6 +3,9 @@ using System;
 
 public partial class ComplexShark : Node2D
 {
+	[Export]
+	private AudioStream _sharkSound;
+
 	private Node2D _visuals;
 
 	private Node2D _playerPopper;
@@ -35,6 +38,8 @@ public partial class ComplexShark : Node2D
 	private void OnWakeUp()
 	{
 		GD.Print("Wake");
+
+		SoundPlayer.Instance.Play(_sharkSound, 7);
 
 		_visuals.Visible = true;
 		_awake = true;

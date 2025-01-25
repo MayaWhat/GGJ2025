@@ -1,17 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=35 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
+[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_liwuf"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
 [ext_resource type="Script" path="res://Waker.cs" id="5_12cdt"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
 [ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
+[ext_resource type="PackedScene" uid="uid://dxtkuihwa0n3u" path="res://Obstacles/MovingCloud1.tscn" id="9_vtgc6"]
+[ext_resource type="PackedScene" uid="uid://4erwuik1eknh" path="res://Obstacles/MovingCloud2.tscn" id="10_mc0o5"]
 [ext_resource type="PackedScene" uid="uid://rlqkpa4m3eoy" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
 [ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="13_py65l"]
 [ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
@@ -97,6 +99,30 @@ position = Vector2(526, -2751)
 position = Vector2(71, -3380)
 
 [node name="Obstacles" type="Node" parent="MapThings"]
+
+[node name="MovingCloudMed" parent="MapThings/Obstacles" instance=ExtResource("9_vtgc6")]
+position = Vector2(265, -10894)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/MovingCloudMed"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed/Path"]
+position = Vector2(57, -10910)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed/Path"]
+position = Vector2(461, -10908)
+
+[node name="MovingCloudMed2" parent="MapThings/Obstacles" instance=ExtResource("10_mc0o5")]
+position = Vector2(834, -10888)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/MovingCloudMed2"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed2/Path"]
+position = Vector2(636, -10904)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed2/Path"]
+position = Vector2(1126, -10900)
 
 [node name="BasicMovingObstacle" parent="MapThings/Obstacles" instance=ExtResource("15_31wra")]
 position = Vector2(-3245, 1832)
@@ -230,10 +256,10 @@ _moveSpeed = 3.0
 script = ExtResource("2_f7pyt")
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish9/Node"]
-position = Vector2(267, -5557)
+position = Vector2(262, -5547)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish9/Node"]
-position = Vector2(905, -5453)
+position = Vector2(881, -5454)
 
 [node name="MovingJellfish10" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(881, -5313)
@@ -242,11 +268,11 @@ _moveSpeed = 3.0
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish10"]
 script = ExtResource("2_f7pyt")
 
-[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
-position = Vector2(896, -5311)
+[node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
+position = Vector2(881, -5312)
 
-[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
-position = Vector2(301, -5248)
+[node name="Marker2D4" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
+position = Vector2(251, -5256)
 
 [node name="MovingJellfish7" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(552, -5926)

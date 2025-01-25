@@ -352,6 +352,16 @@ public partial class Player : RigidBody2D
 			GlobalPosition = _originalPosition;
 		}
 
+		if (@event.IsActionPressed("BubbleMe"))
+		{
+			BubbleMe();
+		}
+
+		if (@event.IsActionPressed("PopMe"))
+		{
+			PopMe();
+		}
+
 		if (@event.IsActionPressed("Exit"))
 		{
 			GetTree().Quit();

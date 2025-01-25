@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public partial class ObstacleMovement : Node
 {
 	[Export] private Node2D _self;
+	[Export] private Node2D _visuals;
 
 	private bool _followPath;
 	private ObstaclePath _obstaclePath;
@@ -42,7 +43,11 @@ public partial class ObstacleMovement : Node
 			if (_currentPathIndex >= _actualPath.Count)
 			{
 				if (_obstaclePath.MovementType is ObstacleMovementType.Wrap or ObstacleMovementType.Reverse) { _currentPathIndex = 0; }
-				if (_obstaclePath.MovementType == ObstacleMovementType.Reverse) { _actualPath.Reverse(); }
+				if (_obstaclePath.MovementType == ObstacleMovementType.Reverse)
+				{
+					_actualPath.Reverse();
+					if (_visuals != null) { _visuals.Scale = new Vector2(-_visuals.Scale.X, _visuals.Scale.Y); }
+				}
 				if (_obstaclePath.MovementType == ObstacleMovementType.End) { _followPath = false; }
 			}
 		}

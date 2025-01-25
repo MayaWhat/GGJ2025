@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://e1r5vh1oqpor"]
+
+[ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="1_ngn7g"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_hu5we"]
+[ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="2_jvy5l"]
+[ext_resource type="Script" path="res://ObstacleMovement.cs" id="3_q26s8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n23ja"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ngn7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvy5l")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnnn6"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7, 7, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -0.05, 0)
+spread = 57.162
+initial_velocity_min = 141.45
+initial_velocity_max = 174.34
+gravity = Vector3(0, 500, 0)
+scale_min = 7.58
+scale_max = 10.87
+color = Color(0.82, 0.1148, 0.1148, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4ku0"]
+radius = 35.0
+height = 318.0
+
+[node name="SimpleShark" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_n23ja")
+animation = &"new_animation"
+frame_progress = 0.284747
+speed_scale = 2.0
+
+[node name="BloodParticles" type="GPUParticles2D" parent="Visuals"]
+position = Vector2(129, 20)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_vnnn6")
+lifetime = 4.0
+
+[node name="PlayerPopper" parent="." instance=ExtResource("2_hu5we")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPopper"]
+position = Vector2(7, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f4ku0")
+
+[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self", "_visuals")]
+script = ExtResource("3_q26s8")
+_self = NodePath("..")
+_visuals = NodePath("../Visuals")

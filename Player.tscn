@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=31 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Resource" path="res://PlayerStats.tres" id="2_8xwlm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ci20g00e41aqc" path="res://Sprites/Spin.png" id="6_6puop"]
 [ext_resource type="PackedScene" path="res://PopParticles.tscn" id="7_jaud1"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
+[ext_resource type="PackedScene" uid="uid://bp68u66emxplq" path="res://BloodParticles.tscn" id="12_56hv5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.4
@@ -154,6 +155,7 @@ max_contacts_reported = 5
 script = ExtResource("1_usa0g")
 Stats = ExtResource("2_8xwlm")
 PopSound = ExtResource("3_m2tqs")
+_bloodParticlesScene = ExtResource("12_56hv5")
 
 [node name="Light" type="PointLight2D" parent="."]
 unique_name_in_owner = true

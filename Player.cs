@@ -12,6 +12,7 @@ public partial class Player : RigidBody2D
 	[Export] public PlayerStats Stats { get; private set; }
 
 	[Export] public bool InBubble = false;
+	private bool _hasEnteredABubble;
 
 	public bool IsGrounded = false;
 
@@ -60,6 +61,7 @@ public partial class Player : RigidBody2D
 	private bool _isWindy = false;
 
 	[Export] private AudioStream PopSound;
+	[Export] private PackedScene _bloodParticlesScene;
 
 	[Signal]
 	public delegate void BubbledEventHandler();
@@ -87,6 +89,14 @@ public partial class Player : RigidBody2D
 		if (body is SecretTiles secretTiles)
 		{
 			secretTiles.Reveal();
+			return;
+		}
+
+		if (!InBubble && _hasEnteredABubble)
+		{
+			var blood = _bloodParticlesScene.Instantiate<GpuParticles2D>();
+			blood.Emitting = true;
+			AddChild(blood);
 		}
 	}
 
@@ -120,6 +130,7 @@ public partial class Player : RigidBody2D
 		{
 			_light.Energy = BubbleLightEnergy;
 			InBubble = true;
+			_hasEnteredABubble = true;
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;
 			EmitSignal(SignalName.Bubbled);

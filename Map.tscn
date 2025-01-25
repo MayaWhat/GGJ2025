@@ -1,23 +1,99 @@
-[gd_scene load_steps=15 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=28 format=4 uid="uid://cg5ama6va7uuy"]
 
-[ext_resource type="TileSet" uid="uid://cvi2qx8sxnt1l" path="res://Map.tres" id="1_2xxus"]
+[ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
+[ext_resource type="Shader" path="res://Underwater.gdshader" id="1_oycdf"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="2_6swae"]
 [ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="3_qjf88"]
 [ext_resource type="PackedScene" path="res://Waker.tscn" id="3_sk3ok"]
-[ext_resource type="PackedScene" uid="uid://b07yf6mn4kl7w" path="res://BubbleGenerator.tscn" id="3_xu4se"]
+[ext_resource type="PackedScene" path="res://BubbleGenerator.tscn" id="3_xu4se"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://Obstacles/BasicMovingPoppingObsatcle.tscn" id="7_l43ht"]
 [ext_resource type="PackedScene" path="res://Obstacles/SimpleShark.tscn" id="8_d45xm"]
 [ext_resource type="Texture2D" uid="uid://6awnedlp82qs" path="res://Sprites/sandcastle.png" id="9_qppj4"]
+[ext_resource type="PackedScene" uid="uid://by6pj1gppsbu5" path="res://CameraTrigger.tscn" id="10_lytx5"]
 [ext_resource type="Texture2D" uid="uid://d16pj7bj5rllk" path="res://Sprites/plant1.png" id="10_mhdwi"]
 [ext_resource type="Texture2D" uid="uid://6loga1gx5mv4" path="res://Sprites/BigSeaweed.png" id="11_xro5f"]
 [ext_resource type="Texture2D" uid="uid://ccska72m8bao3" path="res://Sprites/Sign.png" id="13_g6ja3"]
+[ext_resource type="PackedScene" uid="uid://dsjomopypsk4w" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="Texture2D" uid="uid://vua4qbjvyuo2" path="res://Sprites/Water end/Water_end_0.png" id="14_8d30y"]
+[ext_resource type="Texture2D" uid="uid://5ilhd3jqsh5k" path="res://Sprites/Water end/Water_end_1.png" id="15_8j70v"]
+[ext_resource type="Texture2D" uid="uid://cjik0p03045wo" path="res://Sprites/Water end/Water_end_2.png" id="16_gj687"]
+[ext_resource type="Texture2D" uid="uid://dc1b6ia0bwekj" path="res://Sprites/Water end/Water_end_3.png" id="17_alou0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1yfo"]
+shader = ExtResource("1_oycdf")
+
+[sub_resource type="Gradient" id="Gradient_r1ojv"]
+offsets = PackedFloat32Array(0, 0.243243, 0.837838, 0.95045, 1)
+colors = PackedColorArray(0.00392157, 0.388235, 0.580392, 1, 0.00392157, 0.388235, 0.580392, 1, 0.0740196, 0.417367, 0.594048, 1, 0.305882, 0.513726, 0.639216, 1, 0.305882, 0.513726, 0.639216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nnbm6"]
+gradient = SubResource("Gradient_r1ojv")
+width = 2000
+height = 2000
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_hu3vg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.560784, 0.764706, 0.858824, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mxbce"]
+gradient = SubResource("Gradient_hu3vg")
+width = 2000
+height = 2000
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ewljt"]
+frames = 4
+frame_0/texture = ExtResource("14_8d30y")
+frame_0/duration = 0.17
+frame_1/texture = ExtResource("15_8j70v")
+frame_1/duration = 0.17
+frame_2/texture = ExtResource("16_gj687")
+frame_2/duration = 0.17
+frame_3/texture = ExtResource("17_alou0")
+frame_3/duration = 0.17
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fbxc"]
 size = Vector2(800, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgqm8"]
+size = Vector2(1080, 540)
+
 [node name="Map" type="Node2D"]
+
+[node name="Underwater" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_m1yfo")
+offset_left = -3000.0
+offset_top = -9250.0
+offset_right = 4000.0
+offset_bottom = 5750.0
+
+[node name="WaterBackground" type="TextureRect" parent="."]
+offset_left = -3000.0
+offset_top = -9250.0
+offset_right = 4000.0
+offset_bottom = 5750.0
+texture = SubResource("GradientTexture2D_nnbm6")
+
+[node name="SkyBackground" type="TextureRect" parent="."]
+offset_left = -3000.0
+offset_top = -24250.0
+offset_right = 4000.0
+offset_bottom = -9250.0
+texture = SubResource("GradientTexture2D_mxbce")
+
+[node name="WaterEndSprite" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = -421.0
+offset_top = -9877.0
+offset_right = 1499.0
+offset_bottom = -8797.0
+texture = SubResource("AnimatedTexture_ewljt")
 
 [node name="ObstaclesBehind" type="Node2D" parent="."]
 
@@ -52,6 +128,19 @@ tile_set = ExtResource("1_2xxus")
 modulate = Color(1, 0, 0, 0.537255)
 tile_map_data = PackedByteArray("AAANAHT/FAAAAAAAAQAOAHT/FAAAAAAAAQAPAHT/FAAAAAAAAQAQAHT/FAAAAAAAAQARAHT/FAAAAAAAAQASAHT/FAAAAAAAAQATAHT/FAAAAAAAAQAUAHT/FAAAAAAAAQAVAHT/FAAAAAAAAQAWAHT/FAAAAAAAAQAXAHT/FAAAAAAAAQAYAHT/FAAAAAAAAQAQAET/FAAAAAAAAQAQAEP/FAAAAAAAAQAQAEL/FAAAAAAAAQAQAEH/FAAAAAAAAQAQAED/FAAAAAAAAQAQAD//FAAAAAAAAQAQAD7/FAAAAAAAAQAQAD3/FAAAAAAAAQAQADz/FAAAAAAAAQAQADv/FAAAAAAAAQAQADr/FAAAAAAAAQAQADn/FAAAAAAAAQAQADj/FAAAAAAAAQAQADf/FAAAAAAAAQAQADb/FAAAAAAAAQAQADX/FAAAAAAAAQAQADT/FAAAAAAAAQAQADP/FAAAAAAAAQAQADL/FAAAAAAAAQAQADH/FAAAAAAAAQAQADD/FAAAAAAAAQAQAC//FAAAAAAAAQAQAC7/FAAAAAAAAQAQAC3/FAAAAAAAAQAQACz/FAAAAAAAAQAQACv/FAAAAAAAAQAgACr/FAAAAAAAAQAgACv/FAAAAAAAAQAgACz/FAAAAAAAAQAgAC3/FAAAAAAAAQAgAC7/FAAAAAAAAQAgAC//FAAAAAAAAQAgADD/FAAAAAAAAQAgADH/FAAAAAAAAQAgADL/FAAAAAAAAQAgADP/FAAAAAAAAQAgADT/FAAAAAAAAQAgADX/FAAAAAAAAQAgADb/FAAAAAAAAQAgADf/FAAAAAAAAQAgADj/FAAAAAAAAQAgADn/FAAAAAAAAQAgADr/FAAAAAAAAQAgADv/FAAAAAAAAQAgADz/FAAAAAAAAQAgAD3/FAAAAAAAAQAgAD7/FAAAAAAAAQAgAD//FAAAAAAAAQAgAED/FAAAAAAAAQAgAEH/FAAAAAAAAQAgAEL/FAAAAAAAAQAgAEP/FAAAAAAAAQAgAET/FAAAAAAAAQAgAEX/FAAAAAAAAQAgAEb/FAAAAAAAAQAaAOr+FAAAAAAAAQAbAOr+FAAAAAAAAQAcAOr+FAAAAAAAAQAdAOr+FAAAAAAAAQAeAOr+FAAAAAAAAQAfAOr+FAAAAAAAAQAgAOr+FAAAAAAAAQAKANT+FAAAAAAAAQALANT+FAAAAAAAAQAMANT+FAAAAAAAAQANANT+FAAAAAAAAQAOANT+FAAAAAAAAQAPANT+FAAAAAAAAQAQANT+FAAAAAAAAQARANT+FAAAAAAAAQASANT+FAAAAAAAAQATANT+FAAAAAAAAQAUANT+FAAAAAAAAQAVANT+FAAAAAAAAQAYALb+FAAAAAAAAQAZALb+FAAAAAAAAQAaALb+FAAAAAAAAQAbALb+FAAAAAAAAQAcALb+FAAAAAAAAQAdALb+FAAAAAAAAQAeALb+FAAAAAAAAQAfALb+FAAAAAAAAQAgALb+FAAAAAAAAQAhALb+FAAAAAAAAQAiALb+FAAAAAAAAQAjALb+FAAAAAAAAQAPAH/+FAAAAAAAAQAPAID+FAAAAAAAAQAPAIH+FAAAAAAAAQAPAIL+FAAAAAAAAQAPAIP+FAAAAAAAAQAPAIT+FAAAAAAAAQAPAIX+FAAAAAAAAQAPAIb+FAAAAAAAAQAPAIf+FAAAAAAAAQAPAIj+FAAAAAAAAQAPAIn+FAAAAAAAAQAPAIr+FAAAAAAAAQAPAIv+FAAAAAAAAQAPAIz+FAAAAAAAAQAPAI3+FAAAAAAAAQAPAI7+FAAAAAAAAQAPAI/+FAAAAAAAAQAPAJD+FAAAAAAAAQAcAH/+FAAAAAAAAQAcAID+FAAAAAAAAQAcAIH+FAAAAAAAAQAcAIL+FAAAAAAAAQAcAIP+FAAAAAAAAQAcAIT+FAAAAAAAAQAcAIX+FAAAAAAAAQAcAIb+FAAAAAAAAQAcAIf+FAAAAAAAAQAcAIj+FAAAAAAAAQAcAIn+FAAAAAAAAQAcAIr+FAAAAAAAAQAcAIv+FAAAAAAAAQAcAIz+FAAAAAAAAQAcAI3+FAAAAAAAAQAcAI7+FAAAAAAAAQAcAI/+FAAAAAAAAQAcAJD+FAAAAAAAAQA=")
 tile_set = ExtResource("1_2xxus")
+
+[node name="CameraTrigger" parent="." instance=ExtResource("10_lytx5")]
+position = Vector2(540, -8139)
+Restrict = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTrigger"]
+shape = SubResource("RectangleShape2D_qgqm8")
+
+[node name="CameraTrigger2" parent="." instance=ExtResource("10_lytx5")]
+position = Vector2(540, -7599)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTrigger2"]
+shape = SubResource("RectangleShape2D_qgqm8")
 
 [node name="Bubbles" type="Node2D" parent="."]
 
@@ -168,3 +257,11 @@ z_index = -1
 position = Vector2(318, 409)
 rotation = 0.47822
 texture = ExtResource("13_g6ja3")
+[node name="WaterEnd" parent="." instance=ExtResource("13_147x8")]
+visible = false
+position = Vector2(540, -9040)
+
+[node name="SkyStart" parent="." instance=ExtResource("13_147x8")]
+visible = false
+position = Vector2(540, -9440)
+Level = 1

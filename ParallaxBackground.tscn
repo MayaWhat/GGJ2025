@@ -1,21 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbeclloli5jdk"]
+[gd_scene load_steps=3 format=3 uid="uid://bbeclloli5jdk"]
 
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="1_7d6tb"]
-[ext_resource type="Texture2D" uid="uid://bu05i12m5pg4s" path="res://Sprites/1x1.png" id="1_wiken"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="2_k6dur"]
 
 [node name="ParallaxBackgrounds" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
-visible = false
-custom_minimum_size = Vector2(20000, 20000)
-offset_left = -10000.0
-offset_top = -10000.0
-offset_right = 10000.0
-offset_bottom = 10000.0
-color = Color(0.414, 0.5336, 0.69, 1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.588235)
@@ -60,12 +50,6 @@ texture = ExtResource("2_k6dur")
 [node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(1340, 88)
 texture = ExtResource("1_7d6tb")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-modulate = Color(0.415686, 0.533333, 0.690196, 1)
-z_index = -50
-scale = Vector2(99999, 99999)
-texture = ExtResource("1_wiken")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
 color = Color(0.509667, 0.495, 0.55, 1)

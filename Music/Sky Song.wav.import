@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgogr3x228r3e"
+path="res://.godot/imported/Sky Song.wav-2ca5713227a05f8ca03460a840fa3289.sample"
+
+[deps]
+
+source_file="res://Music/Sky Song.wav"
+dest_files=["res://.godot/imported/Sky Song.wav-2ca5713227a05f8ca03460a840fa3289.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=352800
+edit/loop_end=-1
+compress/mode=0

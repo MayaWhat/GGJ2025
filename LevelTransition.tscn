@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsjomopypsk4w"]
+
+[ext_resource type="Script" path="res://LevelTransition.cs" id="1_emkie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp4a5"]
+size = Vector2(1080, 400)
+
+[node name="LevelTransition" type="Area2D"]
+script = ExtResource("1_emkie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wp4a5")

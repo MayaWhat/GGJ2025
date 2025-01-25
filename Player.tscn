@@ -1,30 +1,29 @@
-[gd_scene load_steps=33 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=31 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Resource" uid="uid://q37uvfmev6sr" path="res://PlayerStats.tres" id="2_8xwlm"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="3_ccfof"]
 [ext_resource type="AudioStream" uid="uid://bktuh4sihoqs7" path="res://Sounds/733264__arttim__bubble_pop.mp3" id="3_m2tqs"]
-[ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
 [ext_resource type="Texture2D" uid="uid://dwuhcp1i86wwk" path="res://Sprites/ActuallyIdle.png" id="4_03huq"]
 [ext_resource type="Texture2D" uid="uid://cpxy8mnt4enkq" path="res://Sprites/Push_0.png" id="5_0ohok"]
 [ext_resource type="Script" path="res://PlayerVisuals.cs" id="5_xjqmt"]
 [ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
 [ext_resource type="Texture2D" uid="uid://ci20g00e41aqc" path="res://Sprites/Spin.png" id="6_6puop"]
-[ext_resource type="Material" uid="uid://dsguwm5gtgf3" path="res://HitFlashShader.tres" id="6_f5o85"]
+[ext_resource type="Material" path="res://HitFlashShader.tres" id="6_f5o85"]
 [ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="7_jaud1"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
-[ext_resource type="PackedScene" uid="uid://bp68u66emxplq" path="res://BloodParticles.tscn" id="12_56hv5"]
+[ext_resource type="PackedScene" path="res://BloodParticles.tscn" id="12_56hv5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.4
 
-[sub_resource type="Gradient" id="Gradient_4w4u7"]
+[sub_resource type="Gradient" id="Gradient_m54ps"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.837838)
 colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7gxl3"]
-gradient = SubResource("Gradient_4w4u7")
+gradient = SubResource("Gradient_m54ps")
 width = 960
 height = 960
 fill = 1
@@ -91,9 +90,6 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bybua"]
 radius = 22.5056
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipmi0"]
-shader = ExtResource("3_urvy1")
 
 [sub_resource type="Curve" id="Curve_0lhjk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.253731, 1), 0.0, 0.0, 0, 0, Vector2(0.738806, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -204,22 +200,14 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("CircleShape2D_bybua")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 offset = Vector2(0, -150)
+limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.0
 drag_bottom_margin = 0.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
-material = SubResource("ShaderMaterial_ipmi0")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 64

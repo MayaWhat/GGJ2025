@@ -114,34 +114,6 @@ position = Vector2(-2619, 1208)
 [node name="BasicObstacle" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
 position = Vector2(719, -509)
 
-[node name="BasicObstacle5" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(612, -4160)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle6" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(670, -5376)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle7" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(333, -5551)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle8" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(517, -5910)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle9" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(781, -5786)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle10" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(200, -6129)
-scale = Vector2(0.983601, 1.05622)
-
-[node name="BasicObstacle11" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
-position = Vector2(752, -6177)
-scale = Vector2(0.983601, 1.05622)
-
 [node name="MovingObstacle" parent="MapThings/Obstacles" instance=ExtResource("17_skq8p")]
 position = Vector2(1644, 482)
 
@@ -192,6 +164,105 @@ position = Vector2(1005, -2052)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish3/Node"]
 position = Vector2(729, -2126)
+
+[node name="MovingJellfish4" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(557, -4324)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish4"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D5" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish4/Node"]
+position = Vector2(561, -4320)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish4/Node"]
+position = Vector2(830, -4116)
+
+[node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish4/Node"]
+position = Vector2(521, -3917)
+
+[node name="Marker2D4" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish4/Node"]
+position = Vector2(197, -4127)
+
+[node name="MovingJellfish5" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(174, -6093)
+_moveSpeed = 2.0
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish5"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish5/Node"]
+position = Vector2(174, -6093)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish5/Node"]
+position = Vector2(28, -6048)
+
+[node name="MovingJellfish6" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(796, -6143)
+_moveSpeed = 3.0
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish6"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish6/Node"]
+position = Vector2(782, -6136)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish6/Node"]
+position = Vector2(1058, -6077)
+
+[node name="MovingJellfish8" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(814, -5799)
+_moveSpeed = 4.0
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish8"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish8/Node"]
+position = Vector2(821, -5801)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish8/Node"]
+position = Vector2(803, -5617)
+
+[node name="MovingJellfish9" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(256, -5546)
+_moveSpeed = 3.0
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish9"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish9/Node"]
+position = Vector2(267, -5557)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish9/Node"]
+position = Vector2(905, -5453)
+
+[node name="MovingJellfish10" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(881, -5313)
+_moveSpeed = 3.0
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish10"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
+position = Vector2(896, -5311)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish10/Node"]
+position = Vector2(301, -5248)
+
+[node name="MovingJellfish7" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
+position = Vector2(552, -5926)
+_moveSpeed = 0.75
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish7"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish7/Node"]
+position = Vector2(549, -5933)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish7/Node"]
+position = Vector2(340, -5890)
+
+[node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish7/Node"]
+position = Vector2(495, -5799)
 
 [node name="Node" type="Node" parent="MapThings"]
 

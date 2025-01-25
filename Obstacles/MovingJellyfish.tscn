@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://rlqkpa4m3eoy"]
+[gd_scene load_steps=13 format=3 uid="uid://rlqkpa4m3eoy"]
 
+[ext_resource type="Script" path="res://Obstacles/MovingJellyfish.cs" id="1_rpbeu"]
 [ext_resource type="Texture2D" uid="uid://dpioeao5owxmn" path="res://Sprites/JellyFish.png" id="2_a1eg4"]
 [ext_resource type="Shader" path="res://Obstacles/Lightning2.gdshader" id="3_jihi8"]
 [ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="4_ab2u5"]
@@ -31,12 +32,13 @@ shader_parameter/noise2 = SubResource("NoiseTexture2D_scix5")
 size = Vector2(62, 63)
 
 [node name="MovingJellfish" type="Node2D"]
+script = ExtResource("1_rpbeu")
 
 [node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self", "_visuals")]
+unique_name_in_owner = true
 script = ExtResource("5_1rsjj")
 _self = NodePath("..")
 _visuals = NodePath("../Visuals")
-_moveSpeed = 5.0
 
 [node name="Visuals" type="Node2D" parent="."]
 

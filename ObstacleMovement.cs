@@ -1,12 +1,11 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class ObstacleMovement : Node
 {
 	[Export] private Node2D _self;
 	[Export] private Node2D _visuals;
-	[Export] private float _moveSpeed = 10;
+	[Export] public float MoveSpeed { get; set; } = 10;
 
 	private bool _followPath;
 	private ObstaclePath _obstaclePath;
@@ -48,7 +47,7 @@ public partial class ObstacleMovement : Node
 	{
 		if (!_awake || !_followPath || _actualPath.Count == 0) { return; }
 
-		_self.GlobalPosition = _self.GlobalPosition.MoveToward(_actualPath[_currentPathIndex].GlobalPosition, _moveSpeed);
+		_self.GlobalPosition = _self.GlobalPosition.MoveToward(_actualPath[_currentPathIndex].GlobalPosition, MoveSpeed);
 
 		if (_self.GlobalPosition.DistanceTo(_actualPath[_currentPathIndex].GlobalPosition) < 1)
 		{

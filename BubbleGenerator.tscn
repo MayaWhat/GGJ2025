@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ne145iog22tr"]
+
+[ext_resource type="Script" path="res://BubbleGenerator.cs" id="1_lrwy8"]
+[ext_resource type="PackedScene" uid="uid://b7n5mxa6c8xp4" path="res://RandomBubble.tscn" id="2_krcc7"]
+
+[node name="BubbleGenerator" type="Node2D"]
+script = ExtResource("1_lrwy8")
+_bubbleScene = ExtResource("2_krcc7")

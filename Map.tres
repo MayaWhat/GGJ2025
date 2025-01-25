@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=89 format=3 uid="uid://ddgbn8v7v5sh2"]
+[gd_resource type="TileSet" load_steps=89 format=3 uid="uid://djo37pc1p3kxv"]
 
 [ext_resource type="Texture2D" uid="uid://b8yybw5h0iwxb" path="res://Sprites/Water tiles/sand_floor_straight.png" id="1_ixuci"]
 [ext_resource type="Texture2D" uid="uid://c2y6gpgoc1veb" path="res://Sprites/Water tiles/water_ceiling_angle_shallow.png" id="2_52vow"]

@@ -18,6 +18,8 @@ public partial class WindyBit : Area2D
 	private float _minY;
 	private float _maxY;
 
+	private double _trailCooldown = 0;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -57,14 +59,17 @@ public partial class WindyBit : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (GetChildCount() < 3)
+		if (GetChildCount() < 2 || _trailCooldown < 0)
 		{
+			_trailCooldown = 1;
+			_trailCooldown -= delta;
+			
 			var newScene = _windLineScene.Instantiate<WindTrail>();
 			AddChild(newScene);
 			newScene.Direction = Direction;
 
-			var randomX = (GD.Randf() * (_maxX - _minX) + _minX) - 360;
-			var randomY = (GD.Randf() * (_maxY - _minY) + _minY) - 70;
+			var randomX = (GD.Randf() * (_maxX - _minX) + _minX);
+			var randomY = (GD.Randf() * (_maxY - _minY) + _minY);
 
 			newScene.Position = new Vector2(randomX, randomY);
 			var rotateTarget = newScene.GlobalPosition + Direction;

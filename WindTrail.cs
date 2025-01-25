@@ -26,7 +26,7 @@ public partial class WindTrail : Line2D
 	{
 		_path2D = GetNode<Path2D>("Path2D");
 
-		// RandomisePath();
+		RandomisePath();
 
 		for (int i = 0; i < LineSegments + 1; i++)
 		{
@@ -64,14 +64,6 @@ public partial class WindTrail : Line2D
 				pf.ProgressRatio = 1;
 			}
 		}
-
-		// for (int i = 0; i < LineSegments + 1; i++)
-		// {
-		// 	var color = _colourGradient.Sample(Gradient.Offsets[i]);
-		// 	var colorA = color.A * _colourGradient.Sample(_pathFollows[i].ProgressRatio).A;
-
-		// 	Gradient.SetColor(i, new Color(color.R, color.G, color.B, colorA));
-		// }
 
 		if (_pathFollows[0]?.ProgressRatio == 1)
 		{

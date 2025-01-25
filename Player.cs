@@ -45,6 +45,10 @@ public partial class Player : RigidBody2D
 
 	private bool _isPushing = false;
 
+	private bool _isShrimpRotated = false;
+
+	private bool _isShrimpFacingLeft = false;
+
 	[Export] private AudioStream PopSound;
 
 	[Signal]
@@ -60,7 +64,7 @@ public partial class Player : RigidBody2D
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
 		_bubbleCollider = GetNode<CollisionShape2D>("%BubbleCollider");
 		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
-		_light = GetNode<Light2D>("%Light");;
+		_light = GetNode<Light2D>("%Light"); ;
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -89,6 +93,8 @@ public partial class Player : RigidBody2D
 
 		_justChangedBubbleState = true;
 		_bubbleCollider.SetDeferred("disabled", true);
+		_shrimpSprite.Rotation = 0;
+		_isShrimpRotated = false;
 	}
 
 
@@ -107,7 +113,8 @@ public partial class Player : RigidBody2D
 		}
 	}
 
-	public void WindMe(Vector2 direction, float Windiness = 100f) {
+	public void WindMe(Vector2 direction, float Windiness = 100f)
+	{
 		ApplyImpulse(direction * Windiness);
 	}
 
@@ -121,7 +128,7 @@ public partial class Player : RigidBody2D
 			Stats.UpdateCurrentScore((int)score);
 			if (score > Stats.HighScore) { Stats.UpdateHighScore((int)score); }
 			_previousPosition = GlobalPosition;
-		}		
+		}
 	}
 
 	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -151,15 +158,37 @@ public partial class Player : RigidBody2D
 		if (direction.X > 0)
 		{
 			_shrimpSprite.Scale = new Vector2(Math.Abs(_shrimpSprite.Scale.X), _shrimpSprite.Scale.Y);
+			_isShrimpFacingLeft = false;
 		}
 		else if (direction.X < 0)
 		{
 			_shrimpSprite.Scale = new Vector2(-Math.Abs(_shrimpSprite.Scale.X), _shrimpSprite.Scale.Y);
+			_isShrimpFacingLeft = true;
 		}
 
 		if (InBubble)
 		{
 			BubblyMovement(delta, direction);
+
+			if (direction.Y > 0)
+			{
+				if (_isShrimpFacingLeft)
+				{
+					_shrimpSprite.Rotation = 0;
+					_shrimpSprite.Rotate(1.5708f * 3);
+				}
+				else
+				{
+					_shrimpSprite.Rotation = 0;
+					_shrimpSprite.Rotate(1.5708f);
+				}
+			}
+			else if (direction.Y <= 0)
+			{
+				_shrimpSprite.Rotation = 0;
+				_isShrimpRotated = false;
+			}
+
 		}
 		else
 		{
@@ -218,15 +247,18 @@ public partial class Player : RigidBody2D
 
 		_bubbleSprite.Scale = new Vector2(1 + Math.Abs(shrimpFactorX) / 100, 1 + Math.Abs(shrimpFactorY) / 100);
 
-		if (InBubble && direction.Length() > 0) {
-			if (!_isPushing) {
+		if (InBubble && direction.Length() > 0)
+		{
+			if (!_isPushing)
+			{
 				_animationPlayer.Play("Push");
 				_isPushing = true;
 			}
 		}
-		else {
+		else
+		{
 			_isPushing = false;
-			_animationPlayer.Stop();
+			_animationPlayer.Play("RESET");
 		}
 
 		//GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y + " DirectionY: " + direction.Y);

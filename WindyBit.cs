@@ -12,9 +12,11 @@ public partial class WindyBit : Area2D
 
 	[Export] private CollisionShape2D _collisionShape;
 
-	private float _width;
+	private float _minX;
+	private float _maxX;
 
-	private float _height;
+	private float _minY;
+	private float _maxY;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -22,8 +24,18 @@ public partial class WindyBit : Area2D
 		AreaEntered += OnAreaEntered;
 		AreaExited += OnAreaExited;
 
-		_width = (_collisionShape.Shape as RectangleShape2D).Size.X;
-		_height = (_collisionShape.Shape as RectangleShape2D).Size.Y;
+		var rectangle = _collisionShape.Shape as RectangleShape2D;
+
+		var width = rectangle.Size.X;
+		var height = rectangle.Size.Y;
+
+		var x = _collisionShape.Position.X;
+		_minX = x - width / 2;
+		_maxX = x + width / 2;
+
+		var y = _collisionShape.Position.Y;
+		_minY = y - height / 2;
+		_maxY = y + height / 2;
 	}
 
 	private void OnAreaEntered(Area2D area)
@@ -50,13 +62,9 @@ public partial class WindyBit : Area2D
 			var newScene = _windLineScene.Instantiate<WindTrail>();
 			AddChild(newScene);
 			newScene.Direction = Direction;
-			var minX = -_width / 2;
-			var maxX = _width / 2;
-			var randomX = GD.Randf() * (maxX - minX) + minX;
 
-			var minY = -_height / 2;
-			var maxY = _height / 2;
-			var randomY = GD.Randf() * (maxY - minY) + minY;
+			var randomX = (GD.Randf() * (_maxX - _minX) + _minX);
+			var randomY = (GD.Randf() * (_maxY - _minY) + _minY);
 
 			newScene.Position = new Vector2(randomX, randomY);
 		}

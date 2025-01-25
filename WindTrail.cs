@@ -26,7 +26,7 @@ public partial class WindTrail : Line2D
 	{
 		_path2D = GetNode<Path2D>("Path2D");
 
-		RandomisePath();
+		// RandomisePath();
 
 		for (int i = 0; i < LineSegments + 1; i++)
 		{
@@ -82,7 +82,7 @@ public partial class WindTrail : Line2D
 
 		foreach (var pf in _pathFollows)
 		{
-			AddPoint(pf.GlobalPosition);
+			AddPoint(pf.Position);
 		}
 	}
 

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=93 format=3 uid="uid://djo37pc1p3kxv"]
+[gd_resource type="TileSet" load_steps=95 format=3 uid="uid://djo37pc1p3kxv"]
 
 [ext_resource type="Texture2D" uid="uid://b8yybw5h0iwxb" path="res://Sprites/Water tiles/sand_floor_straight.png" id="1_ixuci"]
 [ext_resource type="Texture2D" uid="uid://c2y6gpgoc1veb" path="res://Sprites/Water tiles/water_ceiling_angle_shallow.png" id="2_52vow"]
@@ -284,12 +284,20 @@ texture_region_size = Vector2i(24, 48)
 0:0/0/texture_origin = Vector2i(0, -12)
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_onxui")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5xb8m"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_624t6"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tcbco"]
 texture = ExtResource("7_mv6rj")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_5xb8m")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_624t6")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qmgin"]

@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbeclloli5jdk"]
+[gd_scene load_steps=4 format=3 uid="uid://bbeclloli5jdk"]
 
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="1_7d6tb"]
+[ext_resource type="Texture2D" uid="uid://bu05i12m5pg4s" path="res://Sprites/1x1.png" id="1_wiken"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="2_k6dur"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackgrounds" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
 visible = false
 custom_minimum_size = Vector2(20000, 20000)
 offset_left = -10000.0
@@ -14,46 +17,86 @@ offset_right = 10000.0
 offset_bottom = 10000.0
 color = Color(0.414, 0.5336, 0.69, 1)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.588235)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(162, 247)
 texture = ExtResource("1_7d6tb")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(1176, 112)
 scale = Vector2(2, 2)
 texture = ExtResource("1_7d6tb")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(581, 644)
 scale = Vector2(3, 3)
 texture = ExtResource("2_k6dur")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.176471)
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(1920, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(1257, 576)
 texture = ExtResource("1_7d6tb")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(900, 294)
 texture = ExtResource("2_k6dur")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(169, 589)
 texture = ExtResource("1_7d6tb")
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(303, 182)
 texture = ExtResource("2_k6dur")
 
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(1340, 88)
 texture = ExtResource("1_7d6tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(0.415686, 0.533333, 0.690196, 1)
+z_index = -50
+scale = Vector2(99999, 99999)
+texture = ExtResource("1_wiken")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0.509667, 0.495, 0.55, 1)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+modulate = Color(0, 0, 0, 1)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(1920, 5000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(1450, 198)
+texture = ExtResource("1_7d6tb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(1122, 4011)
+texture = ExtResource("1_7d6tb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(575, 700)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7d6tb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(1496, 1390)
+scale = Vector2(3, 3)
+texture = ExtResource("2_k6dur")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(527, 2659)
+scale = Vector2(3, 3)
+texture = ExtResource("2_k6dur")

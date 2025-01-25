@@ -5,11 +5,19 @@ public partial class ComplexShark : Node2D
 {
 	private Node2D _visuals;
 
+	private Node2D _playerPopper;
+
 	private bool _awake = false;
+
+	private bool _retreating = false;
+
+	private Vector2 _startingPosition;
 	public override void _Ready()
 	{
 		CallDeferred(nameof(LateInit));
 		_visuals = GetNode<Node2D>("%Visuals");
+		_playerPopper = GetNode<Node2D>("%PlayerPopper");
+		_startingPosition = Position;
 	}
 
 	private void LateInit()
@@ -26,6 +34,8 @@ public partial class ComplexShark : Node2D
 
 	private void OnWakeUp()
 	{
+		GD.Print("Wake");
+
 		_visuals.Visible = true;
 		_awake = true;
 	}
@@ -33,10 +43,44 @@ public partial class ComplexShark : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (_awake)
+		if (!_awake) return;
+
+		if (!_retreating && Player.Instance.InBubble)
 		{
-			Position = Position.MoveToward(Player.Instance.Position, 20);
-			LookAt(Player.Instance.GlobalPosition);
+			if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 600f)
+			{
+				Position = Position.MoveToward(Player.Instance.Position, 20);
+			}
+			else
+			{
+				Position = Position.MoveToward(Player.Instance.Position, 5);
+			}
+			_visuals.LookAt(Player.Instance.GlobalPosition);
+			_playerPopper.LookAt(Player.Instance.GlobalPosition);
+
+			if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 5000f) {
+				Chill();
+			}
 		}
+		else
+		{
+			if ((_startingPosition - Position).Length() < 1)
+			{
+				_visuals.Visible = false;
+				_retreating = false;
+				_awake = false;
+			}
+			else
+			{
+				Position = Position.MoveToward(_startingPosition, 5);
+				_visuals.LookAt(_startingPosition);
+				_playerPopper.LookAt(_startingPosition);
+			}
+		}
+	}
+
+	public void Chill()
+	{
+		_retreating = true;
 	}
 }

@@ -6,7 +6,7 @@ public partial class PlayerPopper : Area2D
 	{
 		AreaEntered += OnAreaEntered;
 	}
-	
+
 	public void TogglePopping(bool toggle)
 	{
 		Monitoring = toggle;
@@ -18,6 +18,11 @@ public partial class PlayerPopper : Area2D
 		if (area.GetParent() is Player player)
 		{
 			player.PopMe();
+
+			if (GetParent() is ComplexShark shark)
+			{
+				shark.Chill();
+			}
 		}
 	}
 }

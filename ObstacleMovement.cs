@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 
 public partial class ObstacleMovement : Node
@@ -10,6 +11,7 @@ public partial class ObstacleMovement : Node
 	private ObstaclePath _obstaclePath;
 	private List<Marker2D> _actualPath = new List<Marker2D>();
 	private int _currentPathIndex;
+	private bool _awake;
 
 	public override void _Ready()
 	{
@@ -26,14 +28,25 @@ public partial class ObstacleMovement : Node
 				_obstaclePath = path;
 				_actualPath = _obstaclePath.Path;
 				_followPath = true;
-				break;
+				continue;
+			}
+
+			if (child is Waker waker)
+			{
+				_awake = false;
+				waker.WakeUp += OnWakeUp;
 			}
 		}
 	}
 
+	private void OnWakeUp()
+	{
+		_awake = true;
+	}
+
 	public override void _Process(double delta)
 	{
-		if (!_followPath || _actualPath.Count == 0) { return; }
+		if (!_awake || !_followPath || _actualPath.Count == 0) { return; }
 
 		_self.GlobalPosition = _self.GlobalPosition.MoveToward(_actualPath[_currentPathIndex].GlobalPosition, 10);
 

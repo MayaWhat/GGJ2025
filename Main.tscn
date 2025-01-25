@@ -62,7 +62,7 @@ position = Vector2(1087, 632)
 [node name="Area2D" parent="MapThings/ObstaclesBehind/SimpleShark" instance=ExtResource("3_liwuf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/SimpleShark/Area2D"]
-position = Vector2(673, -42)
+position = Vector2(673, 124)
 shape = SubResource("RectangleShape2D_2gjhq")
 
 [node name="ComplexShark" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]

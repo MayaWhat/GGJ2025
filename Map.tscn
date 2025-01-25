@@ -59,6 +59,7 @@ offset_right = 4000.0
 offset_bottom = 5750.0
 
 [node name="WaterBackground" type="TextureRect" parent="."]
+z_index = -1
 offset_left = -3000.0
 offset_top = -9250.0
 offset_right = 4000.0
@@ -66,6 +67,7 @@ offset_bottom = 5750.0
 texture = SubResource("GradientTexture2D_nnbm6")
 
 [node name="SkyBackground" type="TextureRect" parent="."]
+z_index = -1
 offset_left = -3000.0
 offset_top = -24250.0
 offset_right = 4000.0
@@ -73,6 +75,7 @@ offset_bottom = -9250.0
 texture = SubResource("GradientTexture2D_mxbce")
 
 [node name="WaterEndSprite" type="TextureRect" parent="."]
+z_index = -1
 custom_minimum_size = Vector2(1920, 1080)
 offset_left = -421.0
 offset_top = -9877.0

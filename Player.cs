@@ -95,6 +95,7 @@ public partial class Player : RigidBody2D
 		_bubbleCollider.SetDeferred("disabled", true);
 		_shrimpSprite.Rotation = 0;
 		_isShrimpRotated = false;
+		GetNode<GpuParticles2D>("%PopParticles").Emitting = true;
 	}
 
 

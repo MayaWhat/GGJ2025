@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://tlakdf60300t"]
+[gd_scene load_steps=13 format=3 uid="uid://bpbclevq4mh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyqetmwlspoco" path="res://Sprites/Bubbles.png" id="1_jiveu"]
 [ext_resource type="Script" path="res://BubbleStream.cs" id="1_ld6l4"]
 [ext_resource type="AudioStream" uid="uid://hf3hqoixwsmv" path="res://Sounds/539820__ristooooo1__bubbles-003.wav" id="3_ha0ys"]
+[ext_resource type="Texture2D" uid="uid://b713o23mpmidt" path="res://Sprites/Clam.png" id="4_kjvev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpr86"]
 size = Vector2(14, 27)
@@ -71,6 +72,10 @@ fill_to = Vector2(0.854701, 0.884615)
 [node name="BubbleStream" type="Area2D"]
 position = Vector2(298, 475)
 script = ExtResource("1_ld6l4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, -43)
+texture = ExtResource("4_kjvev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -10.5)

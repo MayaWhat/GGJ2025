@@ -89,6 +89,10 @@ public partial class Player : RigidBody2D
 		}
 	}
 
+	public void WindMe(Vector2 direction, float Windiness = 100f) {
+		ApplyImpulse(direction * Windiness);
+	}
+
 	private Vector2 LastPosition = new Vector2();
 
 	public override void _Process(double delta)

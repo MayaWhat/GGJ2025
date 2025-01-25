@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2wehd0gkkfqi"]
+[gd_scene load_steps=8 format=3 uid="uid://b2wehd0gkkfqi"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_8m3vn"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="1_n0e8i"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="3_y4uwi"]
+[ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="4_2ycry"]
+[ext_resource type="PackedScene" path="res://ParallaxBackground.tscn" id="5_v4uf7"]
+[ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="6_f8xq0"]
+[ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_7eskk"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_n0e8i")]
 
 [node name="Player" parent="." instance=ExtResource("1_8m3vn")]
-position = Vector2(940, 844)
+position = Vector2(415, 981)
+
+[node name="UI" parent="." instance=ExtResource("3_y4uwi")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_2ycry")]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_v4uf7")]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_f8xq0")
+autoplay = true
+
+[node name="WindyBit" parent="." instance=ExtResource("7_7eskk")]
+position = Vector2(247, 551)

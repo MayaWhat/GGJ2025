@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Obstacles/SimpleShark.cs" id="1_4i2oa"]
 [ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="1_ngn7g"]
-[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="2_hu5we"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_hu5we"]
 [ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="2_jvy5l"]
 [ext_resource type="Script" path="res://ObstacleMovement.cs" id="3_q26s8"]
 

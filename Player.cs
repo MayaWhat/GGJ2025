@@ -42,6 +42,8 @@ public partial class Player : RigidBody2D
 
 	private Light2D _light;
 
+	private Camera2D _camera;
+
 	private bool _justChangedBubbleState = false;
 
 	private bool _isPushing = false;
@@ -80,6 +82,7 @@ public partial class Player : RigidBody2D
 		_bubbleCollider = GetNode<CollisionShape2D>("%BubbleCollider");
 		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
 		_light = GetNode<Light2D>("%Light");
+		_camera = GetNode<Camera2D>("%Camera2D");
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -146,6 +149,19 @@ public partial class Player : RigidBody2D
 	public void LevelTransition(int level)
 	{
 		EmitSignal(SignalName.NewLevel, level);
+	}
+
+	public void RestrictCamera()
+	{
+		_camera.LimitLeft = -420;
+		_camera.LimitRight = 1500;
+	}
+
+	public void FreeCamera()
+	{
+		_camera.LimitLeft = -10000000;
+		_camera.LimitRight = 10000000;
+
 	}
 
 	public void WindMe(Vector2 direction, float Windiness = 100f)

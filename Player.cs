@@ -89,6 +89,7 @@ public partial class Player : RigidBody2D
 
 		_justChangedBubbleState = true;
 		_bubbleCollider.SetDeferred("disabled", true);
+		GetNode<GpuParticles2D>("%PopParticles").Emitting = true;
 	}
 
 

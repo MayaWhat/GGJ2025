@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7n5mxa6c8xp4"]
+
+[ext_resource type="Script" path="res://RandomBubble.cs" id="1_2eyax"]
+[ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="1_yjjww"]
+[ext_resource type="AudioStream" uid="uid://bktuh4sihoqs7" path="res://Sounds/733264__arttim__bubble_pop.mp3" id="2_7s2bv"]
+[ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="4_xlcha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7fkb"]
+radius = 45.0
+
+[node name="Bubble" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_2eyax")
+_popSound = ExtResource("2_7s2bv")
+_speed = -50.0
+_scaleGrowSpeed = 0.1
+_alphaDecreaseSpeed = 0.05
+_timeToPop = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_yjjww")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e7fkb")
+
+[node name="PopParticles" parent="." instance=ExtResource("4_xlcha")]
+unique_name_in_owner = true

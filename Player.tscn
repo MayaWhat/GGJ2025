@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=19 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Resource" path="res://PlayerStats.tres" id="2_8xwlm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpxy8mnt4enkq" path="res://Sprites/Push_0.png" id="5_0ohok"]
 [ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
+[ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="7_jaud1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.5
@@ -205,3 +206,5 @@ unique_name_in_owner = true
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_3tdi2")
 disabled = true
+[node name="PopParticles" parent="." instance=ExtResource("7_jaud1")]
+unique_name_in_owner = true

@@ -1,17 +1,18 @@
-[gd_scene load_steps=14 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=15 format=4 uid="uid://cg5ama6va7uuy"]
 
-[ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
+[ext_resource type="TileSet" uid="uid://cvi2qx8sxnt1l" path="res://Map.tres" id="1_2xxus"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="2_6swae"]
-[ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="3_af0mc"]
+[ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="3_qjf88"]
-[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_sk3ok"]
-[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="3_xu4se"]
+[ext_resource type="PackedScene" path="res://Waker.tscn" id="3_sk3ok"]
+[ext_resource type="PackedScene" uid="uid://b07yf6mn4kl7w" path="res://BubbleGenerator.tscn" id="3_xu4se"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://Obstacles/BasicMovingPoppingObsatcle.tscn" id="7_l43ht"]
-[ext_resource type="PackedScene" uid="uid://e1r5vh1oqpor" path="res://Obstacles/SimpleShark.tscn" id="8_d45xm"]
+[ext_resource type="PackedScene" path="res://Obstacles/SimpleShark.tscn" id="8_d45xm"]
 [ext_resource type="Texture2D" uid="uid://6awnedlp82qs" path="res://Sprites/sandcastle.png" id="9_qppj4"]
 [ext_resource type="Texture2D" uid="uid://d16pj7bj5rllk" path="res://Sprites/plant1.png" id="10_mhdwi"]
 [ext_resource type="Texture2D" uid="uid://6loga1gx5mv4" path="res://Sprites/BigSeaweed.png" id="11_xro5f"]
+[ext_resource type="Texture2D" uid="uid://ccska72m8bao3" path="res://Sprites/Sign.png" id="13_g6ja3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fbxc"]
 size = Vector2(800, 20)
@@ -161,3 +162,9 @@ position = Vector2(92, 375)
 rotation = 0.153589
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_xro5f")
+
+[node name="SharkSign" type="Sprite2D" parent="Node"]
+z_index = -1
+position = Vector2(318, 409)
+rotation = 0.47822
+texture = ExtResource("13_g6ja3")

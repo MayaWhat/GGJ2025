@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_liwuf"]
+[ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
 [ext_resource type="Script" path="res://Waker.cs" id="5_12cdt"]
@@ -260,12 +260,11 @@ position = Vector2(94, 1022)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_mlwr1")]
 
-[node name="ParallaxBackground" parent="." node_paths=PackedStringArray("_player", "_applyTo") instance=ExtResource("7_12sfj")]
+[node name="ParallaxBackground" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("7_12sfj")]
 _player = NodePath("../Player")
 _bottom = 4000
 _top = -9520
 _threshold = 2000.0
-_applyTo = []
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6cu4d")

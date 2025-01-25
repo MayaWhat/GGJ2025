@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1bhgjfeujlbw"]
 
-[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="1_jd4k7"]
-[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_bfowu"]
+[ext_resource type="Texture2D" uid="uid://dpioeao5owxmn" path="res://Sprites/JellyFish.png" id="1_to62h"]
+[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="2_bfowu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
 size = Vector2(62, 63)
@@ -9,9 +9,8 @@ size = Vector2(62, 63)
 [node name="BasicPoppingObstacle" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_jd4k7")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_to62h")
 
 [node name="PlayerPopper" parent="." instance=ExtResource("2_bfowu")]
 

@@ -34,7 +34,6 @@ size = Vector2(1040, 40)
 
 [node name="SimpleShark" parent="ObstaclesBehind" instance=ExtResource("8_d45xm")]
 position = Vector2(-182, 608)
-script = null
 
 [node name="Path" type="Node" parent="ObstaclesBehind/SimpleShark"]
 script = ExtResource("4_4hex5")
@@ -53,9 +52,10 @@ position = Vector2(673, -42)
 shape = SubResource("RectangleShape2D_3fbxc")
 
 [node name="ComplexShark" parent="ObstaclesBehind" instance=ExtResource("4_phpjm")]
-position = Vector2(516, -2489)
+position = Vector2(502, -2489)
 
 [node name="Area2D" type="Area2D" parent="ObstaclesBehind/ComplexShark"]
+position = Vector2(5, 5)
 script = ExtResource("5_iogfs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclesBehind/ComplexShark/Area2D"]

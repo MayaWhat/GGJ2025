@@ -49,6 +49,10 @@ public partial class Player : RigidBody2D
 
 	private bool _isShrimpFacingLeft = false;
 
+	private bool _isStunned = false;
+
+	private double _stuntimer = 0;
+
 	[Export] private AudioStream PopSound;
 
 	[Signal]
@@ -93,11 +97,14 @@ public partial class Player : RigidBody2D
 
 		_justChangedBubbleState = true;
 		_bubbleCollider.SetDeferred("disabled", true);
+
 		_shrimpSprite.Rotation = 0;
 		_isShrimpRotated = false;
 		GetNode<GpuParticles2D>("%PopParticles").Emitting = true;
 
 		_animationPlayer.Play("Falling");
+		_isStunned = true;
+		_stuntimer = 2;
 	}
 
 
@@ -132,6 +139,13 @@ public partial class Player : RigidBody2D
 			if (score > Stats.HighScore) { Stats.UpdateHighScore((int)score); }
 			_previousPosition = GlobalPosition;
 		}
+
+		if (_isStunned) {
+			_stuntimer -= delta;
+			if (_stuntimer < 0) {
+				_isStunned = false;
+			}
+		}
 	}
 
 	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -153,10 +167,14 @@ public partial class Player : RigidBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		var direction = new Vector2();
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("left", "right", "up", "down");
+		if (!_isStunned)
+		{
+			// Get the input direction and handle the movement/deceleration.
+			// As good practice, you should replace UI actions with custom gameplay actions.
+			direction = Input.GetVector("left", "right", "up", "down");
+		}
 
 		if (direction.X > 0)
 		{
@@ -228,7 +246,7 @@ public partial class Player : RigidBody2D
 		if (direction.Y > 0)
 		{
 			// Down
-			ApplyImpulse(new Vector2(0, direction.Y) * 5);
+			ApplyImpulse(new Vector2(0, direction.Y) * 4);
 		}
 		else if (direction.Y < 0 && LinearVelocity.Y > MaxBubbleVelocityY)
 		{
@@ -239,7 +257,7 @@ public partial class Player : RigidBody2D
 		// Left right
 		if ((direction.X < 0 && LinearVelocity.X > -MaxBubbleVelocityX) || (direction.X > 0 && LinearVelocity.X < MaxBubbleVelocityX))
 		{
-			ApplyImpulse(new Vector2(direction.X, 0) * 5);
+			ApplyImpulse(new Vector2(direction.X, 0) * 3);
 		}
 
 		var shrimpFactorX = Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1);

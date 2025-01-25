@@ -47,7 +47,7 @@ public partial class ComplexShark : Node2D
 
 		if (!_retreating && Player.Instance.InBubble)
 		{
-			if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 600f)
+			if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 500f)
 			{
 				Position = Position.MoveToward(Player.Instance.Position, 20);
 			}
@@ -58,7 +58,7 @@ public partial class ComplexShark : Node2D
 			_visuals.LookAt(Player.Instance.GlobalPosition);
 			_playerPopper.LookAt(Player.Instance.GlobalPosition);
 
-			if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 5000f) {
+			if ((GlobalPosition - _startingPosition).Length() > 5000f) {
 				Chill();
 			}
 		}
@@ -72,7 +72,7 @@ public partial class ComplexShark : Node2D
 			}
 			else
 			{
-				Position = Position.MoveToward(_startingPosition, 5);
+				Position = Position.MoveToward(_startingPosition, 20);
 				_visuals.LookAt(_startingPosition);
 				_playerPopper.LookAt(_startingPosition);
 			}

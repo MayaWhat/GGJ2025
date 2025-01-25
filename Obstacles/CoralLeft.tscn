@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://xnb3r8lgx6yi"]
+[gd_scene load_steps=3 format=3 uid="uid://tshooslggarb"]
 
 [ext_resource type="Texture2D" uid="uid://dwjfit0skio5l" path="res://Sprites/coral.png" id="1_qplyq"]
 [ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_ic7l3"]

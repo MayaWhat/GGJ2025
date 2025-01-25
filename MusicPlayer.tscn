@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://de44ds81uo03k"]
+[gd_scene load_steps=7 format=3 uid="uid://de44ds81uo03k"]
 
 [ext_resource type="AudioStream" uid="uid://bnhqnxb6dagxb" path="res://Music/Water Level This.wav" id="1_scfbg"]
 [ext_resource type="AudioStream" uid="uid://b6wlnprncbipa" path="res://Music/Water Falling.wav" id="2_d04f0"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="2_m1350"]
 [ext_resource type="AudioStream" uid="uid://bgogr3x228r3e" path="res://Music/Sky Song.wav" id="3_n1g13"]
+[ext_resource type="AudioStream" uid="uid://b14pg1p5jswfn" path="res://Music/Space.wav" id="4_67vck"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_s1uab"]
-clip_count = 3
+clip_count = 4
 clip_0/name = &"Water"
 clip_0/stream = ExtResource("1_scfbg")
 clip_0/auto_advance = 0
@@ -16,6 +17,9 @@ clip_1/auto_advance = 0
 clip_2/name = &"Sky"
 clip_2/stream = ExtResource("3_n1g13")
 clip_2/auto_advance = 0
+clip_3/name = &"Space"
+clip_3/stream = ExtResource("4_67vck")
+clip_3/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1,
@@ -24,6 +28,12 @@ Vector2i(0, 1): {
 "to_time": 1
 },
 Vector2i(0, 2): {
+"fade_beats": 1,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 3): {
 "fade_beats": 1,
 "fade_mode": 2,
 "from_time": 0,
@@ -41,6 +51,12 @@ Vector2i(1, 2): {
 "from_time": 0,
 "to_time": 2
 },
+Vector2i(1, 3): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 2
+},
 Vector2i(2, 0): {
 "fade_beats": 1,
 "fade_mode": 2,
@@ -48,6 +64,12 @@ Vector2i(2, 0): {
 "to_time": 1
 },
 Vector2i(2, 1): {
+"fade_beats": 1,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(2, 3): {
 "fade_beats": 1,
 "fade_mode": 2,
 "from_time": 0,

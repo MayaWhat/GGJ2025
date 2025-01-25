@@ -3,6 +3,8 @@ using Godot;
 
 public partial class Player : RigidBody2D
 {
+	public static Player Instance  { get; private set; }
+
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
 
@@ -60,7 +62,7 @@ public partial class Player : RigidBody2D
 
 	private float _windSpeed;
 
-	private bool _isWindy = false;
+	private bool _isWindy = false;	
 
 	[Export] private AudioStream PopSound;
 	[Export] private PackedScene _bloodParticlesScene;
@@ -76,6 +78,8 @@ public partial class Player : RigidBody2D
 
 	public override void _Ready()
 	{
+		Instance = this;
+
 		_originalPosition = GlobalPosition;
 		_bubbleSprite = GetNode<Sprite2D>("%BubbleSprite");
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
@@ -266,7 +270,8 @@ public partial class Player : RigidBody2D
 			StillMovement(delta, direction);
 		}
 
-		if (_isWindy) {
+		if (_isWindy)
+		{
 			ApplyImpulse(_windDirection * _windSpeed);
 		}
 

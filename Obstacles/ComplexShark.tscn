@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://btu62sujjwtjy"]
+
+[ext_resource type="Script" path="res://Obstacles/ComplexShark.cs" id="1_2va5y"]
+[ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="2_yo7c3"]
+[ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="3_eqeof"]
+[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="4_878lj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n23ja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yo7c3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eqeof")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnnn6"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7, 7, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -0.05, 0)
+spread = 57.162
+initial_velocity_min = 141.45
+initial_velocity_max = 174.34
+gravity = Vector3(0, 500, 0)
+scale_min = 7.58
+scale_max = 10.87
+color = Color(0.82, 0.1148, 0.1148, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4ku0"]
+radius = 35.0
+height = 318.0
+
+[node name="ComplexShark" type="Node2D"]
+script = ExtResource("1_2va5y")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_n23ja")
+animation = &"new_animation"
+autoplay = "new_animation"
+speed_scale = 2.0
+
+[node name="BloodParticles" type="GPUParticles2D" parent="Visuals"]
+position = Vector2(129, 20)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_vnnn6")
+lifetime = 4.0
+
+[node name="PlayerPopper" parent="." instance=ExtResource("4_878lj")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPopper"]
+position = Vector2(7, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f4ku0")

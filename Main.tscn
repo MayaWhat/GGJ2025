@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="3_jl7uj"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
-[ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
+[ext_resource type="PackedScene" path="res://ParallaxBackground.tscn" id="7_12sfj"]
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
@@ -50,5 +50,4 @@ position = Vector2(90, -20)
 shape = SubResource("RectangleShape2D_hm0rv")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
-[connection signal="NewLevel" from="Player" to="MusicPlayer" method="ChangeLevel"]
 [connection signal="Popped" from="Player" to="MusicPlayer" method="Popped"]

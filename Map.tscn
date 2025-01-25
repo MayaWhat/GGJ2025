@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="1_oycdf"]
-[ext_resource type="PackedScene" path="res://CameraTrigger.tscn" id="10_lytx5"]
-[ext_resource type="PackedScene" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="PackedScene" uid="uid://by6pj1gppsbu5" path="res://CameraTrigger.tscn" id="10_lytx5"]
+[ext_resource type="PackedScene" uid="uid://dsjomopypsk4w" path="res://LevelTransition.tscn" id="13_147x8"]
 [ext_resource type="Texture2D" uid="uid://vua4qbjvyuo2" path="res://Sprites/Water end/Water_end_0.png" id="14_8d30y"]
 [ext_resource type="Texture2D" uid="uid://5ilhd3jqsh5k" path="res://Sprites/Water end/Water_end_1.png" id="15_8j70v"]
 [ext_resource type="Texture2D" uid="uid://cjik0p03045wo" path="res://Sprites/Water end/Water_end_2.png" id="16_gj687"]

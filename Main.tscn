@@ -1,17 +1,17 @@
 [gd_scene load_steps=32 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
-[ext_resource type="PackedScene" uid="uid://e1r5vh1oqpor" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
+[ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_liwuf"]
-[ext_resource type="PackedScene" path="res://MusicPlayer.tscn" id="3_mlwr1"]
-[ext_resource type="PackedScene" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
+[ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
+[ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
+[ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
 [ext_resource type="Script" path="res://Waker.cs" id="5_12cdt"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
 [ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
-[ext_resource type="PackedScene" path="res://WindyBit.tscn" id="7_i5qrp"]
+[ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
 [ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="13_py65l"]
 [ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="15_31wra"]
@@ -233,7 +233,11 @@ position = Vector2(94, 1022)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_mlwr1")]
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("7_12sfj")]
+[node name="ParallaxBackground" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("7_12sfj")]
+_player = NodePath("../Player")
+_bottom = 4000
+_top = -9520
+_threshold = 2000.0
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6cu4d")

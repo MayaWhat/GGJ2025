@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tlakdf60300t"]
+[gd_scene load_steps=12 format=3 uid="uid://tlakdf60300t"]
 
 [ext_resource type="Texture2D" uid="uid://cyqetmwlspoco" path="res://Sprites/Bubbles.png" id="1_jiveu"]
 [ext_resource type="Script" path="res://BubbleStream.cs" id="1_ld6l4"]
@@ -55,6 +55,19 @@ _data = {
 "RESET": SubResource("Animation_mo3i6")
 }
 
+[sub_resource type="Gradient" id="Gradient_4w4u7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.837838)
+colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8n7un"]
+gradient = SubResource("Gradient_4w4u7")
+width = 960
+height = 960
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.854701, 0.884615)
+
 [node name="BubbleStream" type="Area2D"]
 position = Vector2(298, 475)
 script = ExtResource("1_ld6l4")
@@ -86,3 +99,14 @@ volume_db = -10.0
 autoplay = true
 max_distance = 576.0
 bus = &"SoundEffects"
+
+[node name="Light" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-5, -44)
+scale = Vector2(1, 3)
+energy = 0.5
+range_layer_min = -100
+range_layer_max = 100
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_8n7un")
+texture_scale = 0.5

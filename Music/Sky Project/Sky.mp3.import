@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di0w5y61clmfd"
+path="res://.godot/imported/Sky.mp3-41cb6a26512dddde49df5d2330426c8e.mp3str"
+
+[deps]
+
+source_file="res://Music/Sky Project/Sky.mp3"
+dest_files=["res://.godot/imported/Sky.mp3-41cb6a26512dddde49df5d2330426c8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

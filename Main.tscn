@@ -2,20 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="AudioStream" uid="uid://br4na6uvpdqq3" path="res://Music/Adventure Project/Adventure.wav" id="3_jfqhm"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
-[ext_resource type="AudioStream" uid="uid://d4aqsosveijgi" path="res://Music/Adventure Interrupted Project/Adventure Interrupted.wav" id="5_x3nc4"]
+[ext_resource type="AudioStream" uid="uid://bnhqnxb6dagxb" path="res://Music/Water Level This.wav" id="5_crax4"]
+[ext_resource type="AudioStream" uid="uid://b6wlnprncbipa" path="res://Music/Water Falling.wav" id="6_s6qe6"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
 [ext_resource type="PackedScene" path="res://ParallaxBackground.tscn" id="7_12sfj"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vpycc"]
 clip_count = 2
 clip_0/name = &"Adventure"
-clip_0/stream = ExtResource("3_jfqhm")
+clip_0/stream = ExtResource("5_crax4")
 clip_0/auto_advance = 0
 clip_1/name = &"Interrupted"
-clip_1/stream = ExtResource("5_x3nc4")
+clip_1/stream = ExtResource("6_s6qe6")
 clip_1/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {

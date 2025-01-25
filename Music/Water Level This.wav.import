@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnhqnxb6dagxb"
+path="res://.godot/imported/Water Level This.wav-9bb11137df83ecbdbc1f60cda6420b62.sample"
+
+[deps]
+
+source_file="res://Music/Water Level This.wav"
+dest_files=["res://.godot/imported/Water Level This.wav-9bb11137df83ecbdbc1f60cda6420b62.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

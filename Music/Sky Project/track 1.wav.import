@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drt2htexsbvwy"
+path="res://.godot/imported/track 1.wav-e9c92a00467553caa0ec961d55a2a89c.sample"
+
+[deps]
+
+source_file="res://Music/Sky Project/track 1.wav"
+dest_files=["res://.godot/imported/track 1.wav-e9c92a00467553caa0ec961d55a2a89c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

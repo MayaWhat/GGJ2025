@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bn2k6vf215afu"
+path="res://.godot/imported/track 1.wav-35fb30021c50f6ef08c6e033048c3ad5.sample"
+
+[deps]
+
+source_file="res://Music/Sky Interrupted Project/track 1.wav"
+dest_files=["res://.godot/imported/track 1.wav-35fb30021c50f6ef08c6e033048c3ad5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

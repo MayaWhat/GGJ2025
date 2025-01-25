@@ -1,17 +1,17 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class ObstacleMovement : Node
 {
 	[Export] private Node2D _self;
 	[Export] private Node2D _visuals;
+	[Export] public float MoveSpeed { get; set; } = 10;
 
 	private bool _followPath;
 	private ObstaclePath _obstaclePath;
 	private List<Marker2D> _actualPath = new List<Marker2D>();
 	private int _currentPathIndex;
-	private bool _awake;
+	private bool _awake = true;
 
 	public override void _Ready()
 	{
@@ -24,7 +24,6 @@ public partial class ObstacleMovement : Node
 		{
 			if (child is ObstaclePath path)
 			{
-				GD.Print("Move");
 				_obstaclePath = path;
 				_actualPath = _obstaclePath.Path;
 				_followPath = true;
@@ -48,7 +47,7 @@ public partial class ObstacleMovement : Node
 	{
 		if (!_awake || !_followPath || _actualPath.Count == 0) { return; }
 
-		_self.GlobalPosition = _self.GlobalPosition.MoveToward(_actualPath[_currentPathIndex].GlobalPosition, 10);
+		_self.GlobalPosition = _self.GlobalPosition.MoveToward(_actualPath[_currentPathIndex].GlobalPosition, MoveSpeed);
 
 		if (_self.GlobalPosition.DistanceTo(_actualPath[_currentPathIndex].GlobalPosition) < 1)
 		{

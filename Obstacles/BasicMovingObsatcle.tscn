@@ -9,9 +9,10 @@ size = Vector2(639, 62)
 [node name="BasicMovingObstacle" type="Node2D"]
 rotation = -0.785398
 
-[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self")]
+[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self", "_visuals")]
 script = ExtResource("4_m436g")
 _self = NodePath("..")
+_visuals = NodePath("../Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)

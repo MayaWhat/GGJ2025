@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Player : RigidBody2D
@@ -140,7 +141,11 @@ public partial class Player : RigidBody2D
 
 	private void StillMovement(double delta, Vector2 direction)
 	{
-		ApplyImpulse(new Vector2(direction.X, 0) * 5);
+		// Left right
+		if ((direction.X < 0 && LinearVelocity.X > -MaxBubbleVelocityX) || (direction.X > 0 && LinearVelocity.X < MaxBubbleVelocityX))
+		{
+			ApplyImpulse(new Vector2(direction.X, 0) * 5);
+		}
 	}
 
 	private void BubblyMovement(double delta, Vector2 direction)
@@ -175,8 +180,13 @@ public partial class Player : RigidBody2D
 			ApplyImpulse(new Vector2(direction.X, 0) * 5);
 		}
 
-		var shrimpVector = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
+		var shrimpFactorX = Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1);
+		var shrimpFactorY = Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1);
+
+		var shrimpVector = new Vector2(shrimpFactorX, shrimpFactorY);
 		_shrimpSprite.Position = shrimpVector;
+
+		_bubbleSprite.Scale = new Vector2(1 + Math.Abs(shrimpFactorX) / 100, 1 + Math.Abs(shrimpFactorY) / 100);
 
 		//GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y + " DirectionY: " + direction.Y);
 	}

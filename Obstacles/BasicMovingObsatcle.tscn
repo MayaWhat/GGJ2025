@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6blpj0wr08m7"]
+
+[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_gmpax"]
+[ext_resource type="Script" path="res://ObstacleMovement.cs" id="4_m436g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y7l8"]
+size = Vector2(639, 62)
+
+[node name="BasicMovingObstacle" type="Node2D"]
+rotation = -0.785398
+
+[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self")]
+script = ExtResource("4_m436g")
+_self = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(5, 0.5)
+texture = ExtResource("2_gmpax")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_5y7l8")

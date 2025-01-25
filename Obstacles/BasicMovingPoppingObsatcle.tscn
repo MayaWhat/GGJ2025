@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl3f6dk5qp0v"]
+
+[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="2_337mo"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="3_hajcq"]
+[ext_resource type="Script" path="res://ObstacleMovement.cs" id="4_vpbpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
+size = Vector2(62, 63)
+
+[node name="BasicMovingPoppingObstacle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_337mo")
+
+[node name="PlayerPopper" parent="." instance=ExtResource("3_hajcq")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPopper"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_52jb8")
+
+[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self")]
+script = ExtResource("4_vpbpj")
+_self = NodePath("..")

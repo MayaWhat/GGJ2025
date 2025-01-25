@@ -1,12 +1,16 @@
 using Godot;
 
-public partial class PlayerPopper : Node
+public partial class PlayerPopper : Area2D
 {
-	[Export] private Area2D _area;
-
 	public override void _Ready()
 	{
-		_area.AreaEntered += OnAreaEntered;
+		AreaEntered += OnAreaEntered;
+	}
+	
+	public void TogglePopping(bool toggle)
+	{
+		Monitoring = toggle;
+		Monitorable = toggle;
 	}
 
 	private void OnAreaEntered(Area2D area)

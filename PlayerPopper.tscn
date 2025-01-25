@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://PlayerPopper.cs" id="1_pskej"]
 
-[node name="PlayerPopper" type="Node"]
+[node name="PlayerPopper" type="Area2D"]
 script = ExtResource("1_pskej")

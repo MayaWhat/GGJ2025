@@ -105,8 +105,12 @@ position = Vector2(542, 1111)
 position = Vector2(956, -126)
 
 [node name="BubbleStream3" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
-position = Vector2(24, -6502)
+position = Vector2(22, -6541)
 rotation = 1.51146
+
+[node name="BubbleStream4" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
+position = Vector2(1055, -6136)
+rotation = -1.5708
 
 [node name="BubbleGenerator" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
 position = Vector2(119, -1467)

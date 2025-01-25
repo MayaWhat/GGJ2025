@@ -9,10 +9,10 @@
 [ext_resource type="Script" path="res://PlayerVisuals.cs" id="5_xjqmt"]
 [ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
 [ext_resource type="Texture2D" uid="uid://ci20g00e41aqc" path="res://Sprites/Spin.png" id="6_6puop"]
-[ext_resource type="Material" path="res://HitFlashShader.tres" id="6_f5o85"]
+[ext_resource type="Material" uid="uid://dsguwm5gtgf3" path="res://HitFlashShader.tres" id="6_f5o85"]
 [ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="7_jaud1"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
-[ext_resource type="PackedScene" path="res://BloodParticles.tscn" id="12_56hv5"]
+[ext_resource type="PackedScene" uid="uid://bp68u66emxplq" path="res://BloodParticles.tscn" id="12_56hv5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.4
@@ -43,7 +43,7 @@ tracks/0/path = NodePath("%ShrimpSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [ExtResource("6_6puop"), ExtResource("4_03huq")]

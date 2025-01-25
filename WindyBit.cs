@@ -67,6 +67,8 @@ public partial class WindyBit : Area2D
 			var randomY = (GD.Randf() * (_maxY - _minY) + _minY) - 70;
 
 			newScene.Position = new Vector2(randomX, randomY);
+			var rotateTarget = newScene.GlobalPosition + Direction;
+			newScene.LookAt(rotateTarget); 
 		}
 	}
 }

@@ -1,38 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckuctbo1tbo4k"]
+[gd_scene load_steps=4 format=3 uid="uid://ckuctbo1tbo4k"]
 
 [ext_resource type="Script" path="res://WindyBit.cs" id="1_0sovg"]
-[ext_resource type="Script" path="res://WindTrail.cs" id="2_mpqit"]
+[ext_resource type="PackedScene" uid="uid://b6xn76u582nud" path="res://WindLine.tscn" id="2_jjyj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ksb"]
-size = Vector2(873, 501)
+size = Vector2(858, 434)
 
-[sub_resource type="Gradient" id="Gradient_qeiab"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="Curve2D" id="Curve2D_wu5j5"]
-_data = {
-"points": PackedVector2Array(-16.2637, -2.43053, 16.2637, 2.43053, 70, 71, -59.8597, 0.529732, 59.8597, -0.529732, 146, 22, -76.2813, 5.29732, 76.2813, -5.29732, 274, 74, 0, 0, 0, 0, 361, 45)
-}
-point_count = 4
-
-[node name="WindyBit" type="Area2D"]
+[node name="WindyBit" type="Area2D" node_paths=PackedStringArray("_collisionShape")]
 script = ExtResource("1_0sovg")
+_windLineScene = ExtResource("2_jjyj4")
+_collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(436.5, 249.5)
+position = Vector2(429, 216)
 shape = SubResource("RectangleShape2D_n7ksb")
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(1193, 93)
-script = ExtResource("2_mpqit")
-_colourGradient = SubResource("Gradient_qeiab")
-
-[node name="Path2D" type="Path2D" parent="Line2D"]
-position = Vector2(-47.8797, 7.61538)
-scale = Vector2(1.49828, 0.653846)
-curve = SubResource("Curve2D_wu5j5")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Line2D/Path2D"]
-position = Vector2(70, 71)
-rotation = 0.148347

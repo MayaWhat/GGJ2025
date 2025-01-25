@@ -1,12 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=32 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
+[ext_resource type="PackedScene" uid="uid://e1r5vh1oqpor" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
+[ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
 [ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
+[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_liwuf"]
+[ext_resource type="PackedScene" path="res://MusicPlayer.tscn" id="3_mlwr1"]
+[ext_resource type="PackedScene" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
+[ext_resource type="Script" path="res://Waker.cs" id="5_12cdt"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
 [ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
-[ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
+[ext_resource type="PackedScene" path="res://WindyBit.tscn" id="7_i5qrp"]
+[ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="13_py65l"]
+[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
+[ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="15_31wra"]
+[ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="16_43nba"]
+[ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://Obstacles/BasicMovingPoppingObsatcle.tscn" id="17_skq8p"]
+[ext_resource type="Texture2D" uid="uid://6awnedlp82qs" path="res://Sprites/sandcastle.png" id="18_s207i"]
+[ext_resource type="Texture2D" uid="uid://d16pj7bj5rllk" path="res://Sprites/plant1.png" id="19_wenp4"]
+[ext_resource type="Texture2D" uid="uid://6loga1gx5mv4" path="res://Sprites/BigSeaweed.png" id="20_q1yjy"]
+[ext_resource type="Texture2D" uid="uid://ccska72m8bao3" path="res://Sprites/Sign.png" id="21_wlvxk"]
+[ext_resource type="Texture2D" uid="uid://bbg82fbutwqys" path="res://Sprites/Shell1.png" id="22_qcf5u"]
+[ext_resource type="Texture2D" uid="uid://dp4huo3jyf14p" path="res://Sprites/Shell4.png" id="23_57ki3"]
+[ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="24_k087p"]
+[ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
+[ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
+[ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2l1"]
+size = Vector2(1040, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
 size = Vector2(723, 355)
@@ -16,7 +42,189 @@ size = Vector2(413, 307.5)
 
 [node name="Level" type="Node2D"]
 
-[node name="Map" parent="." instance=ExtResource("3_54vkf")]
+[node name="MapThings" type="Node2D" parent="."]
+
+[node name="ObstaclesBehind" type="Node2D" parent="MapThings"]
+
+[node name="SimpleShark" parent="MapThings/ObstaclesBehind" instance=ExtResource("1_uwx1x")]
+position = Vector2(-182, 608)
+
+[node name="Path" type="Node" parent="MapThings/ObstaclesBehind/SimpleShark"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/ObstaclesBehind/SimpleShark/Path"]
+position = Vector2(-138, 606)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/ObstaclesBehind/SimpleShark/Path"]
+position = Vector2(1087, 632)
+
+[node name="Area2D" parent="MapThings/ObstaclesBehind/SimpleShark" instance=ExtResource("3_liwuf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/SimpleShark/Area2D"]
+position = Vector2(673, -42)
+shape = SubResource("RectangleShape2D_2gjhq")
+
+[node name="ComplexShark" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
+position = Vector2(502, -2489)
+
+[node name="Area2D" type="Area2D" parent="MapThings/ObstaclesBehind/ComplexShark"]
+position = Vector2(5, 5)
+script = ExtResource("5_12cdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/ComplexShark/Area2D"]
+position = Vector2(24, -905)
+shape = SubResource("RectangleShape2D_5x2l1")
+
+[node name="Map" parent="MapThings" instance=ExtResource("3_54vkf")]
+
+[node name="Bubbles" type="Node2D" parent="MapThings"]
+
+[node name="BubbleStream" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
+position = Vector2(542, 1111)
+
+[node name="BubbleStream2" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
+position = Vector2(956, -126)
+
+[node name="BubbleGenerator" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(119, -1467)
+
+[node name="BubbleGenerator2" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(526, -2751)
+
+[node name="BubbleGenerator3" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(71, -3380)
+
+[node name="Obstacles" type="Node" parent="MapThings"]
+
+[node name="BasicMovingObstacle" parent="MapThings/Obstacles" instance=ExtResource("15_31wra")]
+position = Vector2(-3245, 1832)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/BasicMovingObstacle"]
+script = ExtResource("2_f7pyt")
+MovementType = 2
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BasicMovingObstacle/Path"]
+position = Vector2(-3144, 1713)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BasicMovingObstacle/Path"]
+position = Vector2(-2619, 1208)
+
+[node name="BasicObstacle" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(719, -509)
+
+[node name="BasicObstacle2" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(1023, -2099)
+
+[node name="BasicObstacle3" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(259, -2131)
+
+[node name="BasicObstacle4" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(132, -2559)
+scale = Vector2(1.11812, 1.04271)
+
+[node name="BasicObstacle5" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(612, -4160)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle6" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(670, -5376)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle7" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(333, -5551)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle8" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(517, -5910)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle9" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(781, -5786)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle10" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(200, -6129)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="BasicObstacle11" parent="MapThings/Obstacles" instance=ExtResource("16_43nba")]
+position = Vector2(752, -6177)
+scale = Vector2(0.983601, 1.05622)
+
+[node name="MovingObstacle" parent="MapThings/Obstacles" instance=ExtResource("17_skq8p")]
+position = Vector2(1644, 482)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/MovingObstacle"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingObstacle/Path"]
+position = Vector2(1250, 569)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingObstacle/Path"]
+position = Vector2(1922, 657)
+
+[node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/MovingObstacle/Path"]
+position = Vector2(1690, 905)
+
+[node name="Node" type="Node" parent="MapThings"]
+
+[node name="sandcastle" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(732, 1030)
+texture = ExtResource("18_s207i")
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(258, 1070)
+texture = ExtResource("19_wenp4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(837, 398)
+rotation = -0.230383
+texture = ExtResource("20_q1yjy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(92, 375)
+rotation = 0.153589
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_q1yjy")
+
+[node name="SharkSign" type="Sprite2D" parent="MapThings/Node"]
+z_index = -1
+position = Vector2(318, 409)
+rotation = 0.47822
+texture = ExtResource("21_wlvxk")
+
+[node name="Shell1" type="Sprite2D" parent="MapThings/Node"]
+z_index = 1
+position = Vector2(649, 1102)
+rotation = -1.1973
+scale = Vector2(0.561538, 0.561538)
+texture = ExtResource("22_qcf5u")
+
+[node name="Shell4" type="Sprite2D" parent="MapThings/Node"]
+z_index = 1
+position = Vector2(831, 1105)
+scale = Vector2(0.715385, 0.715385)
+texture = ExtResource("23_57ki3")
+
+[node name="Shell2" type="Sprite2D" parent="MapThings/Node"]
+z_index = -1
+position = Vector2(826, 1082)
+rotation = -0.453786
+texture = ExtResource("24_k087p")
+
+[node name="StarGreen" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(427, -2397)
+texture = ExtResource("25_h2u2u")
+
+[node name="StarPurple" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(613, -2031)
+texture = ExtResource("26_msp5p")
+
+[node name="W" type="Sprite2D" parent="MapThings/Node"]
+z_index = -1
+position = Vector2(470, -3816)
+texture = ExtResource("27_ycqhm")
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
 position = Vector2(94, 1022)

@@ -70,7 +70,6 @@ public partial class Player : RigidBody2D
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;
 			EmitSignal(SignalName.Bubbled);
-			LockRotation = true;
 
 			_justChangedBubbleState = true;
 		}
@@ -86,7 +85,7 @@ public partial class Player : RigidBody2D
 			Stats.UpdateCurrentScore((int)score);
 			if (score > Stats.HighScore) { Stats.UpdateHighScore((int)score); }
 			_previousPosition = GlobalPosition;
-		}
+		}		
 	}
 
 	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -98,6 +97,11 @@ public partial class Player : RigidBody2D
 			state.LinearVelocity = new Vector2();
 			state.AngularVelocity = 0f;
 			state.SetConstantForce(new Vector2());
+		}
+
+		if (InBubble)
+		{
+			GlobalRotation = 0;
 		}
 	}
 
@@ -153,7 +157,7 @@ public partial class Player : RigidBody2D
 				ApplyImpulse(new Vector2(0, Floatation));
 			}
 		}
-		
+
 		if (direction.Y > 0)
 		{
 			// Down
@@ -171,7 +175,8 @@ public partial class Player : RigidBody2D
 			ApplyImpulse(new Vector2(direction.X, 0) * 5);
 		}
 
-		_shrimpSprite.Position = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
+		var shrimpVector = new Vector2(Mathf.MoveToward(_shrimpSprite.Position.X, direction.X * 10, 1), Mathf.MoveToward(_shrimpSprite.Position.Y, direction.Y * 10, 1));
+		_shrimpSprite.Position = shrimpVector;
 
 		//GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y + " DirectionY: " + direction.Y);
 	}

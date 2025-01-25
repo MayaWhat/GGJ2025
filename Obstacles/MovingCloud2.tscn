@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://4erwuik1eknh"]
+
+[ext_resource type="Script" path="res://ObstacleMovement.cs" id="1_gcep8"]
+[ext_resource type="Texture2D" uid="uid://cll5t0irjxvjm" path="res://Sprites/cloud_3.png" id="2_o1oam"]
+
+[node name="MovingCloudMed" type="Node2D"]
+
+[node name="ObstacleMovement" type="Node" parent="." node_paths=PackedStringArray("_self", "_visuals")]
+script = ExtResource("1_gcep8")
+_self = NodePath("..")
+_visuals = NodePath("../Sprite2D")
+MoveSpeed = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o1oam")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+polygon = PackedVector2Array(-96.5, -36, -79.5, -65, -55.5, -68, -32.5, -48, -12.5, -48, 31.5, -67, 58.5, -63, 75.5, -41, 92.5, -35, 107.5, -10, 113.5, 6, 111.5, 29, 92.5, 45, 48.5, 50, 35.5, 62, 6.5, 61, -14.5, 46, -43.5, 45, -69.5, 46, -83.5, 26, -112.5, 11, -116.5, -18)

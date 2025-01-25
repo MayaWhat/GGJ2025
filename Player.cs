@@ -64,7 +64,7 @@ public partial class Player : RigidBody2D
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
 		_bubbleCollider = GetNode<CollisionShape2D>("%BubbleCollider");
 		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
-		_light = GetNode<Light2D>("%Light"); ;
+		_light = GetNode<Light2D>("%Light");
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -96,6 +96,8 @@ public partial class Player : RigidBody2D
 		_shrimpSprite.Rotation = 0;
 		_isShrimpRotated = false;
 		GetNode<GpuParticles2D>("%PopParticles").Emitting = true;
+
+		_animationPlayer.Play("Falling");
 	}
 
 

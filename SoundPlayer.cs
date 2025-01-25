@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Linq;
 
 public partial class SoundPlayer : Node
@@ -15,7 +14,7 @@ public partial class SoundPlayer : Node
 	public void Play(AudioStream audioStream, int volume = 0, bool randomPitch = false) {
 		if (audioStream == null) { return; }
 
-		foreach (var player in GetChildren().Cast<AudioStreamPlayer2D>()) {
+		foreach (var player in GetChildren().Cast<AudioStreamPlayer>()) {
 			if (!player.Playing) {
 				player.VolumeDb = volume;
 				player.Stream = audioStream;

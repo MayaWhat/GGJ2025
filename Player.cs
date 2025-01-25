@@ -61,6 +61,9 @@ public partial class Player : RigidBody2D
 	public delegate void BubbledEventHandler();
 
 	[Signal]
+	public delegate void NewLevelEventHandler(int level);
+
+	[Signal]
 	public delegate void PoppedEventHandler();
 
 	public override void _Ready()
@@ -132,6 +135,11 @@ public partial class Player : RigidBody2D
 
 			_justChangedBubbleState = true;
 		}
+	}
+
+	public void LevelTransition(int level)
+	{
+		EmitSignal(SignalName.NewLevel, level);
 	}
 
 	public void WindMe(Vector2 direction, float Windiness = 100f)

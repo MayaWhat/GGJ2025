@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Sky.mp3-41cb6a26512dddde49df5d2330426c8e.mp3s
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=352800.0
+bpm=240.0
 beat_count=0
 bar_beats=4

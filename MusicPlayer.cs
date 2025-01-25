@@ -1,16 +1,23 @@
 using System.Collections.Generic;
-using System.Linq;
 using Godot;
 
 public partial class MusicPlayer : AudioStreamPlayer
 {
+    public const string PoppedClip = "Popped";
+    public readonly string[] LevelClips = [
+        "Water",
+        "Sky",
+        "Space"
+    ];
+
     public readonly static Dictionary<string, (string Bubble, string Popped)> Clips = new()
     {
         {"Water", ("Water1", "Water2")},
         {"Sky", ("Sky1", "Sky2")},
     };
 
-    public string Current { get; set; } = Clips.Keys.First();
+    public int Current { get; set; } = 0;
+    private bool _popped = false;
 
     AudioStreamPlaybackInteractive GetInteractiveStreamPlayback() => GetStreamPlayback() as AudioStreamPlaybackInteractive;
 
@@ -25,11 +32,27 @@ public partial class MusicPlayer : AudioStreamPlayer
 
     public void Bubble()
     {
-        PlayClip(Clips[Current].Bubble);
+        _popped = false;
+        PlayClip(LevelClips[Current]);
     }
 
     public void Popped()
     {
-        PlayClip(Clips[Current].Popped);
+        _popped = true;
+        PlayClip(PoppedClip);
+    }
+
+    public void ChangeLevel(int level)
+    {
+        if (level == Current)
+        {
+            return;
+        }
+
+        Current = level;
+        if (!_popped)
+        {
+            PlayClip(LevelClips[Current]);
+        }
     }
 }

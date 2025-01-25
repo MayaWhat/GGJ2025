@@ -47,6 +47,19 @@ public partial class Player : RigidBody2D
 		_originalPosition = GlobalPosition;
 		_bubbleSprite = GetNode<Sprite2D>("%BubbleSprite");
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
+
+		BodyEntered += OnBodyEntered;
+	}
+
+	void OnBodyEntered(Node body)
+	{
+		// I'd rather have the SecretTiles check for detection with the player
+		// but TileMaps and TileSets have no mechanism to signal collisions so
+		// we have to do it in this direction
+		if (body is SecretTiles secretTiles)
+		{
+			secretTiles.Reveal();
+		}
 	}
 
 	public void PopMe()

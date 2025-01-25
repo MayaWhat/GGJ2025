@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1bhgjfeujlbw"]
 
 [ext_resource type="Texture2D" uid="uid://dpioeao5owxmn" path="res://Sprites/JellyFish.png" id="1_to62h"]
-[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="2_bfowu"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_bfowu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
 size = Vector2(62, 63)

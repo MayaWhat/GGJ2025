@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5jtuidh4nm0n"
+path="res://.godot/imported/track 3.wav-c371ee26fdb7719ee73a533a56140473.sample"
+
+[deps]
+
+source_file="res://Music/Adventure Project/track 3.wav"
+dest_files=["res://.godot/imported/track 3.wav-c371ee26fdb7719ee73a533a56140473.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

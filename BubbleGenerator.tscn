@@ -6,3 +6,4 @@
 [node name="BubbleGenerator" type="Node2D"]
 script = ExtResource("1_lrwy8")
 _bubbleScene = ExtResource("2_krcc7")
+_interval = 10.0

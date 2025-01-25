@@ -6,6 +6,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(20000, 20000)
 offset_left = -10000.0
 offset_top = -10000.0

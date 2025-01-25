@@ -11,13 +11,13 @@ public partial class WindTrail : Line2D
 
 	[Export] private float TrailLength = 1f;
 
-	[Export] private float TrailSpeed = 0.01f;
+	[Export] private float TrailSpeed = 0.05f;
 
 	[Export] private float RandomYOffset = 2f;
 
 	private List<PathFollow2D> _pathFollows = new List<PathFollow2D>();
 
-	[Export] private Gradient _colourGradient { get; set; } = new Gradient();
+	[Export] private Gradient _colourGradient { get; set; }
 
 	private Path2D _path2D;
 
@@ -42,8 +42,10 @@ public partial class WindTrail : Line2D
 
 		for (int i = 0; i < LineSegments; i++)
 		{
-			Gradient.AddPoint(i / LineSegments, new Color(1, 1, 1, 1));
+			Gradient.AddPoint((float)i / (float)LineSegments, new Color(1, 1, 1, 1));
 		}
+
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,14 +65,17 @@ public partial class WindTrail : Line2D
 			}
 		}
 
+		// for (int i = 0; i < LineSegments + 1; i++)
+		// {
+		// 	var color = _colourGradient.Sample(Gradient.Offsets[i]);
+		// 	var colorA = color.A * _colourGradient.Sample(_pathFollows[i].ProgressRatio).A;
+
+		// 	Gradient.SetColor(i, new Color(color.R, color.G, color.B, colorA));
+		// }
+
 		if (_pathFollows[0]?.ProgressRatio == 1)
 		{
 			QueueFree();
-		}
-
-		for (int i = 0; i< LineSegments + 1; i++) {
-			Gradient.Colors[i] = _colourGradient.Sample(Gradient.Offsets[i]);
-			Gradient.Colors[i].A *= _colourGradient.Sample(_pathFollows[i].ProgressRatio).A;
 		}
 
 		ClearPoints();

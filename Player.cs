@@ -54,6 +54,12 @@ public partial class Player : RigidBody2D
 
 	private double _stuntimer = 0;
 
+	private Vector2 _windDirection;
+
+	private float _windSpeed;
+
+	private bool _isWindy = false;
+
 	[Export] private AudioStream PopSound;
 	[Export] private PackedScene _bloodParticlesScene;
 
@@ -144,7 +150,14 @@ public partial class Player : RigidBody2D
 
 	public void WindMe(Vector2 direction, float Windiness = 100f)
 	{
-		ApplyImpulse(direction * Windiness);
+		_isWindy = true;
+		_windDirection = direction;
+		_windSpeed = Windiness;
+	}
+
+	public void UnWindMe()
+	{
+		_isWindy = false;
 	}
 
 	private Vector2 LastPosition = new Vector2();
@@ -159,9 +172,11 @@ public partial class Player : RigidBody2D
 			_previousPosition = GlobalPosition;
 		}
 
-		if (_isStunned) {
+		if (_isStunned)
+		{
 			_stuntimer -= delta;
-			if (_stuntimer < 0) {
+			if (_stuntimer < 0)
+			{
 				_isStunned = false;
 			}
 		}
@@ -233,6 +248,10 @@ public partial class Player : RigidBody2D
 		else
 		{
 			StillMovement(delta, direction);
+		}
+
+		if (_isWindy) {
+			ApplyImpulse(_windDirection * _windSpeed);
 		}
 
 		LastPosition = Position;

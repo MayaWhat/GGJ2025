@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rsxfo5qh8khr"]
+
+[ext_resource type="Script" path="res://Waker.cs" id="1_0xa7p"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0xa7p")

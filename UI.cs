@@ -22,13 +22,13 @@ public partial class UI : CanvasLayer
 		_startingMs = Time.GetTicksMsec();
 	}
 
-    public override void _Process(double delta)
-    {
-        _currentTimer = TimeSpan.FromMilliseconds(Time.GetTicksMsec() - _startingMs);
+	public override void _Process(double delta)
+	{
+		_currentTimer = TimeSpan.FromMilliseconds(Time.GetTicksMsec() - _startingMs);
 		_timerLabel.Text = $"{(int)_currentTimer.TotalMinutes:D2}:{_currentTimer.Seconds:D2}:{_currentTimer.Milliseconds:D3}";
-    }
+	}
 
-    private void OnPlayerScoreChanged()
+	private void OnPlayerScoreChanged()
 	{
 		_highScoreLabel.Text = _playerStats.HighScore.ToString();
 		_currentScoreLabel.Text = _playerStats.CurrentScore.ToString();

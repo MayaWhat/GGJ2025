@@ -1,18 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://du5vh3vtpc1yf"]
 
-[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_64s1a"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="1_4k3yw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
 size = Vector2(24, 24)
 
-[node name="BasicObstacle" type="Area2D"]
-collision_layer = 2
+[node name="BasicObstacle" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerPopper" parent="." instance=ExtResource("1_4k3yw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPopper"]
 shape = SubResource("RectangleShape2D_52jb8")
-
-[node name="PlayerPopper" parent="." node_paths=PackedStringArray("_area") instance=ExtResource("2_64s1a")]
-_area = NodePath("..")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(24, 24)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbeclloli5jdk"]
+[gd_scene load_steps=3 format=3 uid="uid://bbeclloli5jdk"]
 
-[ext_resource type="Texture2D" uid="uid://b17c5duq7afle" path="res://icon.svg" id="1_fillb"]
+[ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="1_7d6tb"]
+[ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="2_k6dur"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -19,18 +20,17 @@ motion_mirroring = Vector2(1920, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(162, 247)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_fillb")
+texture = ExtResource("1_7d6tb")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(1176, 112)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_fillb")
+scale = Vector2(2, 2)
+texture = ExtResource("1_7d6tb")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(581, 644)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_fillb")
+scale = Vector2(3, 3)
+texture = ExtResource("2_k6dur")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 modulate = Color(1, 1, 1, 0.176471)
@@ -39,25 +39,20 @@ motion_mirroring = Vector2(1920, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(1257, 576)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_fillb")
+texture = ExtResource("1_7d6tb")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(900, 294)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_fillb")
+texture = ExtResource("2_k6dur")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(169, 589)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_fillb")
+texture = ExtResource("1_7d6tb")
 
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(303, 182)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_fillb")
+texture = ExtResource("2_k6dur")
 
 [node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(1340, 88)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_fillb")
+texture = ExtResource("1_7d6tb")

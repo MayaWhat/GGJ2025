@@ -125,11 +125,6 @@ public partial class Player : RigidBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		// Testing reset
-		if (Position.Y < -1800f)
-		{
-			Position = _originalPosition;
-		}
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.

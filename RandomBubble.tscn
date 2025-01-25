@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7n5mxa6c8xp4"]
+[gd_scene load_steps=8 format=3 uid="uid://b7n5mxa6c8xp4"]
 
 [ext_resource type="Script" path="res://RandomBubble.cs" id="1_2eyax"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="1_yjjww"]
@@ -8,13 +8,26 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_e7fkb"]
 radius = 45.0
 
+[sub_resource type="Gradient" id="Gradient_4w4u7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.837838)
+colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f31ps"]
+gradient = SubResource("Gradient_4w4u7")
+width = 960
+height = 960
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.854701, 0.884615)
+
 [node name="Bubble" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_2eyax")
 _popSound = ExtResource("2_7s2bv")
 _speed = -50.0
 _scaleGrowSpeed = 0.1
-_alphaDecreaseSpeed = 0.05
+_alphaDecreaseSpeed = 0.025
 _timeToPop = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,3 +42,12 @@ shape = SubResource("CircleShape2D_e7fkb")
 
 [node name="PopParticles" parent="." instance=ExtResource("4_xlcha")]
 unique_name_in_owner = true
+
+[node name="Light" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+energy = 0.25
+range_layer_min = -100
+range_layer_max = 100
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_f31ps")
+texture_scale = 0.5

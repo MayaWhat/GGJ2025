@@ -35,6 +35,7 @@ public partial class RandomBubble : Node2D
 		SoundPlayer.Instance.Play(_popSound, randomPitch: true);
 		_popParticles.Emitting = true;
 		_sprite.Visible = false;
+		GetNode<Light2D>("%Light").Visible = false;
 		_stop = true;
 
 		GetTree().CreateTimer(3).Timeout += QueueFree;
@@ -45,7 +46,7 @@ public partial class RandomBubble : Node2D
 		if (_stop) { return; }
 		GlobalPosition = new Vector2(GlobalPosition.X, GlobalPosition.Y + _speed * (float)delta);
 		Scale = new Vector2(Scale.X + _scaleGrowSpeed * (float)delta, Scale.Y + _scaleGrowSpeed * (float)delta);
-		_sprite.Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, Modulate.A - _alphaDecreaseSpeed * (float)delta);
+		_sprite.Modulate = new Color(_sprite.Modulate.R, _sprite.Modulate.G, _sprite.Modulate.B, _sprite.Modulate.A - _alphaDecreaseSpeed * (float)delta);
 		_timeAlive += delta;
 
 		if (_timeAlive > _timeToPop) { Pop(); }

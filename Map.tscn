@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=8 format=4 uid="uid://cg5ama6va7uuy"]
 
-[ext_resource type="TileSet" uid="uid://ddgbn8v7v5sh2" path="res://Map.tres" id="1_2xxus"]
+[ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="2_6swae"]
-[ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="3_af0mc"]
+[ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="3_af0mc"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="3_qjf88"]
+[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="3_xu4se"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="4_4hex5"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://Obstacles/BasicMovingPoppingObsatcle.tscn" id="7_l43ht"]
 
@@ -25,6 +26,15 @@ position = Vector2(542, 1111)
 
 [node name="BubbleStream2" parent="Bubbles" instance=ExtResource("3_af0mc")]
 position = Vector2(956, -126)
+
+[node name="BubbleGenerator" parent="Bubbles" instance=ExtResource("3_xu4se")]
+position = Vector2(119, -1467)
+
+[node name="BubbleGenerator2" parent="Bubbles" instance=ExtResource("3_xu4se")]
+position = Vector2(526, -2751)
+
+[node name="BubbleGenerator3" parent="Bubbles" instance=ExtResource("3_xu4se")]
+position = Vector2(71, -3380)
 
 [node name="Obstacles" type="Node" parent="."]
 

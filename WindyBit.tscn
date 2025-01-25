@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://WindyBit.cs" id="1_0sovg"]
 [ext_resource type="PackedScene" uid="uid://b6xn76u582nud" path="res://WindLine.tscn" id="2_jjyj4"]
 
-[node name="WindyBit" type="Area2D" node_paths=PackedStringArray("_collisionShape")]
+[node name="WindyBit" type="Area2D"]
+z_index = -1
 script = ExtResource("1_0sovg")
 _windLineScene = ExtResource("2_jjyj4")
-_collisionShape = NodePath("")

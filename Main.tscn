@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=10 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
@@ -9,7 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
-size = Vector2(412, 312)
+size = Vector2(723, 355)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm0rv"]
+size = Vector2(413, 307.5)
 
 [node name="Level" type="Node2D"]
 
@@ -30,11 +33,21 @@ autoplay = true
 
 [node name="WindyBit" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
 position = Vector2(252, 177)
+Windiness = 4.0
 _collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit"]
-position = Vector2(8, 28)
+position = Vector2(124.5, -1251.5)
 shape = SubResource("RectangleShape2D_4upq7")
+
+[node name="WindyBit2" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(136, -1408)
+Windiness = 4.0
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit2"]
+position = Vector2(90, -20)
+shape = SubResource("RectangleShape2D_hm0rv")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
 [connection signal="Popped" from="Player" to="MusicPlayer" method="Popped"]

@@ -57,14 +57,14 @@ public partial class WindyBit : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (GetChildCount() < 5)
+		if (GetChildCount() < 3)
 		{
 			var newScene = _windLineScene.Instantiate<WindTrail>();
 			AddChild(newScene);
 			newScene.Direction = Direction;
 
-			var randomX = (GD.Randf() * (_maxX - _minX) + _minX);
-			var randomY = (GD.Randf() * (_maxY - _minY) + _minY);
+			var randomX = (GD.Randf() * (_maxX - _minX) + _minX) - 360;
+			var randomY = (GD.Randf() * (_maxY - _minY) + _minY) - 70;
 
 			newScene.Position = new Vector2(randomX, randomY);
 		}

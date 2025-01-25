@@ -51,6 +51,9 @@ public partial class ComplexShark : Node2D
 			{
 				Position = Position.MoveToward(Player.Instance.Position, 20);
 			}
+			else if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 400f) {
+				Position = Position.MoveToward(Player.Instance.Position, 10);
+			}
 			else
 			{
 				Position = Position.MoveToward(Player.Instance.Position, 5);

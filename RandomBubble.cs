@@ -2,7 +2,7 @@ using Godot;
 
 public partial class RandomBubble : Node2D
 {
-	[Export] public AudioStream _popSound;
+	[Export] public AudioStreamPlayer2D _soundPlayer;
 	[Export] public float _speed;
 	[Export] public float _scaleGrowSpeed;
 	[Export] public float _alphaDecreaseSpeed;
@@ -19,6 +19,7 @@ public partial class RandomBubble : Node2D
 		GetNode<Area2D>("%Area2D").AreaEntered += OnAreaEntered;
 		_popParticles = GetNode<GpuParticles2D>("%PopParticles");
 		_sprite = GetNode<Sprite2D>("%Sprite2D");
+		_soundPlayer = GetNode<AudioStreamPlayer2D>("%SoundPlayer");
 	}
 
 	private void OnAreaEntered(Area2D area)
@@ -32,7 +33,7 @@ public partial class RandomBubble : Node2D
 
 	private void Pop()
 	{
-		SoundPlayer.Instance.Play(_popSound, randomPitch: true);
+		_soundPlayer.Play();
 		_popParticles.Emitting = true;
 		_sprite.Visible = false;
 		GetNode<Light2D>("%Light").Visible = false;

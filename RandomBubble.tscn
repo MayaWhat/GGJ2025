@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7n5mxa6c8xp4"]
+[gd_scene load_steps=9 format=3 uid="uid://b7n5mxa6c8xp4"]
 
 [ext_resource type="Script" path="res://RandomBubble.cs" id="1_2eyax"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="1_yjjww"]
@@ -21,10 +21,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.854701, 0.884615)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wpctb"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("2_7s2bv")
+
 [node name="Bubble" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_2eyax")
-_popSound = ExtResource("2_7s2bv")
 _speed = -50.0
 _scaleGrowSpeed = 0.1
 _alphaDecreaseSpeed = 0.025
@@ -51,3 +55,8 @@ range_layer_max = 100
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_f31ps")
 texture_scale = 0.5
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wpctb")
+bus = &"SoundEffects"

@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://daio0pnw04ubs"]
+[gd_scene load_steps=3 format=3 uid="uid://dq45tnhycbeo"]
 
 [ext_resource type="Texture2D" uid="uid://dwjfit0skio5l" path="res://Sprites/coral.png" id="1_o4w5e"]
 [ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_yjfrl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52jb8"]
-size = Vector2(64, 24)
 
 [node name="BasicObstacle" type="Node2D"]
 rotation = 1.5708
@@ -17,6 +14,6 @@ texture = ExtResource("1_o4w5e")
 [node name="PlayerPopper" parent="." instance=ExtResource("2_yjfrl")]
 position = Vector2(3.8147e-06, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPopper"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="PlayerPopper"]
 position = Vector2(0, 12)
-shape = SubResource("RectangleShape2D_52jb8")
+polygon = PackedVector2Array(-21.0001, -11.9999, -31, 11.0001, -13, 5.00005, -11.9999, 29, 2.51452e-05, 10, 11.0001, 23, 12, 5.99996, 33.0001, 25.9999, 25, 0.99991, 38, 2.99986, 24.9999, -11.0001)

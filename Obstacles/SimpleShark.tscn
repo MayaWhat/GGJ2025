@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://e1r5vh1oqpor"]
+[gd_scene load_steps=9 format=3 uid="uid://e1r5vh1oqpor"]
 
+[ext_resource type="Script" path="res://Obstacles/SimpleShark.cs" id="1_4i2oa"]
 [ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="1_ngn7g"]
 [ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_hu5we"]
 [ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="2_jvy5l"]
@@ -7,11 +8,6 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n23ja"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_ngn7g")
@@ -46,13 +42,15 @@ radius = 35.0
 height = 318.0
 
 [node name="SimpleShark" type="Node2D"]
+script = ExtResource("1_4i2oa")
 
 [node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 sprite_frames = SubResource("SpriteFrames_n23ja")
 animation = &"new_animation"
-frame_progress = 0.284747
+autoplay = "new_animation"
 speed_scale = 2.0
 
 [node name="BloodParticles" type="GPUParticles2D" parent="Visuals"]

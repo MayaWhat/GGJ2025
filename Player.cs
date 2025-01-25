@@ -6,6 +6,9 @@ public partial class Player : RigidBody2D
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
 
+	public const float BubbleLightEnergy = 0.5f;
+	public const float PoppedLightEnergy = 0.25f;
+
 	[Export] public PlayerStats Stats { get; private set; }
 
 	[Export] public bool InBubble = false;
@@ -36,6 +39,8 @@ public partial class Player : RigidBody2D
 
 	private AnimationPlayer _animationPlayer;
 
+	private Light2D _light;
+
 	private bool _justChangedBubbleState = false;
 
 	private bool _isPushing = false;
@@ -55,6 +60,7 @@ public partial class Player : RigidBody2D
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
 		_bubbleCollider = GetNode<CollisionShape2D>("%BubbleCollider");
 		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
+		_light = GetNode<Light2D>("%Light");;
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -74,6 +80,7 @@ public partial class Player : RigidBody2D
 	{
 		if (!InBubble) return;
 
+		_light.Energy = PoppedLightEnergy;
 		InBubble = false;
 		_bubbleSprite.Visible = false;
 
@@ -89,6 +96,7 @@ public partial class Player : RigidBody2D
 	{
 		if (!InBubble)
 		{
+			_light.Energy = BubbleLightEnergy;
 			InBubble = true;
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;

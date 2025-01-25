@@ -13,6 +13,19 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.5
 
+[sub_resource type="Gradient" id="Gradient_4w4u7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.837838)
+colors = PackedColorArray(0.808998, 0.808998, 0.808998, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7gxl3"]
+gradient = SubResource("Gradient_4w4u7")
+width = 960
+height = 960
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.854701, 0.884615)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xy3nb"]
 radius = 44.0114
 
@@ -122,6 +135,14 @@ max_contacts_reported = 5
 script = ExtResource("1_usa0g")
 Stats = ExtResource("2_8xwlm")
 PopSound = ExtResource("3_m2tqs")
+
+[node name="Light" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+energy = 0.25
+range_layer_min = -100
+range_layer_max = 100
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_7gxl3")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 

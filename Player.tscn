@@ -1,15 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=28 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Resource" path="res://PlayerStats.tres" id="2_8xwlm"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="3_ccfof"]
 [ext_resource type="AudioStream" uid="uid://bktuh4sihoqs7" path="res://Sounds/733264__arttim__bubble_pop.mp3" id="3_m2tqs"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
-[ext_resource type="Texture2D" uid="uid://xuxxbbgtu3f3" path="res://Sprites/Idle.png" id="4_mpvg8"]
+[ext_resource type="Texture2D" uid="uid://dwuhcp1i86wwk" path="res://Sprites/ActuallyIdle.png" id="4_03huq"]
 [ext_resource type="Texture2D" uid="uid://cpxy8mnt4enkq" path="res://Sprites/Push_0.png" id="5_0ohok"]
 [ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
+[ext_resource type="PackedScene" path="res://PopParticles.tscn" id="7_jaud1"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
-[ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="7_jaud1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.5
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_mpvg8")]
+"values": [ExtResource("4_03huq")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3l7ce"]
@@ -160,7 +160,7 @@ shape = SubResource("CircleShape2D_xy3nb")
 [node name="ShrimpSprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 scale = Vector2(0.035, 0.035)
-texture = ExtResource("4_mpvg8")
+texture = ExtResource("4_03huq")
 
 [node name="BubbleSprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
@@ -206,5 +206,6 @@ unique_name_in_owner = true
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_3tdi2")
 disabled = true
+
 [node name="PopParticles" parent="." instance=ExtResource("7_jaud1")]
 unique_name_in_owner = true

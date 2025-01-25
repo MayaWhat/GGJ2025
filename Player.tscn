@@ -1,11 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=25 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
-[ext_resource type="Resource" uid="uid://q37uvfmev6sr" path="res://PlayerStats.tres" id="2_8xwlm"]
-[ext_resource type="Texture2D" uid="uid://3xe3i87syuoj" path="res://Sprites/Shrimp.png" id="2_v8i7c"]
+[ext_resource type="Resource" path="res://PlayerStats.tres" id="2_8xwlm"]
 [ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="3_ccfof"]
 [ext_resource type="AudioStream" uid="uid://bktuh4sihoqs7" path="res://Sounds/733264__arttim__bubble_pop.mp3" id="3_m2tqs"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="3_urvy1"]
+[ext_resource type="Texture2D" uid="uid://xuxxbbgtu3f3" path="res://Sprites/Idle.png" id="4_mpvg8"]
+[ext_resource type="Texture2D" uid="uid://cpxy8mnt4enkq" path="res://Sprites/Push_0.png" id="5_0ohok"]
+[ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
+[ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.5
@@ -13,8 +16,46 @@ bounce = 0.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_xy3nb"]
 radius = 44.0114
 
+[sub_resource type="Animation" id="Animation_ijihb"]
+resource_name = "Push"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ShrimpSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_0ohok"), ExtResource("6_0uo22"), ExtResource("7_txhve")]
+}
+
+[sub_resource type="Animation" id="Animation_pwqi4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ShrimpSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_mpvg8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l7ce"]
+_data = {
+"Push": SubResource("Animation_ijihb"),
+"RESET": SubResource("Animation_pwqi4")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bybua"]
-radius = 24.5051
+radius = 22.5056
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ipmi0"]
 shader = ExtResource("3_urvy1")
@@ -70,6 +111,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.679487, 0.666667)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3tdi2"]
+radius = 43.0116
+
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 mass = 0.25
 physics_material_override = SubResource("PhysicsMaterial_832de")
@@ -93,14 +137,21 @@ shape = SubResource("CircleShape2D_xy3nb")
 
 [node name="ShrimpSprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
-texture = ExtResource("2_v8i7c")
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("4_mpvg8")
 
 [node name="BubbleSprite" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 visible = false
 texture = ExtResource("3_ccfof")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3l7ce")
+}
+
+[node name="ShrimpCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
 shape = SubResource("CircleShape2D_bybua")
 
@@ -127,3 +178,9 @@ amount = 64
 process_material = SubResource("ParticleProcessMaterial_hpx5m")
 texture = SubResource("GradientTexture2D_8kxpb")
 lifetime = 8.0
+
+[node name="BubbleCollider" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_3tdi2")
+disabled = true

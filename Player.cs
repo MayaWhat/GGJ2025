@@ -32,7 +32,13 @@ public partial class Player : RigidBody2D
 
 	private Sprite2D _shrimpSprite;
 
+	private CollisionShape2D _bubbleCollider;
+
+	private AnimationPlayer _animationPlayer;
+
 	private bool _justChangedBubbleState = false;
+
+	private bool _isPushing = false;
 
 	[Export] private AudioStream PopSound;
 
@@ -47,6 +53,8 @@ public partial class Player : RigidBody2D
 		_originalPosition = GlobalPosition;
 		_bubbleSprite = GetNode<Sprite2D>("%BubbleSprite");
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
+		_bubbleCollider = GetNode<CollisionShape2D>("%BubbleCollider");
+		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -73,6 +81,7 @@ public partial class Player : RigidBody2D
 		EmitSignal(SignalName.Popped);
 
 		_justChangedBubbleState = true;
+		_bubbleCollider.SetDeferred("disabled", true);
 	}
 
 
@@ -84,6 +93,7 @@ public partial class Player : RigidBody2D
 			_bubbleSprite.Visible = true;
 			IsGrounded = false;
 			EmitSignal(SignalName.Bubbled);
+			_bubbleCollider.SetDeferred("disabled", false);
 
 			_justChangedBubbleState = true;
 		}
@@ -132,11 +142,11 @@ public partial class Player : RigidBody2D
 
 		if (direction.X > 0)
 		{
-			_shrimpSprite.Scale = new Vector2(1, 1);
+			_shrimpSprite.Scale = new Vector2(Math.Abs(_shrimpSprite.Scale.X), _shrimpSprite.Scale.Y);
 		}
 		else if (direction.X < 0)
 		{
-			_shrimpSprite.Scale = new Vector2(-1, 1);
+			_shrimpSprite.Scale = new Vector2(-Math.Abs(_shrimpSprite.Scale.X), _shrimpSprite.Scale.Y);
 		}
 
 		if (InBubble)
@@ -199,6 +209,17 @@ public partial class Player : RigidBody2D
 		_shrimpSprite.Position = shrimpVector;
 
 		_bubbleSprite.Scale = new Vector2(1 + Math.Abs(shrimpFactorX) / 100, 1 + Math.Abs(shrimpFactorY) / 100);
+
+		if (InBubble && direction.Length() > 0) {
+			if (!_isPushing) {
+				_animationPlayer.Play("Push");
+				_isPushing = true;
+			}
+		}
+		else {
+			_isPushing = false;
+			_animationPlayer.Stop();
+		}
 
 		//GD.Print("X: " + LinearVelocity.X + ", Y: " + LinearVelocity.Y + " DirectionY: " + direction.Y);
 	}

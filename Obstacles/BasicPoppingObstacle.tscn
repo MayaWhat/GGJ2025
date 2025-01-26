@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpioeao5owxmn" path="res://Sprites/JellyFish.png" id="1_to62h"]
 [ext_resource type="Shader" path="res://Obstacles/Lightning2.gdshader" id="2_6i6fw"]
-[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_bfowu"]
+[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="2_bfowu"]
 [ext_resource type="Texture2D" uid="uid://bu05i12m5pg4s" path="res://Sprites/1x1.png" id="3_a4ur8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rye86"]

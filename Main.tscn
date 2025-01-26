@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
+[ext_resource type="Texture2D" uid="uid://f0olat5ea054" path="res://Sprites/TitleOverlay.png" id="33_0khtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
 size = Vector2(800, 20)
@@ -740,6 +741,9 @@ _collisionShape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit9"]
 position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(531, 1247)
+texture = ExtResource("33_0khtj")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
 [connection signal="NewLevel" from="Player" to="MusicPlayer" method="ChangeLevel"]

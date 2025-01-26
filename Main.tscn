@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=59 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
@@ -38,7 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
 [ext_resource type="AudioStream" uid="uid://b4dln8w462e8r" path="res://Sounds/Winning Sound.wav" id="29_0lx8c"]
 [ext_resource type="Texture2D" uid="uid://6h5imhcgnaia" path="res://Sprites/Yay_3.png" id="29_0qf17"]
+[ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="31_rvqk7"]
+[ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="32_2p22x"]
 [ext_resource type="Texture2D" uid="uid://f0olat5ea054" path="res://Sprites/TitleOverlay.png" id="33_0khtj"]
+[ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="33_5mn8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
 size = Vector2(800, 37)
@@ -96,10 +99,35 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-105, -351)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpaceShark:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpaceShark:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-63, 12)]
+}
 
 [sub_resource type="Animation" id="Animation_v7rbt"]
 resource_name = "Yay"
-length = 0.5
+length = 8.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -148,12 +176,79 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-105, -351), Vector2(-105, -351), Vector2(-110, -402)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpaceShark:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpaceShark:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-39, 15), Vector2(-246, 186)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpaceShark/BloodParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q4ao5"]
 _data = {
 "RESET": SubResource("Animation_ilyep"),
 "Yay": SubResource("Animation_v7rbt")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m55iq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_rvqk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2p22x")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4wi7x"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7, 7, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -0.05, 0)
+spread = 57.162
+initial_velocity_min = 141.45
+initial_velocity_max = 174.34
+gravity = Vector3(0, 500, 0)
+scale_min = 7.58
+scale_max = 10.87
+color = Color(0.82, 0.1148, 0.1148, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
 size = Vector2(723, 355)
@@ -811,6 +906,31 @@ texture = ExtResource("27_acsu3")
 libraries = {
 "": SubResource("AnimationLibrary_q4ao5")
 }
+
+[node name="SpaceShark" type="Node2D" parent="MapThings/Moon"]
+visible = false
+z_index = -1
+position = Vector2(-63, 12)
+rotation = -3.90081
+scale = Vector2(1, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MapThings/Moon/SpaceShark"]
+sprite_frames = SubResource("SpriteFrames_m55iq")
+animation = &"new_animation"
+autoplay = "new_animation"
+speed_scale = 2.0
+
+[node name="BloodParticles" type="GPUParticles2D" parent="MapThings/Moon/SpaceShark"]
+position = Vector2(129, 20)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_4wi7x")
+lifetime = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MapThings/Moon/SpaceShark"]
+position = Vector2(119, 5)
+scale = Vector2(1.515, 1.515)
+texture = ExtResource("33_5mn8r")
 
 [node name="Mirror2" parent="MapThings" instance=ExtResource("27_377po")]
 

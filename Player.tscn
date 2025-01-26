@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvj3so41g2uiu"]
+[gd_scene load_steps=32 format=3 uid="uid://dvj3so41g2uiu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_usa0g"]
 [ext_resource type="Resource" uid="uid://q37uvfmev6sr" path="res://PlayerStats.tres" id="2_8xwlm"]
@@ -9,10 +9,10 @@
 [ext_resource type="Script" path="res://PlayerVisuals.cs" id="5_xjqmt"]
 [ext_resource type="Texture2D" uid="uid://drt8d1n8idhae" path="res://Sprites/Push_1.png" id="6_0uo22"]
 [ext_resource type="Texture2D" uid="uid://ci20g00e41aqc" path="res://Sprites/Spin.png" id="6_6puop"]
-[ext_resource type="Material" uid="uid://dsguwm5gtgf3" path="res://HitFlashShader.tres" id="6_f5o85"]
+[ext_resource type="Material" path="res://HitFlashShader.tres" id="6_f5o85"]
 [ext_resource type="PackedScene" uid="uid://dlgtfshan3jvu" path="res://PopParticles.tscn" id="7_jaud1"]
 [ext_resource type="Texture2D" uid="uid://dgsio114l2xe2" path="res://Sprites/Push_3.png" id="7_txhve"]
-[ext_resource type="PackedScene" uid="uid://bp68u66emxplq" path="res://BloodParticles.tscn" id="12_56hv5"]
+[ext_resource type="PackedScene" path="res://BloodParticles.tscn" id="12_56hv5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_832de"]
 bounce = 0.4
@@ -47,6 +47,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [ExtResource("6_6puop"), ExtResource("4_03huq")]
+}
+
+[sub_resource type="Animation" id="Animation_ts68s"]
+resource_name = "Finish"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ShrimpSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_0ohok")]
 }
 
 [sub_resource type="Animation" id="Animation_ijihb"]
@@ -84,6 +101,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3l7ce"]
 _data = {
 "Falling": SubResource("Animation_83ql6"),
+"Finish": SubResource("Animation_ts68s"),
 "Push": SubResource("Animation_ijihb"),
 "RESET": SubResource("Animation_pwqi4")
 }

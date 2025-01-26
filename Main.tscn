@@ -1,10 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=42 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="PackedScene" path="res://UI.tscn" id="3_jl7uj"]
+[ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
 [ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
 [ext_resource type="PackedScene" path="res://Obstacles/MovingCloud1.tscn" id="9_vtgc6"]
 [ext_resource type="PackedScene" path="res://Obstacles/MovingCloud2.tscn" id="10_mc0o5"]
-[ext_resource type="PackedScene" uid="uid://cnrl56sm24kvj" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
-[ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="13_py65l"]
-[ext_resource type="PackedScene" uid="uid://b07yf6mn4kl7w" path="res://BubbleGenerator.tscn" id="14_why88"]
+[ext_resource type="PackedScene" uid="uid://rlqkpa4m3eoy" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
+[ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="13_py65l"]
+[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="15_31wra"]
 [ext_resource type="PackedScene" uid="uid://dpijf42uwkn8u" path="res://Obstacles/BirdPoppingObstacle.tscn" id="15_g884k"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="16_43nba"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dp4huo3jyf14p" path="res://Sprites/Shell4.png" id="23_57ki3"]
 [ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="24_k087p"]
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
+[ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
 
@@ -634,8 +635,14 @@ z_index = -1
 position = Vector2(470, -3816)
 texture = ExtResource("27_ycqhm")
 
+[node name="Moon" type="Sprite2D" parent="MapThings"]
+position = Vector2(460, -26903)
+texture = ExtResource("25_wwjmf")
+offset = Vector2(80, -40)
+
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
 position = Vector2(94, 1022)
+_moon = NodePath("../MapThings/Moon")
 
 [node name="UI" parent="." instance=ExtResource("3_jl7uj")]
 

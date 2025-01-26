@@ -176,8 +176,8 @@ _bloodParticlesScene = ExtResource("12_56hv5")
 [node name="Light" type="PointLight2D" parent="."]
 unique_name_in_owner = true
 energy = 0.4
-range_layer_min = -100
-range_layer_max = 100
+range_layer_min = -200
+range_layer_max = 200
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_7gxl3")
 texture_scale = 1.5

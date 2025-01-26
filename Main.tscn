@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=52 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
@@ -29,11 +29,16 @@
 [ext_resource type="Texture2D" uid="uid://dp4huo3jyf14p" path="res://Sprites/Shell4.png" id="23_57ki3"]
 [ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="24_k087p"]
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
+[ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
+[ext_resource type="Texture2D" uid="uid://bl0dp0rmw302q" path="res://Sprites/Space/space_decoration.png" id="26_07k0n"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
+[ext_resource type="PackedScene" path="res://MirrorScene.tscn" id="27_377po"]
+[ext_resource type="Texture2D" uid="uid://dvfe40ys2th4h" path="res://Sprites/Yay_2.png" id="27_acsu3"]
+[ext_resource type="Texture2D" uid="uid://fca86phxl7wo" path="res://Sprites/Yay_1.png" id="27_bxj3p"]
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
-[ext_resource type="Texture2D" uid="uid://da7wc0gxejw0q" path="res://Sprites/Mirror_idle.png" id="32_eefyq"]
-[ext_resource type="Script" path="res://Mirror.cs" id="33_yffev"]
-[ext_resource type="Texture2D" uid="uid://bef8dkojw4n7e" path="res://Sprites/Mirror_4.png" id="34_3fwhk"]
+[ext_resource type="AudioStream" uid="uid://b4dln8w462e8r" path="res://Sounds/Winning Sound.wav" id="29_0lx8c"]
+[ext_resource type="Texture2D" uid="uid://6h5imhcgnaia" path="res://Sprites/Yay_3.png" id="29_0qf17"]
+[ext_resource type="Texture2D" uid="uid://f0olat5ea054" path="res://Sprites/TitleOverlay.png" id="33_0khtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
 size = Vector2(800, 37)
@@ -41,85 +46,113 @@ size = Vector2(800, 37)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2l1"]
 size = Vector2(1607, 86.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3n6q"]
-size = Vector2(209, 284)
-
-[sub_resource type="Animation" id="Animation_qi1n3"]
-resource_name = "FadeIn"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MirrorEmpty:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MirrorShrimp:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_b1uc4"]
-resource_name = "FadeOut"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MirrorShrimp:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_pgego"]
+[sub_resource type="Animation" id="Animation_ilyep"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MirrorEmpty:modulate")
+tracks/0/path = NodePath("Yay1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(130, -332)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MirrorShrimp:modulate")
+tracks/1/path = NodePath("Yay2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-195, -277)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Yay4:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(209, -300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Yay3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-105, -351)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_huwd5"]
+[sub_resource type="Animation" id="Animation_v7rbt"]
+resource_name = "Yay"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yay1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(130, -332), Vector2(158, -402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Yay2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-195, -277), Vector2(-195, -277), Vector2(-228, -347)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Yay4:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(209, -300), Vector2(209, -300), Vector2(267, -343)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Yay3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-105, -351), Vector2(-105, -351), Vector2(-110, -402)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4ao5"]
 _data = {
-"FadeIn": SubResource("Animation_qi1n3"),
-"FadeOut": SubResource("Animation_b1uc4"),
-"RESET": SubResource("Animation_pgego")
+"RESET": SubResource("Animation_ilyep"),
+"Yay": SubResource("Animation_v7rbt")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
@@ -142,21 +175,6 @@ size = Vector2(413, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy44"]
 size = Vector2(380.5, 278)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wir5b"]
-size = Vector2(380.5, 278)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfyiy"]
-size = Vector2(539.875, 383.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ts2"]
-size = Vector2(442.875, 1259)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2n8d"]
-size = Vector2(617, 316)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7qs"]
-size = Vector2(665, 316)
 
 [node name="Level" type="Node2D"]
 
@@ -196,7 +214,6 @@ shape = SubResource("RectangleShape2D_5x2l1")
 
 [node name="ComplexShark2" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
 position = Vector2(227, -12308)
-_hasBubble = true
 
 [node name="Area2D" type="Area2D" parent="MapThings/ObstaclesBehind/ComplexShark2"]
 position = Vector2(5, 5)
@@ -733,40 +750,54 @@ z_index = -1
 position = Vector2(470, -3816)
 texture = ExtResource("27_ycqhm")
 
+[node name="SpaceDecoration" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(-123, -18115)
+texture = ExtResource("26_07k0n")
+
 [node name="Moon" type="Sprite2D" parent="MapThings"]
-position = Vector2(460, -26903)
+position = Vector2(460, -19369)
+texture = ExtResource("25_wwjmf")
+offset = Vector2(80, -40)
 
+[node name="Yay1" type="Sprite2D" parent="MapThings/Moon"]
+show_behind_parent = true
+position = Vector2(130, -332)
+rotation = 0.192414
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("27_acsu3")
 
-[node name="Mirror2" type="Area2D" parent="MapThings/Node" node_paths=PackedStringArray("_animationPlayer")]
-script = ExtResource("33_yffev")
-_animationPlayer = NodePath("AnimationPlayer")
+[node name="Yay4" type="Sprite2D" parent="MapThings/Moon"]
+show_behind_parent = true
+position = Vector2(209, -300)
+rotation = 0.598499
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("27_bxj3p")
 
-[node name="MirrorEmpty" type="Sprite2D" parent="MapThings/Node/Mirror2"]
-position = Vector2(-33, 997)
-rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("32_eefyq")
+[node name="Yay2" type="Sprite2D" parent="MapThings/Moon"]
+show_behind_parent = true
+position = Vector2(-195, -277)
+rotation = -0.475908
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("29_0qf17")
 
-[node name="MirrorShrimp" type="Sprite2D" parent="MapThings/Node/Mirror2"]
-position = Vector2(-33, 997)
-rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("34_3fwhk")
+[node name="Yay3" type="Sprite2D" parent="MapThings/Moon"]
+show_behind_parent = true
+position = Vector2(-105, -351)
+rotation = 2.83082
+scale = Vector2(0.035, -0.035)
+texture = ExtResource("27_acsu3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/Node/Mirror2"]
-position = Vector2(154, 1045)
-rotation = 3.14159
-scale = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_k3n6q")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MapThings/Node/Mirror2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapThings/Moon"]
 libraries = {
-"": SubResource("AnimationLibrary_huwd5")
+"": SubResource("AnimationLibrary_q4ao5")
 }
 
-[node name="Player" parent="." instance=ExtResource("1_t782h")]
-position = Vector2(159, 1068)
+[node name="Mirror2" parent="MapThings" instance=ExtResource("27_377po")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("_moon") instance=ExtResource("1_t782h")]
+position = Vector2(169, 1058)
 _moon = NodePath("../MapThings/Moon")
+WinSound = ExtResource("29_0lx8c")
 
 [node name="UI" parent="." instance=ExtResource("3_jl7uj")]
 
@@ -856,63 +887,11 @@ _collisionShape = NodePath("CollisionShape2D")
 position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
 
-[node name="WindyBit10" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(1066, -10668)
-Windiness = 3.0
-Direction = Vector2(-1, 0)
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit10"]
-position = Vector2(62.75, 2)
-shape = SubResource("RectangleShape2D_wir5b")
-
-[node name="WindyBit13" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(-91, -10658)
-Windiness = 4.0
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit13"]
-position = Vector2(98.0625, -9)
-shape = SubResource("RectangleShape2D_mfyiy")
-
-[node name="WindyBit14" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(-91, -11679)
-Direction = Vector2(0, -1)
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit14"]
-position = Vector2(49.5625, 78.5)
-shape = SubResource("RectangleShape2D_a2ts2")
-
-[node name="WindyBit15" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(1091, -12137)
-Windiness = 5.0
-Direction = Vector2(0, 1)
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit15"]
-position = Vector2(49.5625, 78.5)
-shape = SubResource("RectangleShape2D_a2ts2")
-
-[node name="WindyBit11" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(-82, -9373)
-Windiness = 5.0
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit11"]
-position = Vector2(146.5, -17)
-shape = SubResource("RectangleShape2D_g2n8d")
-
-[node name="WindyBit12" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(883, -9385)
-Windiness = 5.0
-Direction = Vector2(-1, 0)
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit12"]
-position = Vector2(122.5, -17)
-shape = SubResource("RectangleShape2D_pq7qs")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(89, 1245)
+texture = ExtResource("33_0khtj")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
+[connection signal="Mooned" from="Player" to="MapThings/Moon/AnimationPlayer" method="play" binds= [&"Yay"]]
 [connection signal="NewLevel" from="Player" to="MusicPlayer" method="ChangeLevel"]
 [connection signal="Popped" from="Player" to="MusicPlayer" method="Popped"]

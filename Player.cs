@@ -74,6 +74,7 @@ public partial class Player : RigidBody2D
 	private ulong _startingMs;
 
 	[Export] private AudioStream PopSound;
+	[Export] private AudioStream WinSound;
 	[Export] private PackedScene _bloodParticlesScene;
 
 	[Signal]
@@ -86,6 +87,9 @@ public partial class Player : RigidBody2D
 	public delegate void PoppedEventHandler();
 	[Signal]
 	public delegate void StunnedEventHandler();
+
+	[Signal]
+	public delegate void MoonedEventHandler();
 
 	public override void _Ready()
 	{
@@ -422,6 +426,8 @@ public partial class Player : RigidBody2D
 
 	public void ActuallyTheEnd()
 	{
+		SoundPlayer.Instance.Play(WinSound, -5);
+		EmitSignal(SignalName.Mooned);
 		Stats.End();
 		_animationPlayer.Play("Finish");
 		_ended = true;

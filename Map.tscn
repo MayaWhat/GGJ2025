@@ -4,9 +4,9 @@
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="1_oycdf"]
 [ext_resource type="Texture2D" uid="uid://blnx3u3kvetfq" path="res://Sprites/Land/Land_end.png" id="6_j25p0"]
 [ext_resource type="Texture2D" uid="uid://bxn151k47s478" path="res://Sprites/land_wall_3.png" id="10_dpg0n"]
-[ext_resource type="PackedScene" path="res://CameraTrigger.tscn" id="10_lytx5"]
+[ext_resource type="PackedScene" uid="uid://by6pj1gppsbu5" path="res://CameraTrigger.tscn" id="10_lytx5"]
 [ext_resource type="Script" path="res://EndTrigger.cs" id="10_rim08"]
-[ext_resource type="PackedScene" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="PackedScene" uid="uid://dsjomopypsk4w" path="res://LevelTransition.tscn" id="13_147x8"]
 [ext_resource type="Texture2D" uid="uid://vua4qbjvyuo2" path="res://Sprites/Water end/Water_end_0.png" id="14_8d30y"]
 [ext_resource type="Texture2D" uid="uid://5ilhd3jqsh5k" path="res://Sprites/Water end/Water_end_1.png" id="15_8j70v"]
 [ext_resource type="Texture2D" uid="uid://cjik0p03045wo" path="res://Sprites/Water end/Water_end_2.png" id="16_gj687"]
@@ -75,7 +75,11 @@ offset_top = -9250.0
 offset_right = 4000.0
 offset_bottom = 5750.0
 
-[node name="WaterBackground" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+follow_viewport_enabled = true
+
+[node name="WaterBackground" type="TextureRect" parent="CanvasLayer"]
 z_index = -1
 offset_left = -3000.0
 offset_top = -9250.0
@@ -83,7 +87,7 @@ offset_right = 4000.0
 offset_bottom = 5750.0
 texture = SubResource("GradientTexture2D_nnbm6")
 
-[node name="SkyBackground" type="TextureRect" parent="."]
+[node name="SkyBackground" type="TextureRect" parent="CanvasLayer"]
 z_index = -1
 offset_left = -3000.0
 offset_top = -16772.0
@@ -91,7 +95,7 @@ offset_right = 4000.0
 offset_bottom = -9250.0
 texture = SubResource("GradientTexture2D_abjy3")
 
-[node name="WaterEndSprite" type="TextureRect" parent="."]
+[node name="WaterEndSprite" type="TextureRect" parent="CanvasLayer"]
 z_index = -1
 custom_minimum_size = Vector2(1920, 1080)
 offset_left = -421.0
@@ -100,7 +104,7 @@ offset_right = 1499.0
 offset_bottom = -8797.0
 texture = SubResource("AnimatedTexture_ewljt")
 
-[node name="SpaceBackground" type="TextureRect" parent="."]
+[node name="SpaceBackground" type="TextureRect" parent="CanvasLayer"]
 z_index = -1
 offset_left = -3000.0
 offset_top = -31778.0
@@ -108,7 +112,7 @@ offset_right = 4000.0
 offset_bottom = -16778.0
 texture = SubResource("GradientTexture2D_u6ojp")
 
-[node name="SkyEndSprite" type="TextureRect" parent="."]
+[node name="SkyEndSprite" type="TextureRect" parent="CanvasLayer"]
 offset_left = -421.0
 offset_top = -17830.0
 offset_right = 1499.0

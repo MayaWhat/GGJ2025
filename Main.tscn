@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=54 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
@@ -176,6 +176,12 @@ size = Vector2(413, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy44"]
 size = Vector2(380.5, 278)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vknh5"]
+size = Vector2(388.5, 156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u223v"]
+size = Vector2(346.25, 159)
+
 [node name="Level" type="Node2D"]
 
 [node name="MapThings" type="Node2D" parent="."]
@@ -215,6 +221,7 @@ shape = SubResource("RectangleShape2D_5x2l1")
 [node name="ComplexShark2" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
 position = Vector2(294, -12239)
 _hasBubble = true
+_leashRange = 3750.0
 
 [node name="Area2D" type="Area2D" parent="MapThings/ObstaclesBehind/ComplexShark2"]
 position = Vector2(5, 5)
@@ -262,6 +269,18 @@ position = Vector2(167, -5386)
 
 [node name="BubbleGenerator7" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
 position = Vector2(925, -5613)
+
+[node name="BubbleGenerator8" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(946, -9520)
+
+[node name="BubbleGenerator9" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(506, -9776)
+
+[node name="BubbleGenerator10" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(72, -10490)
+
+[node name="BubbleGenerator11" parent="MapThings/Bubbles" instance=ExtResource("14_why88")]
+position = Vector2(903, -10974)
 
 [node name="Obstacles" type="Node" parent="MapThings"]
 
@@ -887,6 +906,25 @@ _collisionShape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit9"]
 position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
+
+[node name="WindyBit10" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(138, -9390)
+Windiness = 4.0
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit10"]
+position = Vector2(66.75, 63)
+shape = SubResource("RectangleShape2D_vknh5")
+
+[node name="WindyBit11" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(819, -9387)
+Windiness = 4.0
+Direction = Vector2(-1, 0)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit11"]
+position = Vector2(53.125, 72.5)
+shape = SubResource("RectangleShape2D_u223v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(89, 1245)

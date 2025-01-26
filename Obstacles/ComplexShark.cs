@@ -18,6 +18,8 @@ public partial class ComplexShark : Node2D
 
 	private Sprite2D _bubbleSprite;
 
+	[Export] private float _leashRange = 5000f;
+
 	private Vector2 _startingPosition;
 	public override void _Ready()
 	{
@@ -76,7 +78,7 @@ public partial class ComplexShark : Node2D
 			_visuals.LookAt(Player.Instance.GlobalPosition);
 			_playerPopper.LookAt(Player.Instance.GlobalPosition);
 
-			if ((GlobalPosition - _startingPosition).Length() > 5000f)
+			if ((GlobalPosition - _startingPosition).Length() > _leashRange)
 			{
 				Chill();
 			}

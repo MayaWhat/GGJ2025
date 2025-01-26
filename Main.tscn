@@ -213,7 +213,8 @@ position = Vector2(24, -905)
 shape = SubResource("RectangleShape2D_5x2l1")
 
 [node name="ComplexShark2" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
-position = Vector2(227, -12308)
+position = Vector2(294, -12239)
+_hasBubble = true
 
 [node name="Area2D" type="Area2D" parent="MapThings/ObstaclesBehind/ComplexShark2"]
 position = Vector2(5, 5)

@@ -885,7 +885,7 @@ position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(531, 1247)
+position = Vector2(89, 1245)
 texture = ExtResource("33_0khtj")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]

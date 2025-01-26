@@ -36,7 +36,7 @@
 size = Vector2(800, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2l1"]
-size = Vector2(1040, 40)
+size = Vector2(1040, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
 size = Vector2(723, 355)
@@ -57,7 +57,7 @@ size = Vector2(413, 200)
 size = Vector2(413, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy44"]
-size = Vector2(413, 200)
+size = Vector2(380.5, 278)
 
 [node name="Level" type="Node2D"]
 
@@ -93,6 +93,18 @@ script = ExtResource("5_12cdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/ComplexShark/Area2D"]
 position = Vector2(24, -905)
+shape = SubResource("RectangleShape2D_5x2l1")
+
+[node name="ComplexShark2" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
+position = Vector2(227, -12308)
+_hasBubble = true
+
+[node name="Area2D" type="Area2D" parent="MapThings/ObstaclesBehind/ComplexShark2"]
+position = Vector2(5, 5)
+script = ExtResource("5_12cdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/ComplexShark2/Area2D"]
+position = Vector2(327, -1022)
 shape = SubResource("RectangleShape2D_5x2l1")
 
 [node name="Map" parent="MapThings" instance=ExtResource("3_54vkf")]
@@ -642,6 +654,7 @@ autoplay = true
 [node name="WindyBit" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
 position = Vector2(252, 177)
 Windiness = 4.0
+Direction = Vector2(1, -1)
 _collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit"]
@@ -709,6 +722,16 @@ _collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit7"]
 position = Vector2(79, 41)
+shape = SubResource("RectangleShape2D_4iy44")
+
+[node name="WindyBit9" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(346, -10247)
+Windiness = 3.0
+Direction = Vector2(-1, 1)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit9"]
+position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]

@@ -14,6 +14,10 @@ public partial class ComplexShark : Node2D
 
 	private bool _retreating = false;
 
+	[Export] private bool _hasBubble = false;
+
+	private Sprite2D _bubbleSprite;
+
 	private Vector2 _startingPosition;
 	public override void _Ready()
 	{
@@ -21,6 +25,7 @@ public partial class ComplexShark : Node2D
 		_visuals = GetNode<Node2D>("%Visuals");
 		_playerPopper = GetNode<Node2D>("%PlayerPopper");
 		_startingPosition = Position;
+		_bubbleSprite = GetNode<Sprite2D>("Bubble");
 	}
 
 	private void LateInit()
@@ -42,6 +47,10 @@ public partial class ComplexShark : Node2D
 		SoundPlayer.Instance.Play(_sharkSound, 7);
 
 		_visuals.Visible = true;
+		if (_hasBubble)
+		{
+			_bubbleSprite.Visible = true;
+		}
 		_awake = true;
 	}
 
@@ -56,7 +65,8 @@ public partial class ComplexShark : Node2D
 			{
 				Position = Position.MoveToward(Player.Instance.Position, 20);
 			}
-			else if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 400f) {
+			else if ((Player.Instance.GlobalPosition - GlobalPosition).Length() > 400f)
+			{
 				Position = Position.MoveToward(Player.Instance.Position, 10);
 			}
 			else
@@ -66,7 +76,8 @@ public partial class ComplexShark : Node2D
 			_visuals.LookAt(Player.Instance.GlobalPosition);
 			_playerPopper.LookAt(Player.Instance.GlobalPosition);
 
-			if ((GlobalPosition - _startingPosition).Length() > 5000f) {
+			if ((GlobalPosition - _startingPosition).Length() > 5000f)
+			{
 				Chill();
 			}
 		}
@@ -77,6 +88,10 @@ public partial class ComplexShark : Node2D
 				_visuals.Visible = false;
 				_retreating = false;
 				_awake = false;
+				if (_hasBubble)
+				{
+					_bubbleSprite.Visible = false;
+				}
 			}
 			else
 			{

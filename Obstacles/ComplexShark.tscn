@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://btu62sujjwtjy"]
+[gd_scene load_steps=10 format=3 uid="uid://btu62sujjwtjy"]
 
 [ext_resource type="Script" path="res://Obstacles/ComplexShark.cs" id="1_2va5y"]
 [ext_resource type="AudioStream" uid="uid://4k8bhrgv8ra5" path="res://Sounds/Shark attack sound.wav" id="2_25rg5"]
 [ext_resource type="Texture2D" uid="uid://k6ogwjxyct5q" path="res://Sprites/Shark_Attack_0.png" id="2_yo7c3"]
 [ext_resource type="Texture2D" uid="uid://1dtkq3r4m5yx" path="res://Sprites/Shark_Attack_1.png" id="3_eqeof"]
-[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="4_878lj"]
+[ext_resource type="PackedScene" path="res://PlayerPopper.tscn" id="4_878lj"]
+[ext_resource type="Texture2D" uid="uid://dalrj8en0e1lv" path="res://Sprites/Bubble.png" id="5_5lsht"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n23ja"]
 animations = [{
@@ -45,6 +46,12 @@ height = 318.0
 position = Vector2(-2, 0)
 script = ExtResource("1_2va5y")
 _sharkSound = ExtResource("2_25rg5")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(3.98, 3.98)
+texture = ExtResource("5_5lsht")
 
 [node name="Visuals" type="Node2D" parent="."]
 unique_name_in_owner = true

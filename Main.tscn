@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=51 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="24_k087p"]
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
 [ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
+[ext_resource type="Texture2D" uid="uid://bl0dp0rmw302q" path="res://Sprites/Space/space_decoration.png" id="26_07k0n"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
 [ext_resource type="Texture2D" uid="uid://dvfe40ys2th4h" path="res://Sprites/Yay_2.png" id="27_acsu3"]
 [ext_resource type="Texture2D" uid="uid://fca86phxl7wo" path="res://Sprites/Yay_1.png" id="27_bxj3p"]
@@ -747,6 +748,10 @@ texture = ExtResource("26_msp5p")
 z_index = -1
 position = Vector2(470, -3816)
 texture = ExtResource("27_ycqhm")
+
+[node name="SpaceDecoration" type="Sprite2D" parent="MapThings/Node"]
+position = Vector2(-123, -18115)
+texture = ExtResource("26_07k0n")
 
 [node name="Moon" type="Sprite2D" parent="MapThings"]
 position = Vector2(460, -19369)

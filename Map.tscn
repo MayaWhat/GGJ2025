@@ -1,12 +1,19 @@
-[gd_scene load_steps=22 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=28 format=4 uid="uid://cg5ama6va7uuy"]
 
 [ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="1_oycdf"]
 [ext_resource type="Texture2D" uid="uid://blnx3u3kvetfq" path="res://Sprites/Land/Land_end.png" id="6_j25p0"]
+[ext_resource type="Texture2D" uid="uid://d16pj7bj5rllk" path="res://Sprites/plant1.png" id="9_7d2h5"]
 [ext_resource type="Texture2D" uid="uid://bxn151k47s478" path="res://Sprites/land_wall_3.png" id="10_dpg0n"]
 [ext_resource type="PackedScene" uid="uid://by6pj1gppsbu5" path="res://CameraTrigger.tscn" id="10_lytx5"]
 [ext_resource type="Script" path="res://EndTrigger.cs" id="10_rim08"]
 [ext_resource type="PackedScene" uid="uid://dsjomopypsk4w" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="Texture2D" uid="uid://6loga1gx5mv4" path="res://Sprites/BigSeaweed.png" id="10_sjlpt"]
+[ext_resource type="Texture2D" uid="uid://bbg82fbutwqys" path="res://Sprites/Shell1.png" id="11_bjxuu"]
+[ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="12_pbjde"]
+[ext_resource type="PackedScene" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="Texture2D" uid="uid://c1p7gruwox30q" path="res://Sprites/Shell3.png" id="13_wgjl1"]
+[ext_resource type="Texture2D" uid="uid://dp4huo3jyf14p" path="res://Sprites/Shell4.png" id="14_5tlqu"]
 [ext_resource type="Texture2D" uid="uid://vua4qbjvyuo2" path="res://Sprites/Water end/Water_end_0.png" id="14_8d30y"]
 [ext_resource type="Texture2D" uid="uid://5ilhd3jqsh5k" path="res://Sprites/Water end/Water_end_1.png" id="15_8j70v"]
 [ext_resource type="Texture2D" uid="uid://cjik0p03045wo" path="res://Sprites/Water end/Water_end_2.png" id="16_gj687"]
@@ -203,6 +210,157 @@ tile_set = ExtResource("1_2xxus")
 [node name="PoppingTiles" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAOAHX/FAAAAAAAAgARAHX/FAAAAAAAAgAUAHX/FAAAAAAAAgAXAHX/FAAAAAAAAgARACz/FAAAAAAAAwARAC7/FAAAAAAAAwARADD/FAAAAAAAAwARADL/FAAAAAAAAwARADT/FAAAAAAAAwARADb/FAAAAAAAAwARADj/FAAAAAAAAwARADr/FAAAAAAAAwARADz/FAAAAAAAAwARAD7/FAAAAAAAAwARAED/FAAAAAAAAwARAEL/FAAAAAAAAwARAEP/FAAAAAAAAwAfAEX/FAAAAAAABAAfAEP/FAAAAAAABAAfAEH/FAAAAAAABAAfAD//FAAAAAAABAAfAD3/FAAAAAAABAAfADv/FAAAAAAABAAfADn/FAAAAAAABAAfADf/FAAAAAAABAAfADX/FAAAAAAABAAfADP/FAAAAAAABAAfADH/FAAAAAAABAAfAC//FAAAAAAABAAfAC3/FAAAAAAABAAfACv/FAAAAAAABAAbAOv+FAAAAAAAAgAdAOv+FAAAAAAAAgAfAOv+FAAAAAAAAgALANX+FAAAAAAAAgANANX+FAAAAAAAAgAPANX+FAAAAAAAAgARANX+FAAAAAAAAgATANX+FAAAAAAAAgAUANX+FAAAAAAAAgAZALf+FAAAAAAAAgAbALf+FAAAAAAAAgAdALf+FAAAAAAAAgAfALf+FAAAAAAAAgAhALf+FAAAAAAAAgAiALf+FAAAAAAAAgAQAID+FAAAAAAAAwAQAIL+FAAAAAAAAwAQAIT+FAAAAAAAAwAQAIb+FAAAAAAAAwAQAIj+FAAAAAAAAwAQAIr+FAAAAAAAAwAQAIz+FAAAAAAAAwAQAI7+FAAAAAAAAwAQAI/+FAAAAAAAAwAbAI/+FAAAAAAABAAbAI3+FAAAAAAABAAbAIz+FAAAAAAABAAbAIr+FAAAAAAABAAbAIj+FAAAAAAABAAbAIb+FAAAAAAABAAbAIT+FAAAAAAABAAbAIL+FAAAAAAABAAbAID+FAAAAAAABAAWANP+FAAAAAAAAwAWAND+FAAAAAAAAwAWAM3+FAAAAAAAAwAWAMr+FAAAAAAAAwAWAMf+FAAAAAAAAwABAMX+FAAAAAAAAwABAMr+FAAAAAAAAwABAM7+FAAAAAAAAwABAL7+FAAAAAAAAwABAMH+FAAAAAAAAwABALj+FAAAAAAAAwABALv+FAAAAAAAAwAVAOX+FAAAAAAABAAVAOf+FAAAAAAABAAlAOb+FAAAAAAAAwArAL7+FAAAAAAABAArAMb+FAAAAAAABAArAM/+FAAAAAAABAArANj+FAAAAAAABAArALT+FAAAAAAABAArAKn+FAAAAAAABAAXAKj+FAAAAAAABAAXAK/+FAAAAAAABAAXAKz+FAAAAAAABAAXALL+FAAAAAAABAAXALX+FAAAAAAABAAkAK3+FAAAAAAAAwAkALP+FAAAAAAAAwAMAJT+FAAAAAAAAwAfAJT+FAAAAAAABAABAFP+FAAAAAAAAwABAFD+FAAAAAAAAwABAGD+FAAAAAAAAwABAGP+FAAAAAAAAwAqAFb+FAAAAAAABAAqAFT+FAAAAAAABAAqAFH+FAAAAAAABAAqAET+FAAAAAAABAAqAED+FAAAAAAABAABAA7+FAAAAAAAAwABAAz+FAAAAAAAAwABAAr+FAAAAAAAAwABAAf+FAAAAAAAAwABAPn9FAAAAAAAAwABAPX9FAAAAAAAAwABAPf9FAAAAAAAAwABAP39FAAAAAAAAwABAPv9FAAAAAAAAwAqAAD+FAAAAAAABAAqAAP+FAAAAAAABAAqAPf9FAAAAAAABAAqAPT9FAAAAAAABAAqAPD9FAAAAAAABAA=")
 tile_set = ExtResource("1_2xxus")
+
+[node name="Stickers" type="Node2D" parent="."]
+
+[node name="purpleplant" type="Sprite2D" parent="Stickers"]
+position = Vector2(753, -1498)
+rotation = -0.226893
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_7d2h5")
+
+[node name="purpleplant2" type="Sprite2D" parent="Stickers"]
+position = Vector2(564, -151)
+texture = ExtResource("9_7d2h5")
+
+[node name="seaweed" type="Sprite2D" parent="Stickers"]
+position = Vector2(98, -395)
+rotation = 0.307178
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed2" type="Sprite2D" parent="Stickers"]
+position = Vector2(594, -2619)
+rotation = 0.307178
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed14" type="Sprite2D" parent="Stickers"]
+position = Vector2(62, -3121)
+rotation = 0.307178
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed3" type="Sprite2D" parent="Stickers"]
+position = Vector2(44.0001, -5335)
+rotation = 0.307178
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed4" type="Sprite2D" parent="Stickers"]
+position = Vector2(103, -5281)
+rotation = 0.307178
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed5" type="Sprite2D" parent="Stickers"]
+position = Vector2(152, -5251)
+rotation = 0.919789
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed6" type="Sprite2D" parent="Stickers"]
+position = Vector2(222, -5210)
+rotation = 0.0767945
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed7" type="Sprite2D" parent="Stickers"]
+position = Vector2(360, -5151)
+rotation = 0.0767945
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed13" type="Sprite2D" parent="Stickers"]
+position = Vector2(923, -5240)
+rotation = -0.382227
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_sjlpt")
+
+[node name="seaweed8" type="Sprite2D" parent="Stickers"]
+position = Vector2(284, -5189)
+rotation = 0.0767945
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7d2h5")
+
+[node name="seaweed9" type="Sprite2D" parent="Stickers"]
+position = Vector2(138, -5281)
+rotation = 0.383972
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("9_7d2h5")
+
+[node name="seaweed10" type="Sprite2D" parent="Stickers"]
+position = Vector2(1036, -5304)
+rotation = -0.994838
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("9_7d2h5")
+
+[node name="seaweed12" type="Sprite2D" parent="Stickers"]
+position = Vector2(775, -5158)
+rotation = -0.459022
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_7d2h5")
+
+[node name="seaweed11" type="Sprite2D" parent="Stickers"]
+position = Vector2(1023, -5672)
+rotation = -1.53065
+texture = ExtResource("9_7d2h5")
+
+[node name="shell1" type="Sprite2D" parent="Stickers"]
+position = Vector2(1220, -216)
+texture = ExtResource("11_bjxuu")
+
+[node name="shell2" type="Sprite2D" parent="Stickers"]
+position = Vector2(-433, -1938)
+texture = ExtResource("11_bjxuu")
+
+[node name="shell3" type="Sprite2D" parent="Stickers"]
+position = Vector2(-506, -4169)
+rotation = 2.68257
+texture = ExtResource("11_bjxuu")
+
+[node name="shell11" type="Sprite2D" parent="Stickers"]
+position = Vector2(1243, -4956)
+rotation = 2.68257
+texture = ExtResource("14_5tlqu")
+
+[node name="shell12" type="Sprite2D" parent="Stickers"]
+position = Vector2(1021, -3115)
+rotation = -1.5324
+texture = ExtResource("12_pbjde")
+
+[node name="shell4" type="Sprite2D" parent="Stickers"]
+position = Vector2(611, -6726)
+rotation = 2.68257
+texture = ExtResource("11_bjxuu")
+
+[node name="shell5" type="Sprite2D" parent="Stickers"]
+position = Vector2(927, -9154)
+rotation = -0.0837758
+texture = ExtResource("12_pbjde")
+
+[node name="shell6" type="Sprite2D" parent="Stickers"]
+position = Vector2(-306, -8472)
+rotation = 0.363028
+texture = ExtResource("13_wgjl1")
+
+[node name="shell7" type="Sprite2D" parent="Stickers"]
+position = Vector2(1528, -7155)
+rotation = -1.24617
+texture = ExtResource("13_wgjl1")
+
+[node name="shell8" type="Sprite2D" parent="Stickers"]
+position = Vector2(342, -7261)
+rotation = -0.0959931
+texture = ExtResource("14_5tlqu")
+
+[node name="shell9" type="Sprite2D" parent="Stickers"]
+position = Vector2(300, -7580)
+rotation = -0.0959931
+texture = ExtResource("9_7d2h5")
+
+[node name="shell10" type="Sprite2D" parent="Stickers"]
+position = Vector2(462, -7607)
+rotation = 0.593412
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_sjlpt")
 
 [node name="CameraTrigger" parent="." instance=ExtResource("10_lytx5")]
 position = Vector2(540, -8139)

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=190 format=3 uid="uid://djo37pc1p3kxv"]
+[gd_resource type="TileSet" load_steps=192 format=3 uid="uid://djo37pc1p3kxv"]
 
 [ext_resource type="Texture2D" uid="uid://b8yybw5h0iwxb" path="res://Sprites/Water tiles/sand_floor_straight.png" id="1_ixuci"]
 [ext_resource type="Texture2D" uid="uid://c2y6gpgoc1veb" path="res://Sprites/Water tiles/water_ceiling_angle_shallow.png" id="2_52vow"]
@@ -23,12 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://d1753od0gxq2q" path="res://Sprites/Water tiles/water_wall_right.png" id="12_g54av"]
 [ext_resource type="Texture2D" uid="uid://b8hxlhqa58vmw" path="res://Sprites/Land/sand_floor_filler.png" id="12_kut55"]
 [ext_resource type="Texture2D" uid="uid://emqn1bag0pvq" path="res://Sprites/sand_floor_filler.png" id="14_3516g"]
-[ext_resource type="PackedScene" uid="uid://d2epon1w33dmt" path="res://Obstacles/Coral.tscn" id="15_bdr71"]
-[ext_resource type="PackedScene" uid="uid://tshooslggarb" path="res://Obstacles/CoralLeft.tscn" id="16_v10i0"]
-[ext_resource type="PackedScene" uid="uid://daio0pnw04ubs" path="res://Obstacles/CoralRight.tscn" id="17_8w21e"]
+[ext_resource type="PackedScene" uid="uid://cowt480tyct53" path="res://Obstacles/Coral.tscn" id="15_bdr71"]
+[ext_resource type="PackedScene" uid="uid://xnb3r8lgx6yi" path="res://Obstacles/CoralLeft.tscn" id="16_v10i0"]
+[ext_resource type="PackedScene" uid="uid://dq45tnhycbeo" path="res://Obstacles/CoralRight.tscn" id="17_8w21e"]
 [ext_resource type="Texture2D" uid="uid://dk8lyjp1qnmsc" path="res://Sprites/Cloud/land_cloud_corner_chonk.png" id="17_lgcbg"]
+[ext_resource type="PackedScene" uid="uid://cpsgf2sc6bwym" path="res://Obstacles/VineLeft.tscn" id="18_f7xfm"]
 [ext_resource type="Texture2D" uid="uid://bt5uup3efjiii" path="res://Sprites/Cloud/land_cloud_corner_smol.png" id="18_uh52r"]
 [ext_resource type="Texture2D" uid="uid://cfb1l1dhukua3" path="res://Sprites/Cloud/land_cloud_filler.png" id="19_3uw7p"]
+[ext_resource type="PackedScene" uid="uid://dnaixvc6yqojd" path="res://Obstacles/VineRight.tscn" id="19_hvn4m"]
 [ext_resource type="Texture2D" uid="uid://v3u7djq3swug" path="res://Sprites/Cloud/land_cloud_straight.png" id="20_jm3ou"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t2l2g"]
@@ -670,6 +672,8 @@ scenes/1/scene = ExtResource("4_d28sp")
 scenes/2/scene = ExtResource("15_bdr71")
 scenes/3/scene = ExtResource("16_v10i0")
 scenes/4/scene = ExtResource("17_8w21e")
+scenes/5/scene = ExtResource("18_f7xfm")
+scenes/6/scene = ExtResource("19_hvn4m")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kb7os"]
 polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

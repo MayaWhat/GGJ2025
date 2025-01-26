@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnaixvc6yqojd"]
+
+[ext_resource type="Texture2D" uid="uid://f772rtt8byd" path="res://Sprites/Untitled_Artwork (2).png" id="1_385xa"]
+[ext_resource type="PackedScene" uid="uid://cdkt5n0r8ipfx" path="res://PlayerPopper.tscn" id="2_p57vr"]
+
+[node name="BasicObstacle" type="Node2D"]
+rotation = -1.5708
+
+[node name="Coral" type="Sprite2D" parent="."]
+position = Vector2(6, 34)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_385xa")
+flip_h = true
+
+[node name="PlayerPopper" parent="." instance=ExtResource("2_p57vr")]
+position = Vector2(3.8147e-06, -14)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="PlayerPopper"]
+position = Vector2(-0.000253594, 83)
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(40, -11.9999, 65, 11.0002, 59.9998, 44.0002, 42.9998, 67.0002, 16.9998, 65.0001, -3.00017, 48, -12.0001, 40, -22.0002, 54.9999, -38.0002, 56.9999, -48.0001, 27.9998, -40.0001, 15.9999, -2.99999, -1.00001, -28, -10.0001)

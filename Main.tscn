@@ -1,23 +1,24 @@
-[gd_scene load_steps=42 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=41 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
-[ext_resource type="PackedScene" uid="uid://rsxfo5qh8khr" path="res://Waker.tscn" id="3_liwuf"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="3_jl7uj"]
+[ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
 [ext_resource type="Script" path="res://Waker.cs" id="5_12cdt"]
 [ext_resource type="AudioStream" uid="uid://dl4806jii0on0" path="res://Sounds/482167__tim_verberne__underwater-ambience.wav" id="7_6cu4d"]
 [ext_resource type="PackedScene" uid="uid://bbeclloli5jdk" path="res://ParallaxBackground.tscn" id="7_12sfj"]
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
-[ext_resource type="PackedScene" uid="uid://dxtkuihwa0n3u" path="res://Obstacles/MovingCloud1.tscn" id="9_vtgc6"]
-[ext_resource type="PackedScene" uid="uid://4erwuik1eknh" path="res://Obstacles/MovingCloud2.tscn" id="10_mc0o5"]
-[ext_resource type="PackedScene" uid="uid://rlqkpa4m3eoy" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
+[ext_resource type="PackedScene" path="res://Obstacles/MovingCloud1.tscn" id="9_vtgc6"]
+[ext_resource type="PackedScene" path="res://Obstacles/MovingCloud2.tscn" id="10_mc0o5"]
+[ext_resource type="PackedScene" uid="uid://cnrl56sm24kvj" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
 [ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="13_py65l"]
-[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
+[ext_resource type="PackedScene" uid="uid://b07yf6mn4kl7w" path="res://BubbleGenerator.tscn" id="14_why88"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="15_31wra"]
+[ext_resource type="PackedScene" uid="uid://dpijf42uwkn8u" path="res://Obstacles/BirdPoppingObstacle.tscn" id="15_g884k"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="16_43nba"]
 [ext_resource type="PackedScene" uid="uid://dl3f6dk5qp0v" path="res://Obstacles/BasicMovingPoppingObsatcle.tscn" id="17_skq8p"]
 [ext_resource type="Texture2D" uid="uid://6awnedlp82qs" path="res://Sprites/sandcastle.png" id="18_s207i"]
@@ -57,12 +58,6 @@ size = Vector2(413, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy44"]
 size = Vector2(413, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t2jk"]
-size = Vector2(700, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg7tu"]
-size = Vector2(700, 200)
 
 [node name="Level" type="Node2D"]
 
@@ -331,6 +326,242 @@ position = Vector2(340, -5890)
 [node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/MovingJellfish7/Node"]
 position = Vector2(495, -5799)
 
+[node name="BirdPoppingObstacle3" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(710, -10010)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle3"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle3/Node"]
+position = Vector2(711, -9998)
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle3/Node"]
+position = Vector2(322, -9998)
+
+[node name="BirdPoppingObstacle4" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(196, -9831)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle4"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle4/Node"]
+position = Vector2(579, -9830)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle4/Node"]
+position = Vector2(195, -9831)
+
+[node name="BirdPoppingObstacle5" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(224, -10373)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle5"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle5/Node"]
+position = Vector2(469, -10178)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle5/Node"]
+position = Vector2(221, -10377)
+
+[node name="BirdPoppingObstacle6" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(339, -11084)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle6"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle6/Node"]
+position = Vector2(785, -11101)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle6/Node"]
+position = Vector2(328, -11079)
+
+[node name="BirdPoppingObstacle7" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(1031, -11250)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle7"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle7/Node"]
+position = Vector2(1027, -11245)
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle7/Node"]
+position = Vector2(176, -11256)
+
+[node name="BirdPoppingObstacle8" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(137, -11419)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle8"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle8/Node"]
+position = Vector2(1054, -11503)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle8/Node"]
+position = Vector2(133, -11404)
+
+[node name="BirdPoppingObstacle9" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(264, -12047)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle9"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(495, -12159)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(785, -12082)
+
+[node name="Marker2D3" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(885, -11892)
+
+[node name="Marker2D4" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(678, -11683)
+
+[node name="Marker2D5" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(336, -11697)
+
+[node name="Marker2D6" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(557, -11868)
+
+[node name="Marker2D7" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle9/Node"]
+position = Vector2(264, -11908)
+
+[node name="BirdPoppingObstacle10" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(965, -12682)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle10"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle10/Node"]
+position = Vector2(965, -12689)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle10/Node"]
+position = Vector2(776, -12505)
+
+[node name="BirdPoppingObstacle11" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(414, -12463)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle11"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle11/Node"]
+position = Vector2(405, -12476)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle11/Node"]
+position = Vector2(887, -12865)
+
+[node name="BirdPoppingObstacle12" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(950, -13164)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle12"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle12/Node"]
+position = Vector2(965, -13159)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle12/Node"]
+position = Vector2(189, -12610)
+
+[node name="BirdPoppingObstacle13" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(138, -12876)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle13"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle13/Node"]
+position = Vector2(641, -13230)
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle13/Node"]
+position = Vector2(141, -12877)
+
+[node name="BirdPoppingObstacle14" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(162, -13364)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle14"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle14/Node"]
+position = Vector2(171, -13371)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle14/Node"]
+position = Vector2(929, -13383)
+
+[node name="BirdPoppingObstacle15" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(937, -13438)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle15"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle15/Node"]
+position = Vector2(932, -13442)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle15/Node"]
+position = Vector2(160, -13680)
+
+[node name="BirdPoppingObstacle16" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(154, -13896)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle16"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle16/Node"]
+position = Vector2(157, -13895)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle16/Node"]
+position = Vector2(927, -13615)
+
+[node name="BirdPoppingObstacle17" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(901, -13862)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle17"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle17/Node"]
+position = Vector2(895, -13867)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle17/Node"]
+position = Vector2(310, -13431)
+
+[node name="BirdPoppingObstacle18" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(553, -14057)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle18"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle18/Node"]
+position = Vector2(550, -14073)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle18/Node"]
+position = Vector2(502, -12928)
+
+[node name="BirdPoppingObstacle19" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
+position = Vector2(151, -14071)
+
+[node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle19"]
+script = ExtResource("2_f7pyt")
+MovementType = 1
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle19/Node"]
+position = Vector2(143, -14081)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle19/Node"]
+position = Vector2(892, -14034)
+
 [node name="Node" type="Node" parent="MapThings"]
 
 [node name="sandcastle" type="Sprite2D" parent="MapThings/Node"]
@@ -392,7 +623,7 @@ position = Vector2(470, -3816)
 texture = ExtResource("27_ycqhm")
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
-position = Vector2(479, -9840)
+position = Vector2(94, 1022)
 
 [node name="UI" parent="." instance=ExtResource("3_jl7uj")]
 
@@ -479,25 +710,6 @@ _collisionShape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit7"]
 position = Vector2(79, 41)
 shape = SubResource("RectangleShape2D_4iy44")
-
-[node name="WindyBit9" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(-87, -9394)
-Windiness = 4.0
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit9"]
-position = Vector2(79, 41)
-shape = SubResource("RectangleShape2D_8t2jk")
-
-[node name="WindyBit10" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(956, -9402)
-Windiness = 4.0
-Direction = Vector2(-1, 0)
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit10"]
-position = Vector2(79, 41)
-shape = SubResource("RectangleShape2D_kg7tu")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
 [connection signal="NewLevel" from="Player" to="MusicPlayer" method="ChangeLevel"]

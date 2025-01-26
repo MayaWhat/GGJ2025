@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=50 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
@@ -31,9 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
 [ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
+[ext_resource type="Texture2D" uid="uid://dvfe40ys2th4h" path="res://Sprites/Yay_2.png" id="27_acsu3"]
 [ext_resource type="Texture2D" uid="uid://fca86phxl7wo" path="res://Sprites/Yay_1.png" id="27_bxj3p"]
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
 [ext_resource type="AudioStream" uid="uid://b4dln8w462e8r" path="res://Sounds/Winning Sound.wav" id="29_0lx8c"]
+[ext_resource type="Texture2D" uid="uid://6h5imhcgnaia" path="res://Sprites/Yay_3.png" id="29_0qf17"]
 [ext_resource type="Texture2D" uid="uid://f0olat5ea054" path="res://Sprites/TitleOverlay.png" id="33_0khtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
@@ -54,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(137, -347)]
+"values": [Vector2(130, -332)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +68,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-209, -291)]
+"values": [Vector2(-195, -277)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,7 +108,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(137, -347), Vector2(158, -402)]
+"values": [Vector2(130, -332), Vector2(158, -402)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -118,7 +120,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.233333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-209, -291), Vector2(-209, -291), Vector2(-228, -347)]
+"values": [Vector2(-195, -277), Vector2(-195, -277), Vector2(-228, -347)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -753,29 +755,31 @@ offset = Vector2(80, -40)
 
 [node name="Yay1" type="Sprite2D" parent="MapThings/Moon"]
 show_behind_parent = true
-position = Vector2(137, -347)
-scale = Vector2(0.035, 0.035)
-texture = ExtResource("27_bxj3p")
+position = Vector2(130, -332)
+rotation = 0.192414
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("27_acsu3")
 
 [node name="Yay4" type="Sprite2D" parent="MapThings/Moon"]
 show_behind_parent = true
 position = Vector2(209, -300)
-scale = Vector2(0.035, 0.035)
+rotation = 0.598499
+scale = Vector2(0.045, 0.045)
 texture = ExtResource("27_bxj3p")
 
 [node name="Yay2" type="Sprite2D" parent="MapThings/Moon"]
 show_behind_parent = true
-position = Vector2(-209, -291)
-rotation = 3.14159
-scale = Vector2(0.035, -0.035)
-texture = ExtResource("27_bxj3p")
+position = Vector2(-195, -277)
+rotation = -0.475908
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("29_0qf17")
 
 [node name="Yay3" type="Sprite2D" parent="MapThings/Moon"]
 show_behind_parent = true
 position = Vector2(-105, -351)
-rotation = 3.14159
+rotation = 2.83082
 scale = Vector2(0.035, -0.035)
-texture = ExtResource("27_bxj3p")
+texture = ExtResource("27_acsu3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MapThings/Moon"]
 libraries = {

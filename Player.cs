@@ -30,6 +30,9 @@ public partial class Player : RigidBody2D
 
 	[Export] private float MaxBubbleVelocityX = 300f;
 
+	[Export]
+	private Node2D _moon;
+
 	private Vector2 _originalPosition;
 
 	private Sprite2D _bubbleSprite;
@@ -64,6 +67,12 @@ public partial class Player : RigidBody2D
 
 	private bool _isWindy = false;
 
+	private bool _ending = false;
+
+	private bool _ended = false;
+
+	private ulong _startingMs;
+
 	[Export] private AudioStream PopSound;
 	[Export] private PackedScene _bloodParticlesScene;
 
@@ -89,6 +98,7 @@ public partial class Player : RigidBody2D
 		_animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
 		_light = GetNode<Light2D>("%Light");
 		_camera = GetNode<Camera2D>("%Camera2D");
+		_startingMs = Time.GetTicksMsec();
 
 		BodyEntered += OnBodyEntered;
 	}
@@ -195,6 +205,13 @@ public partial class Player : RigidBody2D
 
 	public override void _Process(double delta)
 	{
+		if (_ended)
+		{
+			return;
+		}
+
+		Stats.UpdateTimer(TimeSpan.FromMilliseconds(Time.GetTicksMsec() - _startingMs));
+
 		if (_previousPosition != GlobalPosition)
 		{
 			var score = GlobalPosition.Y * -1;
@@ -233,6 +250,21 @@ public partial class Player : RigidBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		var direction = new Vector2();
+
+		if (_ended)
+		{
+			return;
+		}
+
+		if (_ending)
+		{
+			GlobalPosition = GlobalPosition.MoveToward(_moon.GlobalPosition, (float)delta * 500f);
+			if (GlobalPosition.IsEqualApprox(_moon.GlobalPosition))
+			{
+				ActuallyTheEnd();
+			}
+			return;
+		}
 
 		if (!_isStunned)
 		{
@@ -377,5 +409,21 @@ public partial class Player : RigidBody2D
 		{
 			GetTree().Quit();
 		}
+	}
+
+	public void TheEnd()
+	{
+		_ending = true;
+		SetDeferred(PropertyName.Freeze, true);
+		_shrimpSprite.Rotation = 0;
+		_animationPlayer.Play("RESET");
+		_isPushing = false;
+	}
+
+	public void ActuallyTheEnd()
+	{
+		Stats.End();
+		_animationPlayer.Play("Finish");
+		_ended = true;
 	}
 }

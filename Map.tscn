@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=4 uid="uid://cg5ama6va7uuy"]
+[gd_scene load_steps=22 format=4 uid="uid://cg5ama6va7uuy"]
 
 [ext_resource type="TileSet" uid="uid://djo37pc1p3kxv" path="res://Map.tres" id="1_2xxus"]
 [ext_resource type="Shader" path="res://Underwater.gdshader" id="1_oycdf"]
 [ext_resource type="Texture2D" uid="uid://blnx3u3kvetfq" path="res://Sprites/Land/Land_end.png" id="6_j25p0"]
 [ext_resource type="Texture2D" uid="uid://bxn151k47s478" path="res://Sprites/land_wall_3.png" id="10_dpg0n"]
-[ext_resource type="PackedScene" path="res://CameraTrigger.tscn" id="10_lytx5"]
-[ext_resource type="PackedScene" path="res://LevelTransition.tscn" id="13_147x8"]
+[ext_resource type="PackedScene" uid="uid://by6pj1gppsbu5" path="res://CameraTrigger.tscn" id="10_lytx5"]
+[ext_resource type="Script" path="res://EndTrigger.cs" id="10_rim08"]
+[ext_resource type="PackedScene" uid="uid://dsjomopypsk4w" path="res://LevelTransition.tscn" id="13_147x8"]
 [ext_resource type="Texture2D" uid="uid://vua4qbjvyuo2" path="res://Sprites/Water end/Water_end_0.png" id="14_8d30y"]
 [ext_resource type="Texture2D" uid="uid://5ilhd3jqsh5k" path="res://Sprites/Water end/Water_end_1.png" id="15_8j70v"]
 [ext_resource type="Texture2D" uid="uid://cjik0p03045wo" path="res://Sprites/Water end/Water_end_2.png" id="16_gj687"]
@@ -60,6 +61,9 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgqm8"]
 size = Vector2(1080, 540)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lojv"]
+size = Vector2(7000, 400)
 
 [node name="Map" type="Node2D"]
 
@@ -283,3 +287,10 @@ Level = 1
 [node name="SpaceStart" parent="." instance=ExtResource("13_147x8")]
 position = Vector2(540, -24471)
 Level = 2
+
+[node name="No more controls" type="Area2D" parent="."]
+position = Vector2(540, -25480)
+script = ExtResource("10_rim08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="No more controls"]
+shape = SubResource("RectangleShape2D_6lojv")

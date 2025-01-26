@@ -7,10 +7,11 @@ public partial class UI : CanvasLayer
 	private Label _currentScoreLabel;
 	private Label _timerLabel;
 
-	[Export] private PlayerStats _playerStats;
+	private Label _endTimeLabel;
 
-	private ulong _startingMs;
-	private TimeSpan _currentTimer;
+	private AnimationPlayer _animationPlayer;
+
+	[Export] private PlayerStats _playerStats;
 
 
 	public override void _Ready()
@@ -18,19 +19,27 @@ public partial class UI : CanvasLayer
 		_highScoreLabel = GetNode<Label>("%HighScore");
 		_currentScoreLabel = GetNode<Label>("%CurrentScore");
 		_timerLabel = GetNode<Label>("%Timer");
+		_endTimeLabel = GetNode<Label>("%EndTime");
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_playerStats.ScoreChanged += OnPlayerScoreChanged;
-		_startingMs = Time.GetTicksMsec();
-	}
-
-	public override void _Process(double delta)
-	{
-		_currentTimer = TimeSpan.FromMilliseconds(Time.GetTicksMsec() - _startingMs);
-		_timerLabel.Text = $"{(int)_currentTimer.TotalMinutes:D2}:{_currentTimer.Seconds:D2}:{_currentTimer.Milliseconds:D3}";
+		_playerStats.TimerChanged += OnTimerChanged;
+		_playerStats.Ended += OnEnded;
 	}
 
 	private void OnPlayerScoreChanged()
 	{
 		_highScoreLabel.Text = _playerStats.HighScore.ToString();
 		_currentScoreLabel.Text = _playerStats.CurrentScore.ToString();
+	}
+
+	private void OnTimerChanged()
+	{
+		_timerLabel.Text = $"{(int)_playerStats.CurrentTime.TotalMinutes:D2}:{_playerStats.CurrentTime.Seconds:D2}:{_playerStats.CurrentTime.Milliseconds:D3}";
+	}
+
+	public void OnEnded()
+	{
+		_endTimeLabel.Text = _timerLabel.Text;
+		_animationPlayer.Play("End");
 	}
 }

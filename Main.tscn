@@ -336,6 +336,12 @@ position = Vector2(542, 1111)
 [node name="BubbleStream2" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
 position = Vector2(956, -126)
 
+[node name="BubbleStream6" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
+position = Vector2(524, -2600)
+
+[node name="BubbleStream5" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
+position = Vector2(305, -9243)
+
 [node name="BubbleStream3" parent="MapThings/Bubbles" instance=ExtResource("13_py65l")]
 position = Vector2(22, -6541)
 rotation = 1.51146
@@ -391,6 +397,18 @@ position = Vector2(57, -10910)
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed/Path"]
 position = Vector2(461, -10908)
 
+[node name="MovingCloudMed3" parent="MapThings/Obstacles" instance=ExtResource("9_vtgc6")]
+position = Vector2(214, -15047)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/MovingCloudMed3"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed3/Path"]
+position = Vector2(12, -15065)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed3/Path"]
+position = Vector2(404, -15015)
+
 [node name="MovingCloudMed2" parent="MapThings/Obstacles" instance=ExtResource("10_mc0o5")]
 position = Vector2(834, -10888)
 
@@ -402,6 +420,18 @@ position = Vector2(636, -10904)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed2/Path"]
 position = Vector2(1126, -10900)
+
+[node name="MovingCloudMed4" parent="MapThings/Obstacles" instance=ExtResource("10_mc0o5")]
+position = Vector2(820, -15029)
+
+[node name="Path" type="Node" parent="MapThings/Obstacles/MovingCloudMed4"]
+script = ExtResource("2_f7pyt")
+
+[node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed4/Path"]
+position = Vector2(522, -15015)
+
+[node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/MovingCloudMed4/Path"]
+position = Vector2(1022, -15031)
 
 [node name="BasicMovingObstacle" parent="MapThings/Obstacles" instance=ExtResource("15_31wra")]
 position = Vector2(-3245, 1832)
@@ -575,6 +605,7 @@ position = Vector2(495, -5799)
 
 [node name="BirdPoppingObstacle3" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(944, -10114)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle3"]
 script = ExtResource("2_f7pyt")

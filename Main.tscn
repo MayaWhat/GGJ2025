@@ -436,6 +436,7 @@ position = Vector2(1690, 905)
 
 [node name="MovingJellfish" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(269, -2090)
+_moveSpeed = 2.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish"]
 script = ExtResource("2_f7pyt")
@@ -448,6 +449,7 @@ position = Vector2(51, -2237)
 
 [node name="MovingJellfish2" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(753, -2498)
+_moveSpeed = 2.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish2"]
 script = ExtResource("2_f7pyt")
@@ -460,6 +462,7 @@ position = Vector2(1020, -2333)
 
 [node name="MovingJellfish3" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(1001, -2053)
+_moveSpeed = 2.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish3"]
 script = ExtResource("2_f7pyt")
@@ -472,6 +475,7 @@ position = Vector2(729, -2126)
 
 [node name="MovingJellfish4" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(557, -4324)
+_moveSpeed = 3.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish4"]
 script = ExtResource("2_f7pyt")
@@ -490,7 +494,7 @@ position = Vector2(197, -4127)
 
 [node name="MovingJellfish5" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(174, -6093)
-_moveSpeed = 2.0
+_moveSpeed = 1.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish5"]
 script = ExtResource("2_f7pyt")
@@ -503,7 +507,7 @@ position = Vector2(28, -6048)
 
 [node name="MovingJellfish6" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(796, -6143)
-_moveSpeed = 3.0
+_moveSpeed = 1.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish6"]
 script = ExtResource("2_f7pyt")
@@ -516,7 +520,7 @@ position = Vector2(1058, -6077)
 
 [node name="MovingJellfish8" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(814, -5799)
-_moveSpeed = 4.0
+_moveSpeed = 2.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish8"]
 script = ExtResource("2_f7pyt")
@@ -529,7 +533,7 @@ position = Vector2(803, -5617)
 
 [node name="MovingJellfish9" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(256, -5546)
-_moveSpeed = 3.0
+_moveSpeed = 1.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish9"]
 script = ExtResource("2_f7pyt")
@@ -542,7 +546,7 @@ position = Vector2(881, -5454)
 
 [node name="MovingJellfish10" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(881, -5313)
-_moveSpeed = 3.0
+_moveSpeed = 1.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish10"]
 script = ExtResource("2_f7pyt")
@@ -555,7 +559,7 @@ position = Vector2(251, -5256)
 
 [node name="MovingJellfish7" parent="MapThings/Obstacles" instance=ExtResource("12_12kl7")]
 position = Vector2(552, -5926)
-_moveSpeed = 0.75
+_moveSpeed = 0.5
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/MovingJellfish7"]
 script = ExtResource("2_f7pyt")
@@ -570,20 +574,21 @@ position = Vector2(340, -5890)
 position = Vector2(495, -5799)
 
 [node name="BirdPoppingObstacle3" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(710, -10010)
+position = Vector2(944, -10114)
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle3"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle3/Node"]
-position = Vector2(711, -9998)
+position = Vector2(939, -10103)
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle3/Node"]
-position = Vector2(322, -9998)
+position = Vector2(590, -9914)
 
 [node name="BirdPoppingObstacle4" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(196, -9831)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle4"]
 script = ExtResource("2_f7pyt")
@@ -593,23 +598,25 @@ MovementType = 1
 position = Vector2(579, -9830)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle4/Node"]
-position = Vector2(195, -9831)
+position = Vector2(63, -9724)
 
 [node name="BirdPoppingObstacle5" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(224, -10373)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle5"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle5/Node"]
-position = Vector2(469, -10178)
+position = Vector2(647, -10178)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle5/Node"]
-position = Vector2(221, -10377)
+position = Vector2(125, -10480)
 
 [node name="BirdPoppingObstacle6" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(339, -11084)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle6"]
 script = ExtResource("2_f7pyt")
@@ -623,6 +630,7 @@ position = Vector2(328, -11079)
 
 [node name="BirdPoppingObstacle7" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(1031, -11250)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle7"]
 script = ExtResource("2_f7pyt")
@@ -636,6 +644,7 @@ position = Vector2(176, -11256)
 
 [node name="BirdPoppingObstacle8" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(137, -11419)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle8"]
 script = ExtResource("2_f7pyt")
@@ -649,6 +658,7 @@ position = Vector2(133, -11404)
 
 [node name="BirdPoppingObstacle9" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(264, -12047)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle9"]
 script = ExtResource("2_f7pyt")
@@ -677,6 +687,7 @@ position = Vector2(264, -11908)
 
 [node name="BirdPoppingObstacle10" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(965, -12682)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle10"]
 script = ExtResource("2_f7pyt")
@@ -690,6 +701,7 @@ position = Vector2(776, -12505)
 
 [node name="BirdPoppingObstacle11" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(414, -12463)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle11"]
 script = ExtResource("2_f7pyt")
@@ -703,6 +715,7 @@ position = Vector2(887, -12865)
 
 [node name="BirdPoppingObstacle12" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(950, -13164)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle12"]
 script = ExtResource("2_f7pyt")
@@ -716,6 +729,7 @@ position = Vector2(189, -12610)
 
 [node name="BirdPoppingObstacle13" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
 position = Vector2(138, -12876)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle13"]
 script = ExtResource("2_f7pyt")
@@ -728,82 +742,88 @@ position = Vector2(641, -13230)
 position = Vector2(141, -12877)
 
 [node name="BirdPoppingObstacle14" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(162, -13364)
+position = Vector2(138, -13640)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle14"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle14/Node"]
-position = Vector2(171, -13371)
+position = Vector2(135, -13639)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle14/Node"]
-position = Vector2(929, -13383)
+position = Vector2(977, -13559)
 
 [node name="BirdPoppingObstacle15" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(937, -13438)
+position = Vector2(901, -13894)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle15"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle15/Node"]
-position = Vector2(932, -13442)
+position = Vector2(892, -13890)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle15/Node"]
-position = Vector2(160, -13680)
+position = Vector2(128, -14092)
 
 [node name="BirdPoppingObstacle16" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(154, -13896)
+position = Vector2(118, -14576)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle16"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle16/Node"]
-position = Vector2(157, -13895)
+position = Vector2(101, -14555)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle16/Node"]
-position = Vector2(927, -13615)
+position = Vector2(919, -14231)
 
 [node name="BirdPoppingObstacle17" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(901, -13862)
+position = Vector2(873, -14610)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle17"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle17/Node"]
-position = Vector2(895, -13867)
+position = Vector2(871, -14623)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle17/Node"]
-position = Vector2(310, -13431)
+position = Vector2(70, -14483)
 
 [node name="BirdPoppingObstacle18" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(553, -14057)
+position = Vector2(508, -14963)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle18"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle18/Node"]
-position = Vector2(550, -14073)
+position = Vector2(512, -14964)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle18/Node"]
-position = Vector2(502, -12928)
+position = Vector2(502, -13752)
 
 [node name="BirdPoppingObstacle19" parent="MapThings/Obstacles" instance=ExtResource("15_g884k")]
-position = Vector2(151, -14071)
+position = Vector2(106, -14905)
+_moveSpeed = 4.0
 
 [node name="Node" type="Node" parent="MapThings/Obstacles/BirdPoppingObstacle19"]
 script = ExtResource("2_f7pyt")
 MovementType = 1
 
 [node name="Marker2D" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle19/Node"]
-position = Vector2(143, -14081)
+position = Vector2(98, -14885)
 
 [node name="Marker2D2" type="Marker2D" parent="MapThings/Obstacles/BirdPoppingObstacle19/Node"]
-position = Vector2(892, -14034)
+position = Vector2(892, -14744)
 
 [node name="Node" type="Node" parent="MapThings"]
 
@@ -922,7 +942,6 @@ speed_scale = 2.0
 
 [node name="BloodParticles" type="GPUParticles2D" parent="MapThings/Moon/SpaceShark"]
 position = Vector2(129, 20)
-emitting = false
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_4wi7x")
 lifetime = 4.0

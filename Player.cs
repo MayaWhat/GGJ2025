@@ -3,7 +3,7 @@ using Godot;
 
 public partial class Player : RigidBody2D
 {
-	public static Player Instance  { get; private set; }
+	public static Player Instance { get; private set; }
 
 	public const float Speed = 200.0f;
 	public const float JumpVelocity = -400.0f;
@@ -62,7 +62,7 @@ public partial class Player : RigidBody2D
 
 	private float _windSpeed;
 
-	private bool _isWindy = false;	
+	private bool _isWindy = false;
 
 	[Export] private AudioStream PopSound;
 	[Export] private PackedScene _bloodParticlesScene;
@@ -75,6 +75,8 @@ public partial class Player : RigidBody2D
 
 	[Signal]
 	public delegate void PoppedEventHandler();
+	[Signal]
+	public delegate void StunnedEventHandler();
 
 	public override void _Ready()
 	{
@@ -107,6 +109,17 @@ public partial class Player : RigidBody2D
 			var blood = _bloodParticlesScene.Instantiate<GpuParticles2D>();
 			blood.Emitting = true;
 			AddChild(blood);
+			StunMe();
+		}
+	}
+	private void StunMe()
+	{
+		if (!_isStunned)
+		{
+			EmitSignal(SignalName.Stunned);
+			_animationPlayer.Play("Falling");
+			_isStunned = true;
+			_stuntimer = 1.25f;
 		}
 	}
 
@@ -128,9 +141,7 @@ public partial class Player : RigidBody2D
 		_isShrimpRotated = false;
 		GetNode<GpuParticles2D>("%PopParticles").Emitting = true;
 
-		_animationPlayer.Play("Falling");
-		_isStunned = true;
-		_stuntimer = 2;
+		StunMe();
 	}
 
 

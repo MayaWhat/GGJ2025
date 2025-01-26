@@ -12,7 +12,7 @@ public partial class PlayerVisuals : Node2D
 
 	public override void _Ready()
 	{
-		(GetParent() as Player).Popped += OnPopped;
+		(GetParent() as Player).Stunned += OnPopped;
 		_shrimpSprite = GetNode<Sprite2D>("%ShrimpSprite");
 		_hitFlashTimerInterval = new Timer
 		{
@@ -37,7 +37,7 @@ public partial class PlayerVisuals : Node2D
 		{
 			_hitFlashTimer.QueueFree();
 		}
-		_hitFlashTimer = new Timer { WaitTime = 2f, Autostart = true };
+		_hitFlashTimer = new Timer { WaitTime = 1.25f, Autostart = true };
 		_hitFlashTimer.Timeout += OnHitFlashTimerTimeout;
 		AddChild(_hitFlashTimer);
 	}

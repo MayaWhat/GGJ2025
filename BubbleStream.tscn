@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b713o23mpmidt" path="res://Sprites/Clam.png" id="4_kjvev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpr86"]
-size = Vector2(14, 27)
+size = Vector2(120, 60)
 
 [sub_resource type="Gradient" id="Gradient_4asua"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -78,7 +78,7 @@ position = Vector2(-6, -43)
 texture = ExtResource("4_kjvev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -10.5)
+position = Vector2(-8, -21)
 shape = SubResource("RectangleShape2D_fpr86")
 
 [node name="Mask" type="Sprite2D" parent="."]

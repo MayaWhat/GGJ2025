@@ -1,10 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://com3dd82x1keu"]
+[gd_scene load_steps=54 format=3 uid="uid://com3dd82x1keu"]
 
 [ext_resource type="PackedScene" uid="uid://dvj3so41g2uiu" path="res://Player.tscn" id="1_t782h"]
 [ext_resource type="PackedScene" uid="uid://nmx2uevjfo6p" path="res://Obstacles/SimpleShark.tscn" id="1_uwx1x"]
 [ext_resource type="Script" path="res://ObstaclePath.cs" id="2_f7pyt"]
 [ext_resource type="PackedScene" uid="uid://cg5ama6va7uuy" path="res://Map.tscn" id="3_54vkf"]
-[ext_resource type="PackedScene" uid="uid://c83c1rjx0lq8s" path="res://UI.tscn" id="3_jl7uj"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="3_jl7uj"]
 [ext_resource type="PackedScene" path="res://Waker.tscn" id="3_liwuf"]
 [ext_resource type="PackedScene" uid="uid://de44ds81uo03k" path="res://MusicPlayer.tscn" id="3_mlwr1"]
 [ext_resource type="PackedScene" uid="uid://btu62sujjwtjy" path="res://Obstacles/ComplexShark.tscn" id="4_s52ku"]
@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://ckuctbo1tbo4k" path="res://WindyBit.tscn" id="7_i5qrp"]
 [ext_resource type="PackedScene" path="res://Obstacles/MovingCloud1.tscn" id="9_vtgc6"]
 [ext_resource type="PackedScene" path="res://Obstacles/MovingCloud2.tscn" id="10_mc0o5"]
-[ext_resource type="PackedScene" uid="uid://rlqkpa4m3eoy" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
-[ext_resource type="PackedScene" uid="uid://tlakdf60300t" path="res://BubbleStream.tscn" id="13_py65l"]
-[ext_resource type="PackedScene" uid="uid://ne145iog22tr" path="res://BubbleGenerator.tscn" id="14_why88"]
+[ext_resource type="PackedScene" uid="uid://cnrl56sm24kvj" path="res://Obstacles/MovingJellyfish.tscn" id="12_12kl7"]
+[ext_resource type="PackedScene" uid="uid://bpbclevq4mh8u" path="res://BubbleStream.tscn" id="13_py65l"]
+[ext_resource type="PackedScene" uid="uid://b07yf6mn4kl7w" path="res://BubbleGenerator.tscn" id="14_why88"]
 [ext_resource type="PackedScene" uid="uid://b6blpj0wr08m7" path="res://Obstacles/BasicMovingObsatcle.tscn" id="15_31wra"]
 [ext_resource type="PackedScene" uid="uid://dpijf42uwkn8u" path="res://Obstacles/BirdPoppingObstacle.tscn" id="15_g884k"]
 [ext_resource type="PackedScene" uid="uid://b1bhgjfeujlbw" path="res://Obstacles/BasicPoppingObstacle.tscn" id="16_43nba"]
@@ -29,15 +29,98 @@
 [ext_resource type="Texture2D" uid="uid://dp4huo3jyf14p" path="res://Sprites/Shell4.png" id="23_57ki3"]
 [ext_resource type="Texture2D" uid="uid://bgv30r3wwhc2p" path="res://Sprites/Shell2.png" id="24_k087p"]
 [ext_resource type="Texture2D" uid="uid://bl3mqeje3y3xy" path="res://Sprites/StarGreen.png" id="25_h2u2u"]
-[ext_resource type="Texture2D" uid="uid://bpxq8wrwyepje" path="res://Sprites/moon.png" id="25_wwjmf"]
 [ext_resource type="Texture2D" uid="uid://j18a7xxhy7er" path="res://Sprites/StarPurple.png" id="26_msp5p"]
 [ext_resource type="Texture2D" uid="uid://ludm7eypjbxr" path="res://Sprites/W.png" id="27_ycqhm"]
+[ext_resource type="Texture2D" uid="uid://da7wc0gxejw0q" path="res://Sprites/Mirror_idle.png" id="32_eefyq"]
+[ext_resource type="Script" path="res://Mirror.cs" id="33_yffev"]
+[ext_resource type="Texture2D" uid="uid://bef8dkojw4n7e" path="res://Sprites/Mirror_4.png" id="34_3fwhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gjhq"]
-size = Vector2(800, 20)
+size = Vector2(800, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2l1"]
-size = Vector2(1040, 35)
+size = Vector2(1607, 86.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3n6q"]
+size = Vector2(209, 284)
+
+[sub_resource type="Animation" id="Animation_qi1n3"]
+resource_name = "FadeIn"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MirrorEmpty:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MirrorShrimp:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b1uc4"]
+resource_name = "FadeOut"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MirrorShrimp:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pgego"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MirrorEmpty:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MirrorShrimp:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_huwd5"]
+_data = {
+"FadeIn": SubResource("Animation_qi1n3"),
+"FadeOut": SubResource("Animation_b1uc4"),
+"RESET": SubResource("Animation_pgego")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4upq7"]
 size = Vector2(723, 355)
@@ -59,6 +142,21 @@ size = Vector2(413, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy44"]
 size = Vector2(380.5, 278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wir5b"]
+size = Vector2(380.5, 278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfyiy"]
+size = Vector2(539.875, 383.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ts2"]
+size = Vector2(442.875, 1259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2n8d"]
+size = Vector2(617, 316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq7qs"]
+size = Vector2(665, 316)
 
 [node name="Level" type="Node2D"]
 
@@ -82,7 +180,7 @@ position = Vector2(1087, 632)
 [node name="Area2D" parent="MapThings/ObstaclesBehind/SimpleShark" instance=ExtResource("3_liwuf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/SimpleShark/Area2D"]
-position = Vector2(673, 124)
+position = Vector2(673, 132.5)
 shape = SubResource("RectangleShape2D_2gjhq")
 
 [node name="ComplexShark" parent="MapThings/ObstaclesBehind" instance=ExtResource("4_s52ku")]
@@ -105,7 +203,7 @@ position = Vector2(5, 5)
 script = ExtResource("5_12cdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/ObstaclesBehind/ComplexShark2/Area2D"]
-position = Vector2(327, -1022)
+position = Vector2(330.5, -996.25)
 shape = SubResource("RectangleShape2D_5x2l1")
 
 [node name="Map" parent="MapThings" instance=ExtResource("3_54vkf")]
@@ -637,11 +735,37 @@ texture = ExtResource("27_ycqhm")
 
 [node name="Moon" type="Sprite2D" parent="MapThings"]
 position = Vector2(460, -26903)
-texture = ExtResource("25_wwjmf")
-offset = Vector2(80, -40)
+
+
+[node name="Mirror2" type="Area2D" parent="MapThings/Node" node_paths=PackedStringArray("_animationPlayer")]
+script = ExtResource("33_yffev")
+_animationPlayer = NodePath("AnimationPlayer")
+
+[node name="MirrorEmpty" type="Sprite2D" parent="MapThings/Node/Mirror2"]
+position = Vector2(-33, 997)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("32_eefyq")
+
+[node name="MirrorShrimp" type="Sprite2D" parent="MapThings/Node/Mirror2"]
+position = Vector2(-33, 997)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("34_3fwhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapThings/Node/Mirror2"]
+position = Vector2(154, 1045)
+rotation = 3.14159
+scale = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_k3n6q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapThings/Node/Mirror2"]
+libraries = {
+"": SubResource("AnimationLibrary_huwd5")
+}
 
 [node name="Player" parent="." instance=ExtResource("1_t782h")]
-position = Vector2(94, 1022)
+position = Vector2(159, 1068)
 _moon = NodePath("../MapThings/Moon")
 
 [node name="UI" parent="." instance=ExtResource("3_jl7uj")]
@@ -722,24 +846,72 @@ _collisionShape = NodePath("CollisionShape2D")
 position = Vector2(79, 41)
 shape = SubResource("RectangleShape2D_4iy44")
 
-[node name="WindyBit7" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
-position = Vector2(483, -9145)
-Windiness = 0.75
-_collisionShape = NodePath("CollisionShape2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit7"]
-position = Vector2(79, 41)
-shape = SubResource("RectangleShape2D_4iy44")
-
 [node name="WindyBit9" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
 position = Vector2(346, -10247)
 Windiness = 3.0
-Direction = Vector2(-1, 1)
+Direction = Vector2(-1, -1)
 _collisionShape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit9"]
 position = Vector2(62.75, 2)
 shape = SubResource("RectangleShape2D_4iy44")
+
+[node name="WindyBit10" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(1066, -10668)
+Windiness = 3.0
+Direction = Vector2(-1, 0)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit10"]
+position = Vector2(62.75, 2)
+shape = SubResource("RectangleShape2D_wir5b")
+
+[node name="WindyBit13" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(-91, -10658)
+Windiness = 4.0
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit13"]
+position = Vector2(98.0625, -9)
+shape = SubResource("RectangleShape2D_mfyiy")
+
+[node name="WindyBit14" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(-91, -11679)
+Direction = Vector2(0, -1)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit14"]
+position = Vector2(49.5625, 78.5)
+shape = SubResource("RectangleShape2D_a2ts2")
+
+[node name="WindyBit15" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(1091, -12137)
+Windiness = 5.0
+Direction = Vector2(0, 1)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit15"]
+position = Vector2(49.5625, 78.5)
+shape = SubResource("RectangleShape2D_a2ts2")
+
+[node name="WindyBit11" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(-82, -9373)
+Windiness = 5.0
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit11"]
+position = Vector2(146.5, -17)
+shape = SubResource("RectangleShape2D_g2n8d")
+
+[node name="WindyBit12" parent="." node_paths=PackedStringArray("_collisionShape") instance=ExtResource("7_i5qrp")]
+position = Vector2(883, -9385)
+Windiness = 5.0
+Direction = Vector2(-1, 0)
+_collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindyBit12"]
+position = Vector2(122.5, -17)
+shape = SubResource("RectangleShape2D_pq7qs")
 
 [connection signal="Bubbled" from="Player" to="MusicPlayer" method="Bubble"]
 [connection signal="NewLevel" from="Player" to="MusicPlayer" method="ChangeLevel"]
